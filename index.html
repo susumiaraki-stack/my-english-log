@@ -2333,25 +2333,27 @@
                 console.error("Login error:", err);
                 if (err.code === 'auth/popup-blocked') {
                     Swal.fire({
-                        title: t('เบราว์เซอร์บล็อกป๊อปอัป 🚫', 'Pop-up Was Blocked 🚫'),
+                        title: t('เบราว์เซอร์บล็อกหน้าต่างล็อกอิน 🚫', 'Pop-up Was Blocked 🚫'),
                         html: `
                             <div class="text-left text-xs text-slate-600 space-y-2.5 my-2">
-                                <p>เบราว์เซอร์ของคุณกำลังบล็อกหน้าต่างล็อกอิน Google อัตโนมัติ</p>
-                                <div class="p-3 bg-amber-50 rounded-2xl border border-amber-200 text-amber-900 font-semibold leading-relaxed">
-                                    💡 <b>วิธีแก้ทันที:</b> มองหาไอคอนรูปหน้าต่างกากบาทสีแดง <span class="text-sm">🚫</span> ที่มุมขวาของแถบพิมพ์ลิงก์ (URL bar) แล้วคลิกเลือก <b>"อนุญาตป๊อปอัปเสมอ (Always allow pop-ups)"</b>
+                                <p>เบราว์เซอร์ของคุณกำลังบล็อกหน้าต่างเข้าสู่ระบบ Google</p>
+                                <div class="p-3 bg-amber-50 rounded-2xl border border-amber-200 text-amber-900 text-xs leading-relaxed space-y-1.5">
+                                    <div><b>1. หากเพิ่งกด Allow:</b> ให้กด <b>รีเฟรชหน้าเว็บ (F5 หรือปุ่ม 🔄)</b> 1 ครั้ง</div>
+                                    <div><b>2. ปิด AdBlock / Shield:</b> หากมีส่วนขยายบล็อกโฆษณา ให้กดหยุดชั่วคราวบนเว็บนี้</div>
+                                    <div><b>3. คุกกี้บุคคลที่สาม (Third-party cookies):</b> ตรวจสอบว่าไม่ได้ปิดกั้นคุกกี้สำหรับ Firebase</div>
                                 </div>
-                                <p class="text-[11px] text-slate-500 text-center">หรือคลิกปุ่มด้านล่างเพื่อเข้าสู่ระบบแบบเต็มหน้าจอ (Redirect)</p>
+                                <p class="text-[11px] text-slate-500 text-center">หากยังไม่เปิด ให้ลองกดปุ่มด้านล่างเพื่อรีโหลดและลองใหม่</p>
                             </div>
                         `,
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#10b981',
                         cancelButtonColor: '#94a3b8',
-                        confirmButtonText: t('เข้าสู่ระบบแบบเต็มหน้าจอ (Redirect)', 'Sign in with Redirect'),
-                        cancelButtonText: t('ลองอีกครั้ง', 'Try Again')
+                        confirmButtonText: t('รีเฟรชหน้าเว็บ (Reload)', 'Reload Page'),
+                        cancelButtonText: t('ปิด', 'Close')
                     }).then((r) => {
                         if (r.isConfirmed) {
-                            signInWithRedirect(auth, provider);
+                            window.location.reload();
                         }
                     });
                 } else if (err.code === 'auth/unauthorized-domain') {

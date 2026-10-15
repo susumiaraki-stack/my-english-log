@@ -182,7 +182,7 @@
     <!-- Firebase Scripts -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, query, orderBy, onSnapshot, deleteDoc, doc, updateDoc, addDoc, serverTimestamp, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // Register Service Worker for PWA
@@ -192,9 +192,14 @@
             });
         }
 
+        const host = window.location.hostname;
+        const authDomain = (host.includes('localhost') || host.includes('127.0.0.1') || host.includes('github.io'))
+            ? "engtiktokapp.firebaseapp.com"
+            : host;
+
         const firebaseConfig = {
             apiKey: "AIzaSyBvuhYgTjbHatXOvVLjGcGrAEuqHINTmd0",
-            authDomain: "engtiktokapp.firebaseapp.com",
+            authDomain: authDomain,
             projectId: "engtiktokapp",
             storageBucket: "engtiktokapp.firebasestorage.app",
             messagingSenderId: "213733938342",
@@ -214,22 +219,7 @@
         let myMediaChart = null;
         let selectedIds = new Set();
 
-        async function loginAdmin() {
-            try {
-                await signInWithPopup(auth, provider);
-            } catch (err) {
-                console.warn("Popup admin login error:", err);
-                if (err.code === 'auth/popup-blocked' || err.code === 'auth/cancelled-popup-request') {
-                    try {
-                        await signInWithRedirect(auth, provider);
-                    } catch (rErr) {
-                        alert('หน้าต่างป๊อปอัปถูกบล็อก กรุณาอนุญาตป๊อปอัปบนเบราว์เซอร์เพื่อเข้าสู่ระบบ');
-                    }
-                }
-            }
-        }
-
-        document.getElementById('loginBtn').addEventListener('click', loginAdmin);
+        document.getElementById('loginBtn').addEventListener('click', () => signInWithPopup(auth, provider));
         document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
 
         // ---- Role-Based Access ----

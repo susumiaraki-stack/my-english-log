@@ -192,14 +192,9 @@
             });
         }
 
-        const host = window.location.hostname;
-        const authDomain = (host.includes('localhost') || host.includes('127.0.0.1') || host.includes('github.io'))
-            ? "engtiktokapp.firebaseapp.com"
-            : host;
-
         const firebaseConfig = {
             apiKey: "AIzaSyBvuhYgTjbHatXOvVLjGcGrAEuqHINTmd0",
-            authDomain: authDomain,
+            authDomain: "engtiktokapp.firebaseapp.com",
             projectId: "engtiktokapp",
             storageBucket: "engtiktokapp.firebasestorage.app",
             messagingSenderId: "213733938342",

@@ -1857,7 +1857,7 @@
     <!-- Firebase Scripts -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, query, where, onSnapshot, getDocs, orderBy, serverTimestamp, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // Register Service Worker for PWA
@@ -2323,7 +2323,28 @@
             }
         });
 
-        document.getElementById('loginBtn').addEventListener('click', () => signInWithPopup(auth, provider).catch(err => Swal.fire('Error', err.message, 'error')));
+        async function loginWithGoogle() {
+            try {
+                await signInWithPopup(auth, provider);
+            } catch (err) {
+                console.warn("Popup login error:", err);
+                if (err.code === 'auth/popup-blocked' || err.code === 'auth/cancelled-popup-request') {
+                    try {
+                        await signInWithRedirect(auth, provider);
+                    } catch (rErr) {
+                        Swal.fire({
+                            title: 'หน้าต่างป๊อปอัปถูกบล็อก',
+                            html: 'เบราว์เซอร์ของคุณบล็อกหน้าต่างป๊อปอัป (Pop-up Blocked)<br><br>กรุณากดไอคอน <b>บล็อกป๊อปอัป 🚫</b> ที่มุมขวาของช่องกรอก URL บนเบราว์เซอร์ แล้วเลือก <b>"อนุญาตป๊อปอัปเสมอ"</b> เพื่อเข้าสู่ระบบครับ',
+                            icon: 'warning'
+                        });
+                    }
+                } else if (err.code !== 'auth/popup-closed-by-user') {
+                    Swal.fire('Error', err.message, 'error');
+                }
+            }
+        }
+
+        document.getElementById('loginBtn').addEventListener('click', loginWithGoogle);
         document.getElementById('logoutBtn').addEventListener('click', () => {
             Swal.fire({
                 title: isGuest ? 'ออกจากโหมดทดลอง?' : 'ออกจากระบบ?',

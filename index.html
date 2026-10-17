@@ -717,33 +717,33 @@
     </style>
 </head>
 
-<body class="min-h-screen py-6 px-4 flex flex-col items-center">
+<body class="min-h-screen pt-16 pb-24 md:py-6 px-4 flex flex-col items-center">
     <div class="bg-pattern"></div>
     <div class="bg-blob" style="width:340px;height:340px;background:#5eead4;top:-80px;left:-100px;"></div>
     <div class="bg-blob" style="width:300px;height:300px;background:#c4b5fd;bottom:-60px;right:-80px;"></div>
 
     <!-- Top Floating Buttons (Manual, Sound, Lang, Admin) -->
-    <div class="fixed top-4 right-4 z-40 flex items-center gap-2">
+    <div class="fixed top-2.5 right-3 sm:top-4 sm:right-4 z-40 flex items-center gap-1.5 sm:gap-2 bg-white/80 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none px-2 py-1 sm:p-0 rounded-full border border-white/60 sm:border-0 shadow-sm sm:shadow-none">
         <button id="manualToggleBtn" onclick="openManualModal()"
-            class="bg-white text-emerald-600 w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform border-2 border-slate-100 relative group"
+            class="bg-white text-emerald-600 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100 relative group"
             title="คู่มือการใช้งาน & มีอะไรใหม่">
-            <i class="ph-bold ph-book-open text-lg"></i>
+            <i class="ph-bold ph-book-open text-base sm:text-lg"></i>
             <span id="manualUpdateDot"
                 class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-white animate-pulse"></span>
         </button>
         <button id="soundToggleBtn" onclick="toggleSound()"
-            class="bg-white text-slate-600 w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform border-2 border-slate-100"
+            class="bg-white text-slate-600 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100"
             title="Sound">
-            <i id="soundIcon" class="ph-bold ph-speaker-high text-lg"></i>
+            <i id="soundIcon" class="ph-bold ph-speaker-high text-base sm:text-lg"></i>
         </button>
         <button id="langToggleBtn" onclick="toggleLang()"
-            class="bg-slate-800 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform font-black text-xs border-2 border-slate-700">
+            class="bg-slate-800 text-white w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform font-black text-xs border-2 border-slate-700">
             EN
         </button>
         <a href="admin.html"
-            class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform border-2 border-indigo-500"
+            class="bg-indigo-600 text-white w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-indigo-500"
             title="เข้าสู่ระบบ Admin">
-            <i class="ph-bold ph-shield-star text-lg"></i>
+            <i class="ph-bold ph-shield-star text-base sm:text-lg"></i>
         </a>
     </div>
 
@@ -936,7 +936,14 @@
             "เปิดเต็มจอ": "Fullscreen",
             "ไม่ต้องเปิดหน้าต่างนี้อัตโนมัติอีก": "Don't show this automatically again",
             "เปิดในแท็บใหม่ ↗": "Open in new tab ↗",
-            "เข้าใจแล้ว ปิดหน้าต่าง": "Got it, Close"
+            "เข้าใจแล้ว ปิดหน้าต่าง": "Got it, Close",
+            "18 ต.ค. 2026": "Oct 18, 2026",
+            "📱 Mobile Sticky Bar & Floating Buttons Fix": "📱 Mobile Sticky Bar & Floating Buttons Fix",
+            "แก้ไขปัญหาแถบแท็บเมนู (Log, Leaderboard, My Skills, Shop) เลื่อนมาซ้อนทับกับ 4 ปุ่มลอยด้านบน (📖, 🔊, TH/EN, 🛡️) บนหน้าจอมือถือ": "Fixed the mobile overlap between the sticky navigation tab bar (Log, Leaderboard, My Skills, Shop) and the 4 top-right floating utility buttons (📖, 🔊, TH/EN, 🛡️)",
+            "📌 แยกความสูงการเกาะขอบบนอัจฉริยะ (Smart Sticky Offset: top-16 md:top-3)": "📌 Smart Sticky Offset (top-16 md:top-3)",
+            "ปรับให้แถบแท็บเมนูในมือถือเกาะที่ระยะความสูง 64px (top-16) อยู่ใต้แถบปุ่มลอย 4 ปุ่มอย่างพอดิบพอดี ไม่บังปุ่มเมื่อเลื่อนหน้าจอลงมา ส่วนบนคอมพิวเตอร์ยังคงเกาะที่ระยะ top-3 ตามปกติ": "On mobile screens, the sticky navigation tab bar now docks cleanly at 64px (top-16) right below the 4 floating buttons with zero overlap when scrolling, while keeping top-3 on desktop.",
+            "✨ เพิ่มพื้นที่ปลอดภัยด้านบนมือถือ (Mobile Top Clearance & Pill Bar)": "✨ Mobile Top Clearance & Floating Pill Bar",
+            "จัดกลุ่ม 4 ปุ่มลอยด้านบนในมือถือให้อยู่ในแคปซูลโปร่งแสง (Floating Pill Bar) พร้อมเว้นระยะขอบบนหน้าจอ (pt-16) เพื่อไม่ให้บังป้ายชื่อแอปในการ์ดโปรไฟล์สีเขียว": "Grouped the 4 top buttons into a sleek translucent pill bar on mobile with dedicated top padding (pt-16) so they never cover the profile header badge."
         };
 
         // Build reverse lookup (English -> canonical Thai)
@@ -1342,7 +1349,7 @@
         </div>
 
         <!-- Navigation Tabs (Horizontally Scrollable) -->
-        <div id="melNavTabs" class="mel-tabs flex gap-1.5 mb-5 p-1.5 rounded-2xl overflow-x-auto no-scrollbar scroll-smooth sticky top-2 z-30 touch-pan-x cursor-grab">
+        <div id="melNavTabs" class="mel-tabs flex gap-1.5 mb-5 p-1.5 rounded-2xl overflow-x-auto no-scrollbar scroll-smooth sticky top-16 md:top-3 z-30 touch-pan-x cursor-grab">
             <button id="tabForm"
                 class="flex-shrink-0 px-4 py-2 text-sm font-bold bg-white text-emerald-600 rounded-xl shadow-sm transition-all whitespace-nowrap">✍️ บันทึกการเรียนรู้</button>
             <button id="tabLeaderboard"
@@ -1858,7 +1865,7 @@
                         <div class="flex items-center gap-2">
                             <h3 class="font-extrabold text-sm sm:text-base tracking-wide">My English Log</h3>
                             <span
-                                class="bg-white/25 text-[10px] font-black px-2 py-0.5 rounded-full border border-white/20 shadow-xs">v3.2.1</span>
+                                class="bg-white/25 text-[10px] font-black px-2 py-0.5 rounded-full border border-white/20 shadow-xs">v3.2.2</span>
                         </div>
                         <p class="text-[11px] text-teal-100 font-light">คู่มือการใช้งาน & บันทึกการอัปเดตระบบ</p>
                     </div>
@@ -1893,7 +1900,7 @@
                         <span
                             class="text-[11px] text-slate-500 font-medium">คำแนะนำขั้นตอนการบันทึกการเรียนรู้และระบบเกม</span>
                         <div class="flex items-center gap-1.5">
-                            <a href="manual.pdf" download="MyEnglishLog-Manual-v3.2.1.pdf"
+                            <a href="manual.pdf" download="MyEnglishLog-Manual-v3.2.2.pdf"
                                 class="text-[11px] font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1 bg-amber-100 hover:bg-amber-200 px-2.5 py-1 rounded-lg border border-amber-300 transition-colors">
                                 <span>📥 ดาวน์โหลด PDF</span>
                             </a>
@@ -1913,7 +1920,50 @@
 
                 <!-- VIEW 2: Update Log -->
                 <div id="modalViewUpdates" class="hidden space-y-4">
-                    <!-- Version 3.2.1 (Latest) -->
+                    <!-- Version 3.2.2 (Latest) -->
+                    <div
+                        class="bg-gradient-to-br from-teal-600 via-emerald-600 to-indigo-700 text-white p-4 sm:p-5 rounded-2xl shadow-md relative overflow-hidden">
+                        <div class="absolute -right-4 -bottom-4 text-7xl text-white/10 pointer-events-none">
+                            <i class="ph-fill ph-device-mobile-camera"></i>
+                        </div>
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-white text-emerald-800 text-xs font-black px-2.5 py-0.5 rounded-full shadow-xs">v3.2.2</span>
+                                <span class="text-xs text-emerald-100 font-semibold">18 ต.ค. 2026</span>
+                            </div>
+                            <span
+                                class="bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                                <span>✨</span> เวอร์ชันปัจจุบัน
+                            </span>
+                        </div>
+                        <h4 class="font-black text-base sm:text-lg mb-1">📱 Mobile Sticky Bar & Floating Buttons Fix</h4>
+                        <p class="text-xs text-teal-100 mb-3 font-light">
+                            แก้ไขปัญหาแถบแท็บเมนู (Log, Leaderboard, My Skills, Shop) เลื่อนมาซ้อนทับกับ 4 ปุ่มลอยด้านบน (📖, 🔊, TH/EN, 🛡️) บนหน้าจอมือถือ
+                        </p>
+
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-2.5 border border-white/20">
+                                <div class="font-bold flex items-center gap-1.5 text-amber-200">
+                                    <span>📌</span> แยกความสูงการเกาะขอบบนอัจฉริยะ (Smart Sticky Offset: top-16 md:top-3)
+                                </div>
+                                <p class="text-[11px] text-white/90 mt-0.5">
+                                    ปรับให้แถบแท็บเมนูในมือถือเกาะที่ระยะความสูง 64px (top-16) อยู่ใต้แถบปุ่มลอย 4 ปุ่มอย่างพอดิบพอดี ไม่บังปุ่มเมื่อเลื่อนหน้าจอลงมา ส่วนบนคอมพิวเตอร์ยังคงเกาะที่ระยะ top-3 ตามปกติ
+                                </p>
+                            </div>
+
+                            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-2.5 border border-white/20">
+                                <div class="font-bold flex items-center gap-1.5 text-emerald-200">
+                                    <span>✨</span> เพิ่มพื้นที่ปลอดภัยด้านบนมือถือ (Mobile Top Clearance & Pill Bar)
+                                </div>
+                                <p class="text-[11px] text-white/90 mt-0.5">
+                                    จัดกลุ่ม 4 ปุ่มลอยด้านบนในมือถือให้อยู่ในแคปซูลโปร่งแสง (Floating Pill Bar) พร้อมเว้นระยะขอบบนหน้าจอ (pt-16) เพื่อไม่ให้บังป้ายชื่อแอปในการ์ดโปรไฟล์สีเขียว
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Version 3.2.1 -->
                     <div
                         class="bg-gradient-to-br from-indigo-600 via-teal-600 to-emerald-600 text-white p-4 sm:p-5 rounded-2xl shadow-md relative overflow-hidden">
                         <div class="absolute -right-4 -bottom-4 text-7xl text-white/10 pointer-events-none">
@@ -1925,10 +1975,6 @@
                                     class="bg-white text-emerald-800 text-xs font-black px-2.5 py-0.5 rounded-full shadow-xs">v3.2.1</span>
                                 <span class="text-xs text-emerald-100 font-semibold">17 ต.ค. 2026</span>
                             </div>
-                            <span
-                                class="bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
-                                <span>✨</span> เวอร์ชันปัจจุบัน
-                            </span>
                         </div>
                         <h4 class="font-black text-base sm:text-lg mb-1">🌐 100% Bilingual Sync Fix (TH 🇹🇭 / EN 🇬🇧) & Manual PDF</h4>
                         <p class="text-xs text-teal-100 mb-3 font-light">

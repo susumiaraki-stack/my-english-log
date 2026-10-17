@@ -77,13 +77,13 @@
             <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-sky-300/20 rounded-full blur-2xl pointer-events-none"></div>
 
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold mb-2 text-sky-100 border border-white/20">
-                <span>📖 คู่มือการใช้งานสำหรับนักเรียน · อัปเดต v3.2</span>
+                <span>📖 คู่มือการใช้งานสำหรับนักเรียน · อัปเดต v3.2.1</span>
             </div>
             <h1 class="text-xl sm:text-2xl font-extrabold tracking-wide drop-shadow-sm">
                 การใช้งานระบบ My English Log ผ่านหน้าเว็บไซต์
             </h1>
             <p class="text-xs sm:text-sm text-sky-100 font-light mt-1">
-                บันทึกการเรียนรู้แบบด่วน สะสมไฟ Streak 30-Day Heatmap ทำเควสต์รายวัน และแลกของรางวัล
+                บันทึกการเรียนรู้แบบด่วน สะสมไฟต่อเนื่อง ตารางความสม่ำเสมอ 30 วัน ทำภารกิจรายวัน และแลกของรางวัล
             </p>
 
             <!-- Bottom decorative curve -->
@@ -568,14 +568,14 @@
             <div class="bg-gradient-to-r from-slate-100 to-emerald-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-600 flex items-start gap-3">
                 <span class="text-xl flex-shrink-0">💡</span>
                 <div>
-                    <span class="font-bold text-slate-800">คำแนะนำเพิ่มเติม (v3.2):</span>
+                    <span class="font-bold text-slate-800">คำแนะนำเพิ่มเติม (v3.2.1):</span>
                     <ul class="list-disc list-inside mt-1 space-y-0.5 text-[11px] text-slate-600">
+                        <li><b>🌐 ระบบสลับภาษาสมบูรณ์ 100% (100% Bilingual Sync TH/EN):</b> กดปุ่ม <span class="font-bold text-slate-800">"🇹🇭 TH / 🇬🇧 EN"</span> ที่มุมบนขวาเพื่อสลับภาษาไทยล้วนหรืออังกฤษล้วนได้ทันทีครอบคลุมทุกเมนู กราฟ ภารกิจ ร้านค้า ประวัติ และคู่มือนี้</li>
                         <li><b>➕ ปุ่มลอยบันทึกด่วน (Floating Button):</b> กดปุ่ม ➕ มุมขวาล่างหรือปุ่มสีเขียวด้านบนสุดเพื่อเปิดหน้าต่างกรอกข้อมูลได้ทันทีโดยไม่ต้องเลื่อนหน้าจอ</li>
                         <li><b>🗂️ กรอง & ย่อประวัติ (Compact History):</b> แสดงประวัติ 3 รายการล่าสุดเพื่อให้หน้าเว็บกระชับ กดกรองตามทักษะหรือกดปุ่ม "ดูประวัติทั้งหมด" เพื่อขยายดูรายการทั้งหมดได้</li>
-                        <li><b>🔥 ระดับสีไฟ Streak:</b> บันทึกต่อเนื่องทุกวันเพื่อเปลี่ยนสีเปลวไฟ 🔥 (ส้ม ➡️ ฟ้า ➡️ ม่วง ➡️ ทอง ➡️ สายรุ้ง) พร้อมรับโบนัสเหรียญพิเศษสูงสุด +20 💰</li>
+                        <li><b>🔥 ระดับสีไฟต่อเนื่อง:</b> บันทึกต่อเนื่องทุกวันเพื่อเปลี่ยนสีเปลวไฟ 🔥 (ส้ม ➡️ ฟ้า ➡️ ม่วง ➡️ ทอง ➡️ สายรุ้ง) พร้อมรับโบนัสเหรียญพิเศษสูงสุด +20 💰</li>
                         <li><b>📄 พอร์ตโฟลิโอ A4:</b> กดพิมพ์หรือบันทึก PDF สรุปผลประเมิน 6 ทักษะและข้อเสนอแนะครูได้จากแถบ "ประวัติของฉัน"</li>
-                        <li>ระบบจะบันทึกข้อความร่าง (Auto Draft) และจำชื่อ-นามสกุลให้อัตโนมัติ ป้องกันข้อมูลสูญหายระหว่างพิมพ์</li>
-                        <li>สามารถกดปุ่ม <span class="font-bold text-slate-800">"EN / TH"</span> ที่มุมบนขวาเพื่อเปลี่ยนภาษาเมนูได้ทุกเมื่อ</li>
+                        <li>ระบบจะบันทึกข้อความร่างและจำชื่อ-นามสกุลให้อัตโนมัติ ป้องกันข้อมูลสูญหายระหว่างพิมพ์</li>
                     </ul>
                 </div>
             </div>
@@ -584,5 +584,145 @@
 
     </div>
 
+    <script>
+        const manualDict = {
+            "📖 คู่มือการใช้งานสำหรับนักเรียน · อัปเดต v3.2.1": "📖 Student User Guide · Updated v3.2.1",
+            "การใช้งานระบบ My English Log ผ่านหน้าเว็บไซต์": "How to Use My English Log on the Web",
+            "บันทึกการเรียนรู้แบบด่วน สะสมไฟต่อเนื่อง ตารางความสม่ำเสมอ 30 วัน ทำภารกิจรายวัน และแลกของรางวัล": "Quick-log your learning, build daily streaks, track your 30-day heatmap, complete daily quests, and redeem rewards",
+            "เข้าเว็บไซต์": "Open the",
+            "จากนั้นคลิกปุ่ม": "website, then click",
+            "\"เข้าสู่ระบบด้วย Google\"": "\"Sign in with Google\"",
+            "เพื่อบันทึกข้อมูลจริง หรือเลือก": "to save your real progress, or choose",
+            "\"ทดลองใช้งานแบบ Guest\"": "\"Try Guest Mode\"",
+            "เพื่อทดสอบฟีเจอร์ทั้งหมดได้ทันที": "to explore all features right away.",
+            "My English Log — เข้าสู่ระบบ (Google / Guest Mode)": "My English Log — Sign In (Google / Guest Mode)",
+            "เข้าสู่ระบบเพื่อบันทึกการเรียนรู้ของคุณ": "Sign in to record your English learning",
+            "เข้าสู่ระบบด้วย Google": "Sign in with Google",
+            "👤 ทดลองใช้งานแบบ Guest (โหมดสาธิต)": "👤 Try Guest Mode (Demo)",
+            "กดปุ่มด่วน": "Click the quick button",
+            "\"➕ บันทึกการเรียนรู้วันนี้ (+10 💰)\"": "\"➕ Log Today's Learning (+10 💰)\"",
+            "ด้านบนสุดของหน้าแรก หรือปุ่มลอยมุมขวาล่าง ระบบจะเปิดหน้าต่างกรอกข้อมูล (Modal) พร้อม": "at the top of the home screen or the floating button at the bottom-right. The popup form will open,",
+            "จำชื่อผู้เรียนให้อัตโนมัติ": "auto-fill your saved name,",
+            "และเลือกเวลาเรียนได้ในคลิกเดียว (": "and let you pick study duration in one tap (",
+            "ขั้นตอนที่ 2 — กดปุ่มบันทึกด่วน & กรอกข้อมูลในหน้าต่าง Pop-up": "Step 2 — Quick Log Button & Popup Form",
+            "บันทึกการเรียนรู้วันนี้": "Log Today's Learning",
+            "แตะเพื่อเปิดหน้าต่างกรอกบันทึกทันที ไม่ต้องเลื่อนหน้าจอ": "Tap to open the log form immediately without scrolling",
+            "👤 ผู้บันทึก:": "👤 Learner:",
+            "ด.ช.สมชาย ใจดี": "Somchai Jaidee",
+            "(จำชื่ออัตโนมัติ)": "(Auto-saved)",
+            "เปลี่ยนชื่อ": "Edit Name",
+            "หัวข้อที่เรียน / ลิงก์ *": "Topic / Link *",
+            "เช่น English Tenses Explained / BBC 6 Minute English": "e.g. English Tenses Explained / BBC 6 Minute English",
+            "สื่อที่ใช้เรียน * & ทักษะที่ฝึก": "Media Used * & Skills Practiced",
+            "📖 บทความ": "📖 Article",
+            "🎮 เกม": "🎮 Game",
+            "✨ อื่นๆ": "✨ Other",
+            "⏱️ เวลาที่ฝึก (One-Tap Duration)": "⏱️ Study Duration (One-Tap)",
+            "15 นาที": "15 mins",
+            "แนบรูปภาพผลงาน (ถ้ามี) พิมพ์": "Attach a screenshot (optional), type",
+            "\"สรุปสิ่งที่ได้เรียนรู้\"": "\"What did you learn?\"",
+            "แล้วคลิก": "and click",
+            "\"บันทึกรับ 10 💰\"": "\"Save & Get 10 💰\"",
+            "หน้าต่างจะปิดลงและแสดงการ์ดผลงานในประวัติทันที (": ". The modal closes and displays your log card immediately (",
+            ") พร้อมรับเหรียญและ XP!": ") with coins and XP!",
+            "ขั้นตอนที่ 3 — สรุปเนื้อหาและรับเหรียญรางวัล + XP ทันที": "Step 3 — Summarize & Earn Coins + XP Instantly",
+            "สรุปสิ่งที่ได้เรียนรู้ *": "What did you learn? *",
+            "ได้เรียนรู้โครงสร้าง Past Simple Tense การเปลี่ยนรูปกริยาช่อง 2 และคำศัพท์ใหม่ 5 คำ...": "Learned Past Simple Tense structure, irregular past verbs, and 5 new vocabulary words...",
+            "บันทึกรับ 10 💰": "Save & Get 10 💰",
+            "บันทึกสำเร็จ! ได้รับ +10 💰 และ +30 XP": "Saved! Earned +10 💰 and +30 XP",
+            "แสดงผลในรายการประวัติทันที พร้อมบวกโบนัสไฟ Streak อัตโนมัติ": "Displayed in your history immediately with automatic streak bonus",
+            "ติดตามสถิติใน": "Track your analytics in the",
+            "(ตาราง": "(featuring the",
+            "สไตล์ GitHub + แถบสถานะไฟ Streak + สมดุลทักษะ + เป้าหมายสัปดาห์ละ 5 วัน) และตรวจดูฟีดแบ็กจากคุณครูใน": "+ Streak Status Banner + Skill Balance + 5-Day Weekly Goal) and check teacher feedback in",
+            "\"ประวัติของฉัน\"": "\"My History\"",
+            "ขั้นตอนที่ 4 — Bento Heatmap Dashboard & ประวัติของฉัน": "Step 4 — Bento Heatmap Dashboard & My History",
+            "✓ บันทึกวันนี้แล้ว · ไฟ 7 วันปลอดภัย!": "✓ Logged today · 7-day streak safe!",
+            "🏆 สูงสุด 14 วัน": "🏆 Best 14d",
+            "🟩 30-Day Activity Heatmap": "🟩 30-Day Activity Heatmap",
+            "18/30 วัน (60%)": "18/30 days (60%)",
+            "17 ต.ค.": "Oct 17",
+            "คะแนน: 10 / 10": "Score: 10 / 10",
+            "คุณครูตรวจแล้ว": "Graded",
+            "\"สรุปเนื้อหาได้ดีมาก มีตัวอย่างประโยคชัดเจน ยอดเยี่ยมครับ!\"": "\"Great summary with clear example sentences. Excellent work!\"",
+            "กระดานคนเก่ง (Leaderboard)": "Student Leaderboard",
+            "จัดอันดับตาม XP": "Ranked by XP",
+            "ด.ญ.ณิชา": "Nicha",
+            "ด.ช.กิตติศักดิ์": "Kittisak",
+            "ด.ช.สมชาย": "Somchai",
+            "ด.ญ.ปิยะดา": "Piyada",
+            "ตัวคุณ (YOU)": "You (YOU)",
+            "ทักษะฉัน (Skill Radar & Breakdown)": "My Skills (Skill Radar & Breakdown)",
+            "รวม 6 ด้าน": "All 6 Skills",
+            "ร้านค้า (Shop)": "Reward Shop",
+            "แลกกรอบ Neon & Fire": "Redeem Neon & Fire frames",
+            "เข็มกลัด 13 แบบ": "13 Achievement Badges",
+            "สะสมเหรียญเกียรติยศ": "Unlock & equip titles",
+            "เพลิดเพลินกับ": "Enjoy the",
+            "\"แท็บภารกิจวันนี้ & คำศัพท์ประจำวัน (Segmented Daily Tabs)\"": "\"Segmented Daily Quests & Word Challenge Tabs\"",
+            "สลับดูง่ายในกล่องเดียว สะสม XP อัปเลเวล เปิดกล่องสมบัติ และแต่งตัวใน": "in one compact card, earn XP to level up, open treasure chests, and customize your look in the",
+            "\"ห้องลองชุด (Dressing Room)\"": "\"Dressing Room\"",
+            "ขั้นตอนที่ 5 — แท็บภารกิจรายวัน & คำศัพท์ + ห้องแต่งตัว": "Step 5 — Daily Quests & Word Tabs + Dressing Room",
+            "🎯 ภารกิจวันนี้": "🎯 Daily Quests",
+            "💡 คำศัพท์ประจำวัน": "💡 Daily Word",
+            "✓ สำเร็จ": "✓ Done",
+            "ภารกิจประจำวัน & กล่องสมบัติปริศนา": "Daily Quests & Mystery Treasure Chest",
+            "สุ่ม 20–100 💰": "Win 20–100 💰",
+            "✅ บันทึก 1 ครั้ง": "✅ Log 1 time",
+            "✅ ทายศัพท์รายวัน": "✅ Daily Word",
+            "🎁 เปิดหีบสมบัติ!": "🎁 Open Chest!",
+            "💡 แท็บคำศัพท์ประจำวัน (+5 💰 | +10 XP)": "💡 Daily Word Tab (+5 💰 | +10 XP)",
+            "ถูกต้อง! ✨": "Correct! ✨",
+            "ระบบเลเวล & XP": "Level & XP System",
+            "สะสม XP จากการบันทึกการเรียนรู้ ยิ่งบันทึกสม่ำเสมอเลเวลยิ่งพุ่ง สู่ตำแหน่ง": "Earn XP from every log and climb the ranks to become an",
+            "พร้อมรับเอฟเฟกต์พลุเฉลิมฉลอง": "with celebratory confetti!",
+            "ห้องลองชุด (Preview)": "Dressing Room (Preview)",
+            "ทดลองสวมกรอบรูปไฟ/นีออน, เอฟเฟกต์ชื่อเรืองแสง และฉายาเท่ๆ ดูภาพตัวอย่างบนโปรไฟล์ก่อนกดซื้อจริง": "Try on fire/neon avatar frames, glowing name styles, and titles live on your profile before buying",
+            "คำแนะนำเพิ่มเติม (v3.2.1):": "Pro Tips (v3.2.1):",
+            "🌐 ระบบสลับภาษาสมบูรณ์ 100% (100% Bilingual Sync TH/EN):": "🌐 100% Bilingual Sync (TH / EN):",
+            "กดปุ่ม": "Click the",
+            "ที่มุมบนขวาเพื่อสลับภาษาไทยล้วนหรืออังกฤษล้วนได้ทันทีครอบคลุมทุกเมนู กราฟ ภารกิจ ร้านค้า ประวัติ และคู่มือนี้": "button at the top-right to switch between pure Thai and pure English across all menus, charts, quests, shop, history, and this guide.",
+            "➕ ปุ่มลอยบันทึกด่วน (Floating Button):": "➕ Floating Quick-Log Button:",
+            "กดปุ่ม ➕ มุมขวาล่างหรือปุ่มสีเขียวด้านบนสุดเพื่อเปิดหน้าต่างกรอกข้อมูลได้ทันทีโดยไม่ต้องเลื่อนหน้าจอ": "Tap the bottom-right ➕ button or top green banner to open the log form immediately without scrolling.",
+            "🗂️ กรอง & ย่อประวัติ (Compact History):": "🗂️ Compact & Filterable History:",
+            "แสดงประวัติ 3 รายการล่าสุดเพื่อให้หน้าเว็บกระชับ กดกรองตามทักษะหรือกดปุ่ม \"ดูประวัติทั้งหมด\" เพื่อขยายดูรายการทั้งหมดได้": "Shows your latest 3 logs to keep the page compact. Filter by skill or click \"View All History\" to expand.",
+            "🔥 ระดับสีไฟต่อเนื่อง:": "🔥 6 Streak Flame Tiers:",
+            "บันทึกต่อเนื่องทุกวันเพื่อเปลี่ยนสีเปลวไฟ 🔥 (ส้ม ➡️ ฟ้า ➡️ ม่วง ➡️ ทอง ➡️ สายรุ้ง) พร้อมรับโบนัสเหรียญพิเศษสูงสุด +20 💰": "Log daily to evolve your flame 🔥 (Orange ➡️ Blue ➡️ Violet ➡️ Gold ➡️ Cosmic Rainbow) and earn up to +20 💰 bonus coins.",
+            "📄 พอร์ตโฟลิโอ A4:": "📄 Official A4 Portfolio:",
+            "กดพิมพ์หรือบันทึก PDF สรุปผลประเมิน 6 ทักษะและข้อเสนอแนะครูได้จากแถบ \"ประวัติของฉัน\"": "Print or save an official A4 PDF summary of your 6 skills and teacher feedback from \"My History\".",
+            "ระบบจะบันทึกข้อความร่างและจำชื่อ-นามสกุลให้อัตโนมัติ ป้องกันข้อมูลสูญหายระหว่างพิมพ์": "Auto-saves your draft and remembers your student name automatically so you never lose your work."
+        };
+        const manualEnToTh = {};
+        Object.entries(manualDict).forEach(([th, en]) => { manualEnToTh[en] = th; });
+
+        function applyManualLang(lang) {
+            document.documentElement.lang = lang === 'en' ? 'en' : 'th';
+            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+            let n;
+            while (n = walker.nextNode()) {
+                if (n.parentElement && (n.parentElement.tagName === 'SCRIPT' || n.parentElement.tagName === 'STYLE')) continue;
+                const raw = n.nodeValue;
+                const val = raw.trim().replace(/\s+/g, ' ');
+                if (!val) continue;
+                if (lang === 'en' && manualDict[val]) {
+                    const lead = raw.match(/^\s*/)[0];
+                    const trail = raw.match(/\s*$/)[0];
+                    n.nodeValue = lead + manualDict[val] + trail;
+                } else if (lang === 'th' && manualEnToTh[val]) {
+                    const lead = raw.match(/^\s*/)[0];
+                    const trail = raw.match(/\s*$/)[0];
+                    n.nodeValue = lead + manualEnToTh[val] + trail;
+                }
+            }
+        }
+
+        const initLang = localStorage.getItem('appLang') || 'th';
+        if (initLang === 'en') applyManualLang('en');
+
+        window.addEventListener('message', (e) => {
+            if (e.data && e.data.type === 'setLang') {
+                applyManualLang(e.data.lang);
+            }
+        });
+    </script>
 </body>
 </html>

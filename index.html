@@ -750,19 +750,81 @@
     <!-- i18n Script -->
     <script>
         const i18nDict = {
+            // System & Login
             "กำลังตรวจสอบระบบ...": "Checking system...",
-            "English Tracker": "English Tracker",
             "เรียนจากสื่อ": "Learn from media",
             "สะสม Streak": "Build streaks",
             "แลกรางวัล": "Earn rewards",
-            "เข้าสู่ระบบเพื่อบันทึกการเรียนรู้ของคุณ": "Login to record your learning",
-            "เข้าสู่ระบบด้วย Google": "Login with Google",
-            "นักเรียน": "STUDENT",
-            "📝 ส่งงาน": "✍️ Learning Log",
+            "เข้าสู่ระบบเพื่อบันทึกการเรียนรู้ของคุณ": "Sign in to record your learning",
+            "เข้าสู่ระบบด้วย Google": "Sign in with Google",
+            "ทดลองใช้งานแบบ Guest": "Try Guest Demo",
+            "⚠️ ไม่บันทึกข้อมูล": "⚠️ Demo only",
+            "📖 คู่มือการใช้งาน & มีอะไรใหม่": "📖 User Guide & What's New",
+            "โหมดทดลอง:": "Demo Mode:",
+            "ข้อมูลและการบันทึกการเรียนรู้จะไม่ถูกบันทึกถาวร": "Your logs & progress will not be saved permanently",
+            "เข้าสู่ระบบจริง": "Real Sign In",
+            "v3.2 คู่มือ": "v3.2 Guide",
+            "v3.3 คู่มือ": "v3.3 Guide",
+
+            // Profile & Nav Tabs
+            "นักเรียน": "Student",
+            "นักเรียน / Student": "Student",
+            "คุณครู": "Teacher",
+            "คุณครู / Teacher": "Teacher",
+            "ผู้เยี่ยมชม": "Guest",
             "✍️ บันทึกการเรียนรู้": "✍️ Learning Log",
             "🏆 กระดานผู้นำ": "🏆 Leaderboard",
             "📊 ทักษะฉัน": "📊 My Skills",
             "🛒 ร้านค้า": "🛒 Shop",
+
+            // Quick Log CTA & FAB & Segmented Daily Tabs
+            "บันทึกการเรียนรู้วันนี้": "Log Today's Learning",
+            "แตะเพื่อกรอกบันทึก · สะสม XP และรักษาไฟ Streak 🔥": "Tap to record · Earn XP & keep your Streak 🔥",
+            "บันทึก (+10 💰)": "Log (+10 💰)",
+            "🎯 ภารกิจวันนี้": "🎯 Daily Quests",
+            "🎯 ภารกิจประจำวัน": "🎯 Daily Quests",
+            "💡 คำศัพท์ประจำวัน": "💡 Daily Word",
+            "คำศัพท์ประจำวัน": "Daily Word Challenge",
+            "คำศัพท์ประจำวัน (Daily Word)": "Daily Word Challenge",
+            "📅 เช็กอินรายสัปดาห์ & เควสต์รายวัน": "📅 Weekly Check-in & Daily Quests",
+            "กล่องสมบัติประจำวัน": "Daily Treasure Chest",
+
+            // Bento Dashboard
+            "⏳ วันนี้ยังไม่ได้บันทึก · แตะเพื่อบันทึกและรักษาไฟ!": "⏳ Not logged today · Tap to log & keep your streak!",
+            "🌱 เริ่มต้น": "🌱 Starter",
+            "ตารางความสม่ำเสมอ 30 วัน": "30-Day Activity Heatmap",
+            "30-Day Activity Heatmap": "30-Day Activity Heatmap",
+            "💡 แตะที่ช่องเพื่อดูจำนวนครั้งที่ฝึก": "💡 Tap any square to view daily activity",
+            "น้อย": "Less",
+            "มาก": "More",
+            "สมดุลทักษะ": "Skill Balance",
+            "บันทึกการเรียนรู้เพื่อดูสัดส่วนทักษะที่ฝึก": "Log your learning to see your skill balance",
+            "บันทึกการเรียนรู้เพื่อดูสัดส่วนทักษะ": "Log your learning to see your skill balance",
+            "เป้าสัปดาห์นี้": "Weekly Goal",
+
+            // Badges & History
+            "🏅 รางวัลของฉัน": "🏅 My Badges",
+            "รางวัลของฉัน": "My Badges",
+            "ยังไม่มีข้อมูล...": "No data...",
+            "ประวัติของฉัน": "My History",
+            "พอร์ตโฟลิโอ": "Portfolio",
+            "ทั้งหมด": "All",
+            "📸 มีรูปภาพ": "📸 With Photo",
+            "🎧 ฟัง": "🎧 Listening",
+            "📖 อ่าน": "📖 Reading",
+            "📝 ศัพท์": "📝 Vocab",
+            "กำลังโหลด...": "Loading...",
+            "ดูประวัติทั้งหมด": "View All History",
+            "ยังไม่มีประวัติ เริ่มเลย!": "No history yet, let's start!",
+            "ไม่พบรายการในหมวดนี้": "No logs found in this filter",
+            "คุณครูตรวจแล้ว": "Graded",
+            "เปิดคู่มือการใช้งาน & บันทึกการอัปเดต": "Open User Manual & Update Log",
+            "เปิดคู่มือการใช้งาน & บันทึกการอัปเดต (Manual & Update Log)": "Open User Manual & Update Log",
+
+            // Learning Form Modal
+            "กรอกข้อมูลสั้นๆ เพื่อรับเหรียญและ XP สะสม": "Fill in a quick log to earn coins & XP",
+            "ผู้บันทึก:": "Learner:",
+            "เปลี่ยนชื่อ": "Change",
             "ชื่อ-นามสกุล / ชื่อเล่น": "Full Name / Nickname",
             "หัวข้อที่เรียน / ลิงก์": "Topic / Link",
             "เซฟร่างแล้ว": "Draft saved",
@@ -772,63 +834,147 @@
             "อื่นๆ": "Other",
             "ทักษะที่ฝึก": "Skills Practiced",
             "(เลือกได้หลายอย่าง)": "(Select multiple)",
+            "🎧 การฟัง": "🎧 Listening",
+            "📖 การอ่าน": "📖 Reading",
+            "📝 คำศัพท์": "📝 Vocabulary",
+            "📐 ไวยากรณ์": "📐 Grammar",
+            "🗣️ การพูด": "🗣️ Speaking",
+            "✍️ การเขียน": "✍️ Writing",
+            "⏱️ เวลาที่ใช้ฝึก": "⏱️ Practice Duration",
+            "⏱️ เวลาที่ฝึก (Duration)": "⏱️ Practice Duration",
+            "⚡ 15 นาที": "⚡ 15m",
+            "⚡ 30 นาที": "⚡ 30m",
+            "⚡ 45 นาที": "⚡ 45m",
+            "⚡ 60+ นาที": "⚡ 60m+",
+            "+5 นาที": "+5m",
+            "-5 นาที": "-5m",
+            "รูปภาพผลงาน (ถ้ามี)": "Screenshot (Optional)",
             "ผลงาน (Screenshot)": "Screenshot (Optional)",
-            "แตะเพื่อเลือกรูปภาพ": "Tap to select image",
+            "แตะเพื่อแนบรูปภาพประกอบ (ถ้ามี)": "Tap to attach a screenshot (optional)",
+            "แตะเพื่อเลือกรูปภาพ": "Tap to attach a screenshot (optional)",
             "สรุปสิ่งที่ได้เรียนรู้": "What did you learn?",
-            "ส่งงานรับ 10 💰": "Log & Get 10 💰",
             "บันทึกรับ 10 💰": "Log & Get 10 💰",
-            "ส่งงาน": "Log",
-            "บันทึกการเรียนรู้": "Learning Log",
-            "รางวัลของฉัน": "My Badges",
-            "ยังไม่มีข้อมูล...": "No data...",
-            "ประวัติของฉัน": "My History",
-            "กำลังโหลด...": "Loading...",
+
+            // Leaderboard & Resources
             "กระดานคนเก่ง": "Leaderboard",
-            "จัดอันดับตามจำนวนครั้งที่ส่งงาน": "Ranked by logs",
-            "จัดอันดับตามการบันทึกการเรียนรู้": "Ranked by logs",
+            "จัดอันดับตาม XP สะสม": "Ranked by total XP",
+            "🎯 +5 XP / ทักษะ": "🎯 +5 XP / skill",
+            "⭐ คะแนน × 3 XP": "⭐ score × 3 XP",
+            "อันดับของคุณ": "Your Rank",
             "แหล่งเรียนรู้แนะนำจากครู": "Recommended Resources",
+            "ครูยังไม่ได้เพิ่มสื่อแนะนำ": "No resources added by teacher yet.",
+            "ยังไม่มีข้อมูลในระบบ": "No records yet",
+            "โหลดข้อมูลไม่สำเร็จ": "Failed to load data",
+            "ไม่สามารถโหลดสื่อได้": "Failed to load resources",
+
+            // Skills Tab
             "ทักษะที่ฝึกของฉัน": "My Practiced Skills",
-            "นับจากจำนวนครั้งที่เลือกแต่ละทักษะ": "Counted from selected skills",
-            "ร้านค้า (Shop)": "Shop",
-            "ใช้ 💰 เหรียญจากการส่งงานมาแลกของตกแต่ง!": "Use 💰 coins from logging to buy decorations!",
-            "ใช้ 💰 เหรียญจากการบันทึกการเรียนรู้มาแลกของตกแต่ง!": "Use 💰 coins from logging to buy decorations!",
+            "พิมพ์พอร์ตโฟลิโอ": "Print Portfolio",
+            "นับจากจำนวนครั้งที่เลือกแต่ละทักษะ": "Counted from your selected skills",
+
+            // Shop Tab
+            "ร้านค้าแลกรางวัล": "Reward Shop",
+            "ร้านค้า (Shop)": "Reward Shop",
+            "ใช้ 💰 เหรียญจากการบันทึกการเรียนรู้มาแลกของตกแต่ง!": "Use 💰 coins from logging to buy profile cosmetics!",
+            "ห้องลองชุด": "Dressing Room",
+            "ห้องลองชุด / Preview": "Dressing Room",
+            "รีเซ็ตพรีวิว": "Reset Preview",
+            "ฉายาประจำตัว": "Profile Titles",
+            "ฉายาประจำตัว (Titles)": "Profile Titles",
+            "กรอบโปรไฟล์": "Profile Frames",
             "กรอบโปรไฟล์ (Frames)": "Profile Frames",
+            "เอฟเฟกต์ชื่อ": "Name Effects",
             "เอฟเฟกต์ชื่อ (Name Effects)": "Name Effects",
             "ถอดออก": "Unequip",
             "สวมใส่": "Equip",
-            "ยังไม่มีประวัติ เริ่มเลย!": "No history yet, let's start!",
-            "คุณครูตรวจแล้ว": "Graded",
-            "มือใหม่": "Novice",
-            "Streak 3 วัน": "3-Day Streak",
-            "Streak 7 วัน": "7-Day Streak",
-            "นักอ่าน": "Reader",
-            "10 งาน": "10 Works",
-            "ครบทุกทักษะ": "All Skills",
-            "งาน": "Works",
-            "ครูยังไม่ได้เพิ่มสื่อแนะนำ": "No resources added by teacher yet.",
-            "🎯 ภารกิจประจำวัน": "🎯 Daily Quests",
-            "จัดอันดับตาม XP สะสม": "Ranked by total XP",
-            "อันดับของคุณ": "Your rank",
-            "กล่องสมบัติประจำวัน": "Daily Treasure Chest",
-            "รับ XP อย่างไร?": "How to earn XP?",
-            "คำศัพท์ประจำวัน (Daily Word)": "Daily Word Challenge",
-            "ฉายาประจำตัว (Titles)": "Profile Titles",
-            "ห้องลองชุด / Preview": "Dressing Room / Preview",
-            "รีเซ็ตพรีวิว": "Reset Preview",
-            "📖 คู่มือการใช้งาน & มีอะไรใหม่": "📖 User Guide & What's New",
-            "คู่มือ & อัปเดต": "Guide & Updates",
-            "เปิดในแท็บใหม่": "Open in new tab",
-            "เปิดเต็มจอ": "Open Fullscreen",
-            "เข้าใจแล้ว ปิดหน้าต่าง": "Got it, Close",
+            "ลองอยู่": "Previewing",
+            "ลองดู": "Preview",
+
+            // Streak Modal
+            "วัน": "Days",
+            "วันนี้บันทึกการเรียนรู้แล้ว!": "You've logged today!",
+            "Streak ปลอดภัย": "Streak Safe",
+            "ลำดับระดับสีไฟ": "Flame Tiers",
+            "ลำดับสีไฟ (Flame Tiers)": "Flame Tiers",
+            "สะสมวันเปลี่ยนสี": "Log daily to upgrade",
+            "1–2 วัน · ไฟเริ่มต้น": "1–2 Days · Starter Fire",
+            "1–2 วัน · Starter Fire": "1–2 Days · Starter Fire",
+            "ไฟส้มอ่อน (ประกายไฟเริ่มต้น)": "Soft orange starter flame",
+            "เริ่มต้น": "Starter",
+            "3–6 วัน · ไฟส้มแดง": "3–6 Days · Classic Fire",
+            "3–6 วัน · Classic Fire": "3–6 Days · Classic Fire",
+            "ไฟส้มแดงมาตรฐาน (+5 💰)": "Classic orange-red flame (+5 💰)",
+            "7–13 วัน · ไฟสีฟ้า": "7–13 Days · Blue Fire",
+            "7–13 วัน · Blue Fire": "7–13 Days · Blue Fire",
+            "ไฟสีฟ้านีออน (+10 💰)": "Neon blue flame (+10 💰)",
+            "14–29 วัน · ไฟสีม่วง": "14–29 Days · Violet Fire",
+            "14–29 วัน · Violet Fire": "14–29 Days · Violet Fire",
+            "ไฟสีม่วงนีออน สายขยันจริงจัง (+12 💰)": "Neon violet flame for dedicated learners (+12 💰)",
+            "30–99 วัน · ไฟสีทอง": "30–99 Days · Golden Fire",
+            "30–99 วัน · Golden Fire": "30–99 Days · Golden Fire",
+            "ไฟสีทองเปล่งประกาย ขั้นเซียน (+15 💰)": "Radiant golden master flame (+15 💰)",
+            "100+ วัน · ไฟสายรุ้ง": "100+ Days · Cosmic Fire",
+            "100+ วัน · Cosmic Fire": "100+ Days · Cosmic Fire",
+            "ไฟสายรุ้งอภิมหาตำนาน (+20 💰)": "Legendary rainbow cosmic flame (+20 💰)",
+            "เข้าใจแล้ว": "Got it",
+
+            // Portfolio Modal
+            "พิมพ์พอร์ตโฟลิโอการเรียนรู้": "Student Learning Portfolio",
+            "พิมพ์พอร์ตโฟลิโอการเรียนรู้ (Student Learning Portfolio)": "Student Learning Portfolio",
+            "ใบรายงานและสรุปพัฒนาการทักษะภาษาอังกฤษเพื่อใช้ยื่นผลงาน": "Official summary of your English self-directed learning progress",
+            "พิมพ์ / บันทึก PDF": "Print / Save PDF",
+            "กำลังประมวลผลพอร์ตโฟลิโอ...": "Generating portfolio...",
+
+            // Manual & Update Log Modal
+            "คู่มือการใช้งาน & บันทึกการอัปเดตระบบ": "User Manual & System Update Log",
+            "📖 คู่มือการใช้งาน": "📖 User Manual",
+            "📖 คู่มือการใช้งาน (Manual)": "📖 User Manual",
+            "🚀 มีอะไรใหม่": "🚀 What's New",
+            "🚀 มีอะไรใหม่ (Update Log)": "🚀 What's New",
+            "คำแนะนำขั้นตอนการบันทึกการเรียนรู้และระบบเกม": "Step-by-step guide to logging & gamification features",
+            "เปิดเต็มจอ": "Fullscreen",
             "ไม่ต้องเปิดหน้าต่างนี้อัตโนมัติอีก": "Don't show this automatically again",
-            "เปิดคู่มือการใช้งาน & บันทึกการอัปเดต (Manual & Update Log)": "Open User Manual & Update Log"
+            "เปิดในแท็บใหม่ ↗": "Open in new tab ↗",
+            "เข้าใจแล้ว ปิดหน้าต่าง": "Got it, Close"
         };
 
+        // Build reverse lookup (English -> canonical Thai)
+        const enToTh = {};
+        Object.entries(i18nDict).forEach(([thKey, enVal]) => {
+            if (!enToTh[enVal]) {
+                enToTh[enVal] = thKey;
+            }
+        });
+
         const i18nPlaceholders = {
-            "เช่น ด.ช.สมชาย": "e.g. John Doe",
-            "เช่น Past Tense": "e.g. Past Tense",
-            "เรียนอะไรบ้าง...": "What did you learn..."
+            "เช่น ด.ช.สมชาย": "e.g. Alex Smith",
+            "เช่น Past Tense": "e.g. Past Tense, BBC 6 Minute English",
+            "เช่น Past Tense, BBC 6 Minute English": "e.g. Past Tense, BBC 6 Minute English",
+            "เรียนอะไรบ้าง...": "What new words or takeaways did you learn today...",
+            "วันนี้ได้เรียนคำศัพท์หรือประโยคอะไรบ้าง...": "What new words or takeaways did you learn today..."
         };
+        const enToThPlaceholders = {};
+        Object.entries(i18nPlaceholders).forEach(([thP, enP]) => {
+            if (!enToThPlaceholders[enP]) enToThPlaceholders[enP] = thP;
+        });
+
+        const i18nTitles = {
+            "คู่มือการใช้งาน & มีอะไรใหม่": "User Guide & What's New",
+            "เข้าสู่ระบบ Admin": "Teacher / Admin Dashboard",
+            "คลิกเพื่อดูระดับสีไฟ & โบนัส Streak": "Click to view Flame Tiers & Streak Bonus",
+            "ดูเกณฑ์การรับ XP": "How to earn XP",
+            "เลื่อนซ้าย": "Scroll left",
+            "เลื่อนขวา": "Scroll right",
+            "พิมพ์สรุปพอร์ตโฟลิโอการเรียนรู้ / บันทึกเป็น PDF": "Print Learning Portfolio / Save as PDF",
+            "พิมพ์หรือบันทึกสรุปผลการเรียนรู้เป็น PDF": "Print Learning Portfolio / Save as PDF",
+            "เพิ่ม 5 นาที": "Add 5 mins",
+            "ลด 5 นาที": "Subtract 5 mins",
+            "ปิดหน้าต่าง": "Close window"
+        };
+        const enToThTitles = {};
+        Object.entries(i18nTitles).forEach(([thT, enT]) => {
+            if (!enToThTitles[enT]) enToThTitles[enT] = thT;
+        });
 
         window.currentLang = localStorage.getItem('appLang') || 'th';
 
@@ -850,31 +996,78 @@
             }
 
             const isEn = window.currentLang === 'en';
+            document.documentElement.lang = isEn ? 'en' : 'th';
 
             const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
             let node;
             while (node = walk.nextNode()) {
                 if (node.parentElement && (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE')) continue;
-                if (!node.originalText) node.originalText = node.nodeValue;
-                let text = node.originalText;
-                let trimmed = text.trim();
+                const raw = node.nodeValue || '';
+                const norm = raw.trim().replace(/\s+/g, ' ');
+                if (!norm) continue;
 
-                // partial match 
-                if (trimmed.startsWith("คะแนน:")) { node.nodeValue = text.replace("คะแนน:", isEn ? "Score:" : "คะแนน:"); continue; }
-                if (trimmed.startsWith("ล่าสุด:")) { node.nodeValue = text.replace("ล่าสุด:", isEn ? "Latest:" : "ล่าสุด:"); continue; }
+                // Track canonical Thai text if first seen in Thai
+                if (!node.originalText && i18nDict[norm]) {
+                    node.originalText = norm;
+                }
 
-                if (trimmed && i18nDict[trimmed]) {
-                    node.nodeValue = text.replace(trimmed, isEn ? i18nDict[trimmed] : trimmed);
+                // Partial prefix match
+                if (norm.startsWith("คะแนน:") || norm.startsWith("Score:")) {
+                    node.nodeValue = isEn ? raw.replace("คะแนน:", "Score:") : raw.replace("Score:", "คะแนน:");
+                    continue;
+                }
+                if (norm.startsWith("ล่าสุด:") || norm.startsWith("Latest:")) {
+                    node.nodeValue = isEn ? raw.replace("ล่าสุด:", "Latest:") : raw.replace("Latest:", "ล่าสุด:");
+                    continue;
+                }
+
+                const lead = (raw.match(/^\s*/) || [''])[0];
+                const trail = (raw.match(/\s*$/) || [''])[0];
+
+                if (isEn) {
+                    const targetEn = i18nDict[norm] || (node.originalText && i18nDict[node.originalText]);
+                    if (targetEn && norm !== targetEn) {
+                        node.nodeValue = lead + targetEn + trail;
+                    }
+                } else {
+                    const targetTh = node.originalText || enToTh[norm];
+                    if (targetTh && norm !== targetTh && (enToTh[norm] || norm === i18nDict[targetTh])) {
+                        node.nodeValue = lead + targetTh + trail;
+                    }
                 }
             }
 
             document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
-                if (!el.originalPlaceholder) el.originalPlaceholder = el.getAttribute('placeholder');
-                let text = el.originalPlaceholder;
-                if (i18nPlaceholders[text]) {
-                    el.setAttribute('placeholder', isEn ? i18nPlaceholders[text] : text);
+                const cur = el.getAttribute('placeholder') || '';
+                if (!el.originalPlaceholder && i18nPlaceholders[cur]) el.originalPlaceholder = cur;
+                if (isEn) {
+                    const target = i18nPlaceholders[cur] || (el.originalPlaceholder && i18nPlaceholders[el.originalPlaceholder]);
+                    if (target) el.setAttribute('placeholder', target);
+                } else {
+                    const target = el.originalPlaceholder || enToThPlaceholders[cur];
+                    if (target) el.setAttribute('placeholder', target);
                 }
             });
+
+            document.querySelectorAll('[title]').forEach(el => {
+                const cur = el.getAttribute('title') || '';
+                if (!el.originalTitle && i18nTitles[cur]) el.originalTitle = cur;
+                if (isEn) {
+                    const target = i18nTitles[cur] || (el.originalTitle && i18nTitles[el.originalTitle]);
+                    if (target) el.setAttribute('title', target);
+                } else {
+                    const target = el.originalTitle || enToThTitles[cur];
+                    if (target) el.setAttribute('title', target);
+                }
+            });
+
+            // Sync Manual Iframe language if present
+            const manualIframe = document.getElementById('manualIframe');
+            if (manualIframe && manualIframe.contentWindow) {
+                try {
+                    manualIframe.contentWindow.postMessage({ type: 'MEL_LANG', lang: window.currentLang }, '*');
+                } catch (e) {}
+            }
 
             if (observer) observer.observe(document.body, { childList: true, subtree: true });
         };
@@ -882,6 +1075,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             observer = new MutationObserver(() => applyLanguage());
             applyLanguage();
+            if (window.melRerender) setTimeout(() => window.melRerender(), 100);
         });
 
         // Manual & Update Log Modal Functions
@@ -1105,8 +1299,7 @@
                 <div class="flex-1 text-center sm:text-left pt-1 sm:pt-14 min-w-0">
                     <p id="userEmail" class="text-lg sm:text-xl font-black text-slate-800 truncate transition-all"></p>
                     <div class="flex items-center gap-1.5 justify-center sm:justify-start flex-wrap mt-0.5">
-                        <p id="userRole" class="text-[10px] text-emerald-600 font-bold tracking-wider uppercase">
-                            นักเรียน / Student</p>
+                        <p id="userRole" class="text-[10px] text-emerald-600 font-bold tracking-wider uppercase">นักเรียน</p>
                         <span id="userEquippedTitle" class="hidden mel-title-badge"></span>
                     </div>
                 </div>
@@ -1132,7 +1325,7 @@
             <!-- Level / XP Bar -->
             <div class="px-5 pb-5 -mt-1">
                 <div class="flex justify-between items-end mb-1.5">
-                    <span id="levelTitle" class="text-xs font-black text-slate-700">🌱 Lv.1 · Newbie</span>
+                    <span id="levelTitle" class="text-xs font-black text-slate-700">🌱 Lv.1 · มือใหม่</span>
                     <button type="button" onclick="showXpGuide()"
                         class="text-[10px] font-black text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-2 py-0.5 rounded-lg border border-indigo-100 flex items-center gap-1 transition-colors"
                         title="ดูเกณฑ์การรับ XP">
@@ -1150,17 +1343,13 @@
         <!-- Navigation Tabs (Horizontally Scrollable) -->
         <div id="melNavTabs" class="mel-tabs flex gap-1.5 mb-5 p-1.5 rounded-2xl overflow-x-auto no-scrollbar scroll-smooth sticky top-2 z-30 touch-pan-x cursor-grab">
             <button id="tabForm"
-                class="flex-shrink-0 px-4 py-2 text-sm font-bold bg-white text-emerald-600 rounded-xl shadow-sm transition-all whitespace-nowrap">✍️
-                บันทึกการเรียนรู้</button>
+                class="flex-shrink-0 px-4 py-2 text-sm font-bold bg-white text-emerald-600 rounded-xl shadow-sm transition-all whitespace-nowrap">✍️ บันทึกการเรียนรู้</button>
             <button id="tabLeaderboard"
-                class="flex-shrink-0 px-4 py-2 text-sm font-bold text-slate-500 hover:text-emerald-600 rounded-xl transition-all whitespace-nowrap">🏆
-                กระดานผู้นำ</button>
+                class="flex-shrink-0 px-4 py-2 text-sm font-bold text-slate-500 hover:text-emerald-600 rounded-xl transition-all whitespace-nowrap">🏆 กระดานผู้นำ</button>
             <button id="tabSkills"
-                class="flex-shrink-0 px-4 py-2 text-sm font-bold text-slate-500 hover:text-emerald-600 rounded-xl transition-all whitespace-nowrap">📊
-                ทักษะฉัน</button>
+                class="flex-shrink-0 px-4 py-2 text-sm font-bold text-slate-500 hover:text-emerald-600 rounded-xl transition-all whitespace-nowrap">📊 ทักษะฉัน</button>
             <button id="tabShop"
-                class="flex-shrink-0 px-4 py-2 text-sm font-bold text-slate-500 hover:text-emerald-600 rounded-xl transition-all whitespace-nowrap">🛒
-                ร้านค้า</button>
+                class="flex-shrink-0 px-4 py-2 text-sm font-bold text-slate-500 hover:text-emerald-600 rounded-xl transition-all whitespace-nowrap">🛒 ร้านค้า</button>
         </div>
 
         <!-- TAB: Form & History -->
@@ -1178,9 +1367,7 @@
                                 <span>บันทึกการเรียนรู้วันนี้</span>
                                 <span class="text-[10px] font-black bg-amber-300 text-amber-950 px-2 py-0.5 rounded-full shadow-xs">+10 💰</span>
                             </div>
-                            <p id="ctaSubHint" class="text-[11px] font-bold text-emerald-50/90 mt-0.5">
-                                แตะเพื่อกรอกบันทึก · สะสม XP และรักษาไฟ Streak 🔥
-                            </p>
+                            <p id="ctaSubHint" class="text-[11px] font-bold text-emerald-50/90 mt-0.5">แตะเพื่อกรอกบันทึก · สะสม XP และรักษาไฟ Streak 🔥</p>
                         </div>
                     </div>
                     <div class="w-8 h-8 rounded-xl bg-white/15 flex items-center justify-center text-white group-hover:translate-x-0.5 transition-transform">
@@ -1228,11 +1415,10 @@
                         <div class="flex justify-between items-center mb-2.5 relative z-10">
                             <div class="flex items-center gap-1.5">
                                 <span class="text-lg">💡</span>
-                                <h3 class="font-black text-sm tracking-wide">คำศัพท์ประจำวัน (Daily Word)</h3>
+                                <h3 class="font-black text-sm tracking-wide">คำศัพท์ประจำวัน</h3>
                             </div>
                             <span id="dailyWordBadge"
-                                class="text-[10px] font-black bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">+5
-                                💰 +10 XP</span>
+                                class="text-[10px] font-black bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">+5 💰 +10 XP</span>
                         </div>
                         <div id="dailyWordContent" class="relative z-10">
                             <!-- Injected via JS -->
@@ -1264,12 +1450,10 @@
                         <div class="flex items-center gap-1.5">
                             <span class="text-sm">🟩</span>
                             <div>
-                                <h4 class="text-xs font-black text-slate-800">30-Day Activity Heatmap</h4>
+                                <h4 class="text-xs font-black text-slate-800">ตารางความสม่ำเสมอ 30 วัน</h4>
                             </div>
                         </div>
-                        <span id="bentoHeatmapStats" class="text-[10px] font-black text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                            0/30 วัน (0%)
-                        </span>
+                        <span id="bentoHeatmapStats" class="text-[10px] font-black text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">0/30 วัน (0%)</span>
                     </div>
                     <!-- The 30 mini squares -->
                     <div id="bentoHeatmapGrid" class="grid grid-cols-10 gap-1.5 my-1.5">
@@ -1297,18 +1481,14 @@
                                 <span class="text-xs">📊</span>
                                 <h4 class="text-[11px] font-black text-slate-800">สมดุลทักษะ</h4>
                             </div>
-                            <span id="bentoTopSkillBadge" class="text-[9px] font-black text-violet-700 bg-violet-50 px-1.5 py-0.5 rounded-md border border-violet-100">
-                                -
-                            </span>
+                            <span id="bentoTopSkillBadge" class="text-[9px] font-black text-violet-700 bg-violet-50 px-1.5 py-0.5 rounded-md border border-violet-100">-</span>
                         </div>
                         <!-- Stacked progress bar -->
                         <div id="bentoSkillBar" class="w-full h-2 rounded-full bg-slate-100 overflow-hidden flex my-1.5 border border-slate-150">
                             <!-- Injected segments -->
                         </div>
                     </div>
-                    <p id="bentoSkillNudge" class="text-[9px] font-bold text-slate-400 line-clamp-2 mt-0.5">
-                        บันทึกการเรียนรู้เพื่อดูสัดส่วนทักษะที่ฝึก
-                    </p>
+                    <p id="bentoSkillNudge" class="text-[9px] font-bold text-slate-400 line-clamp-2 mt-0.5">บันทึกการเรียนรู้เพื่อดูสัดส่วนทักษะที่ฝึก</p>
                 </div>
 
                 <!-- 3. Weekly Target Ring (1x1) -->
@@ -1356,7 +1536,7 @@
                             class="flex items-center gap-1 px-2.5 py-1 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-xl text-[11px] font-black shadow-xs transition-all active:scale-95"
                             title="พิมพ์สรุปพอร์ตโฟลิโอการเรียนรู้ / บันทึกเป็น PDF">
                             <i class="ph-bold ph-printer text-xs"></i>
-                            <span>Portfolio</span>
+                            <span>พอร์ตโฟลิโอ</span>
                         </button>
                         <span id="historyCount"
                             class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-lg">0</span>
@@ -1387,7 +1567,7 @@
             <button type="button" onclick="openManualModal('manual')"
                 class="w-full mt-4 py-3 bg-white/90 hover:bg-emerald-50 text-slate-600 hover:text-emerald-700 text-xs font-bold rounded-2xl border border-dashed border-slate-200 hover:border-emerald-300 transition-all flex items-center justify-center gap-2 shadow-xs">
                 <i class="ph-bold ph-book-open text-emerald-600 text-sm"></i>
-                <span>เปิดคู่มือการใช้งาน & บันทึกการอัปเดต (Manual & Update Log)</span>
+                <span>เปิดคู่มือการใช้งาน & บันทึกการอัปเดต</span>
             </button>
 
             <!-- ➕ Floating Action Button (Quick Log from anywhere) -->
@@ -1426,9 +1606,7 @@
                                         <span class="text-slate-500 font-bold">ผู้บันทึก:</span>
                                         <span id="savedNameText" class="font-black text-slate-800 truncate"></span>
                                     </div>
-                                    <button type="button" onclick="toggleEditStudentName(true)" class="text-[11px] font-black text-emerald-600 hover:text-emerald-700 underline ml-2 flex-shrink-0">
-                                        เปลี่ยนชื่อ
-                                    </button>
+                                    <button type="button" onclick="toggleEditStudentName(true)" class="text-[11px] font-black text-emerald-600 hover:text-emerald-700 underline ml-2 flex-shrink-0">เปลี่ยนชื่อ</button>
                                 </div>
                                 <div id="studentNameInputWrap">
                                     <label class="block text-xs font-bold text-slate-700 mb-1">ชื่อ-นามสกุล / ชื่อเล่น <span
@@ -1488,59 +1666,39 @@
                                         class="text-slate-400 font-normal text-[11px]">(เลือกได้หลายอย่าง)</span></label>
                                 <div id="skillTagGroup" class="flex flex-wrap gap-1.5">
                                     <button type="button" data-skill="Listening"
-                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-cyan-400 hover:bg-cyan-50 hover:text-cyan-700 transition-all">
-                                        🎧 Listening
-                                    </button>
+                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-cyan-400 hover:bg-cyan-50 hover:text-cyan-700 transition-all">🎧 การฟัง</button>
                                     <button type="button" data-skill="Reading"
-                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-700 transition-all">
-                                        📖 Reading
-                                    </button>
+                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-700 transition-all">📖 การอ่าน</button>
                                     <button type="button" data-skill="Vocabulary"
-                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-violet-400 hover:bg-violet-50 hover:text-violet-700 transition-all">
-                                        📝 Vocabulary
-                                    </button>
+                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-violet-400 hover:bg-violet-50 hover:text-violet-700 transition-all">📝 คำศัพท์</button>
                                     <button type="button" data-skill="Grammar"
-                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-orange-400 hover:bg-orange-50 hover:text-orange-700 transition-all">
-                                        📐 Grammar
-                                    </button>
+                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-orange-400 hover:bg-orange-50 hover:text-orange-700 transition-all">📐 ไวยากรณ์</button>
                                     <button type="button" data-skill="Speaking"
-                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-rose-400 hover:bg-rose-50 hover:text-rose-700 transition-all">
-                                        🗣️ Speaking
-                                    </button>
+                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-rose-400 hover:bg-rose-50 hover:text-rose-700 transition-all">🗣️ การพูด</button>
                                     <button type="button" data-skill="Writing"
-                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 transition-all">
-                                        ✍️ Writing
-                                    </button>
+                                        class="skill-btn px-2.5 py-1 rounded-full border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 transition-all">✍️ การเขียน</button>
                                 </div>
                             </div>
 
                             <!-- ⏱️ One-Tap Time Presets (เวลาที่ฝึก) -->
                             <div class="mb-3.5">
                                 <div class="flex justify-between items-center mb-1.5">
-                                    <label class="block text-xs font-bold text-slate-700">⏱️ เวลาที่ฝึก (Duration)</label>
+                                    <label class="block text-xs font-bold text-slate-700">⏱️ เวลาที่ใช้ฝึก</label>
                                     <span id="durationDisplayBadge" class="text-xs font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200">15 นาที</span>
                                 </div>
                                 <div class="flex items-center gap-1.5 flex-wrap">
-                                    <button type="button" data-duration="15" class="duration-pill px-2.5 py-1 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-xs font-black text-emerald-700 active:scale-95 transition-all shadow-xs">
-                                        ⚡ 15m
-                                    </button>
-                                    <button type="button" data-duration="30" class="duration-pill px-2.5 py-1 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all">
-                                        ⚡ 30m
-                                    </button>
-                                    <button type="button" data-duration="45" class="duration-pill px-2.5 py-1 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all">
-                                        ⚡ 45m
-                                    </button>
-                                    <button type="button" data-duration="60" class="duration-pill px-2.5 py-1 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all">
-                                        ⚡ 60m+
-                                    </button>
-                                    <button type="button" onclick="adjustDuration(5)" class="px-2 py-1 rounded-xl border border-slate-200 bg-white hover:bg-slate-100 text-xs font-black text-slate-700 active:scale-95 transition-all shadow-xs" title="เพิ่ม 5 นาที">+5m</button>
-                                    <button type="button" onclick="adjustDuration(-5)" class="px-2 py-1 rounded-xl border border-slate-200 bg-white hover:bg-slate-100 text-xs font-black text-slate-700 active:scale-95 transition-all shadow-xs" title="ลด 5 นาที">-5m</button>
+                                    <button type="button" data-duration="15" class="duration-pill px-2.5 py-1 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-xs font-black text-emerald-700 active:scale-95 transition-all shadow-xs">⚡ 15 นาที</button>
+                                    <button type="button" data-duration="30" class="duration-pill px-2.5 py-1 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all">⚡ 30 นาที</button>
+                                    <button type="button" data-duration="45" class="duration-pill px-2.5 py-1 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all">⚡ 45 นาที</button>
+                                    <button type="button" data-duration="60" class="duration-pill px-2.5 py-1 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all">⚡ 60+ นาที</button>
+                                    <button type="button" onclick="adjustDuration(5)" class="px-2 py-1 rounded-xl border border-slate-200 bg-white hover:bg-slate-100 text-xs font-black text-slate-700 active:scale-95 transition-all shadow-xs" title="เพิ่ม 5 นาที">+5 นาที</button>
+                                    <button type="button" onclick="adjustDuration(-5)" class="px-2 py-1 rounded-xl border border-slate-200 bg-white hover:bg-slate-100 text-xs font-black text-slate-700 active:scale-95 transition-all shadow-xs" title="ลด 5 นาที">-5 นาที</button>
                                 </div>
                                 <input type="hidden" id="selectedDuration" value="15">
                             </div>
 
                             <div class="mb-3.5">
-                                <label class="block text-xs font-bold text-slate-700 mb-1">ผลงาน (Screenshot)</label>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">รูปภาพผลงาน (ถ้ามี)</label>
                                 <div id="uploadArea"
                                     class="relative border-2 border-dashed border-slate-300 rounded-xl p-3 text-center cursor-pointer hover:bg-slate-50 transition-colors"
                                     onclick="document.getElementById('imageFile').click()">
@@ -1589,9 +1747,9 @@
                 <p class="text-indigo-100 text-sm relative z-10">จัดอันดับตาม XP สะสม</p>
                 <div class="relative z-10 mt-3 flex flex-wrap justify-center gap-1.5 text-[10px] font-black">
                     <span class="bg-white/20 px-2 py-1 rounded-full">📝 +20 XP</span>
-                    <span class="bg-white/20 px-2 py-1 rounded-full">🎯 +5 XP / skill</span>
+                    <span class="bg-white/20 px-2 py-1 rounded-full">🎯 +5 XP / ทักษะ</span>
                     <span class="bg-white/20 px-2 py-1 rounded-full">📸 +5 XP</span>
-                    <span class="bg-white/20 px-2 py-1 rounded-full">⭐ score × 3 XP</span>
+                    <span class="bg-white/20 px-2 py-1 rounded-full">⭐ คะแนน × 3 XP</span>
                 </div>
             </div>
 
@@ -1640,7 +1798,7 @@
             <div
                 class="bg-gradient-to-br from-amber-400 to-orange-500 rounded-3xl p-6 shadow-xl text-white mb-5 text-center relative overflow-hidden">
                 <i class="ph-fill ph-storefront absolute -right-4 -bottom-4 text-9xl text-white opacity-20"></i>
-                <h2 class="text-2xl font-black mb-1 relative z-10">ร้านค้า (Shop)</h2>
+                <h2 class="text-2xl font-black mb-1 relative z-10">ร้านค้าแลกรางวัล</h2>
                 <p class="text-amber-100 text-sm relative z-10">ใช้ 💰 เหรียญจากการบันทึกการเรียนรู้มาแลกของตกแต่ง!</p>
             </div>
 
@@ -1652,8 +1810,7 @@
                 </div>
                 <div class="flex-1 min-w-0">
                     <div class="flex items-center justify-between gap-2 mb-0.5">
-                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">ห้องลองชุด /
-                            Preview</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">ห้องลองชุด</span>
                         <button type="button" id="resetPreviewBtn" onclick="resetShopPreview()"
                             class="hidden text-[11px] font-bold text-amber-600 hover:text-amber-700 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-200">รีเซ็ตพรีวิว</button>
                     </div>
@@ -1664,19 +1821,18 @@
             </div>
 
             <h3 class="font-black text-slate-800 mb-3 ml-2 flex items-center gap-2"><i
-                    class="ph-bold ph-identification-badge"></i> ฉายาประจำตัว (Titles)</h3>
+                    class="ph-bold ph-identification-badge"></i> ฉายาประจำตัว</h3>
             <div class="grid grid-cols-2 gap-3 mb-6" id="shopTitles">
                 <!-- Titles injected via JS -->
             </div>
 
             <h3 class="font-black text-slate-800 mb-3 ml-2 flex items-center gap-2"><i
-                    class="ph-bold ph-frame-corners"></i> กรอบโปรไฟล์ (Frames)</h3>
+                    class="ph-bold ph-frame-corners"></i> กรอบโปรไฟล์</h3>
             <div class="grid grid-cols-2 gap-3 mb-6" id="shopFrames">
                 <!-- Shop items injected via JS -->
             </div>
 
-            <h3 class="font-black text-slate-800 mb-3 ml-2 flex items-center gap-2"><i class="ph-bold ph-text-aa"></i>
-                เอฟเฟกต์ชื่อ (Name Effects)</h3>
+            <h3 class="font-black text-slate-800 mb-3 ml-2 flex items-center gap-2"><i class="ph-bold ph-text-aa"></i> เอฟเฟกต์ชื่อ</h3>
             <div class="grid grid-cols-2 gap-3 mb-6" id="shopNameEffects">
                 <!-- Shop items injected via JS -->
             </div>
@@ -1701,7 +1857,7 @@
                         <div class="flex items-center gap-2">
                             <h3 class="font-extrabold text-sm sm:text-base tracking-wide">My English Log</h3>
                             <span
-                                class="bg-white/25 text-[10px] font-black px-2 py-0.5 rounded-full border border-white/20 shadow-xs">v3.2</span>
+                                class="bg-white/25 text-[10px] font-black px-2 py-0.5 rounded-full border border-white/20 shadow-xs">v3.2.1</span>
                         </div>
                         <p class="text-[11px] text-teal-100 font-light">คู่มือการใช้งาน & บันทึกการอัปเดตระบบ</p>
                     </div>
@@ -1717,11 +1873,11 @@
             <div class="bg-slate-100 p-2 flex gap-2 border-b border-slate-200 flex-shrink-0 text-xs font-bold">
                 <button type="button" id="modalTabManual" onclick="switchManualTab('manual')"
                     class="flex-1 py-2 rounded-xl bg-white text-emerald-700 shadow-xs flex items-center justify-center gap-1.5 transition-all font-bold">
-                    <span>📖 คู่มือการใช้งาน (Manual)</span>
+                    <span>📖 คู่มือการใช้งาน</span>
                 </button>
                 <button type="button" id="modalTabUpdates" onclick="switchManualTab('updates')"
                     class="flex-1 py-2 rounded-xl text-slate-500 hover:text-slate-700 flex items-center justify-center gap-1.5 transition-all font-semibold">
-                    <span>🚀 มีอะไรใหม่ (Update Log)</span>
+                    <span>🚀 มีอะไรใหม่</span>
                     <span
                         class="bg-rose-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black animate-pulse">NEW</span>
                 </button>
@@ -1750,7 +1906,50 @@
 
                 <!-- VIEW 2: Update Log -->
                 <div id="modalViewUpdates" class="hidden space-y-4">
-                    <!-- Version 3.2.0 (Latest) -->
+                    <!-- Version 3.2.1 (Latest) -->
+                    <div
+                        class="bg-gradient-to-br from-indigo-600 via-teal-600 to-emerald-600 text-white p-4 sm:p-5 rounded-2xl shadow-md relative overflow-hidden">
+                        <div class="absolute -right-4 -bottom-4 text-7xl text-white/10 pointer-events-none">
+                            <i class="ph-fill ph-translate"></i>
+                        </div>
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-white text-emerald-800 text-xs font-black px-2.5 py-0.5 rounded-full shadow-xs">v3.2.1</span>
+                                <span class="text-xs text-emerald-100 font-semibold">17 ต.ค. 2026</span>
+                            </div>
+                            <span
+                                class="bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                                <span>✨</span> เวอร์ชันปัจจุบัน
+                            </span>
+                        </div>
+                        <h4 class="font-black text-base sm:text-lg mb-1">🌐 100% Bilingual Sync Fix (TH 🇹🇭 / EN 🇬🇧)</h4>
+                        <p class="text-xs text-teal-100 mb-3 font-light">
+                            แก้ไขบั๊กการสลับภาษา ไทย ↔ อังกฤษ ให้แสดงผลตรงตามโหมดภาษา 100% ทุกจุดทั่วทั้งแอปและคู่มือการใช้งาน
+                        </p>
+
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-2.5 border border-white/20">
+                                <div class="font-bold flex items-center gap-1.5 text-amber-200">
+                                    <span>🔄</span> ระบบแปลภาษาสองทิศทางแบบเรียลไทม์ (Bidirectional i18n Engine)
+                                </div>
+                                <p class="text-[11px] text-white/90 mt-0.5">
+                                    ไม่ว่าจะเปิดแอปในโหมด <b>TH</b> หรือ <b>EN</b> หรือกดสลับไปมาระหว่างใช้งาน ทุกการ์ด ปุ่ม แท็บ ป้ายทักษะ ฟอร์มบันทึก และข้อความแจ้งเตือนจะเปลี่ยนภาษาตรงกันทั้งหมดทันทีโดยไม่มีภาษาปนกัน
+                                </p>
+                            </div>
+
+                            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-2.5 border border-white/20">
+                                <div class="font-bold flex items-center gap-1.5 text-emerald-200">
+                                    <span>📊</span> รองรับสองภาษาครบทุกส่วน Dynamic UI & คู่มือการใช้งาน
+                                </div>
+                                <p class="text-[11px] text-white/90 mt-0.5">
+                                    อัปเกรด Bento Dashboard (30-Day Heatmap, สมดุลทักษะ, เป้าสัปดาห์), ภารกิจรายวัน, คำศัพท์ประจำวัน, เข็มกลัดรางวัล, ร้านค้า, กราฟเรดาร์, ใบพอร์ตโฟลิโอ PDF และหน้าคู่มือการใช้งานให้ซิงก์ภาษาตรงกันครบ 100%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Version 3.2.0 -->
                     <div
                         class="bg-gradient-to-br from-emerald-600 via-teal-600 to-indigo-700 text-white p-4 sm:p-5 rounded-2xl shadow-md relative overflow-hidden">
                         <div class="absolute -right-4 -bottom-4 text-7xl text-white/10 pointer-events-none">
@@ -1763,8 +1962,8 @@
                                 <span class="text-xs text-emerald-100 font-semibold">17 ต.ค. 2026</span>
                             </div>
                             <span
-                                class="bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
-                                <span>✨</span> เวอร์ชันปัจจุบัน
+                                class="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                                <span>🚀</span> Smart Bento UX
                             </span>
                         </div>
                         <h4 class="font-black text-base sm:text-lg mb-1">🚀 Smart Bento UX & Anti-Scroll-Fatigue Update!</h4>
@@ -1969,13 +2168,9 @@
                 </label>
                 <div class="flex gap-2 w-full sm:w-auto">
                     <a href="manual.html" target="_blank"
-                        class="flex-1 sm:flex-none text-center px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors">
-                        เปิดในแท็บใหม่ ↗
-                    </a>
+                        class="flex-1 sm:flex-none text-center px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors">เปิดในแท็บใหม่ ↗</a>
                     <button type="button" onclick="closeManualModal()"
-                        class="flex-1 sm:flex-none px-5 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-black rounded-xl shadow-md transition-all">
-                        เข้าใจแล้ว ปิดหน้าต่าง
-                    </button>
+                        class="flex-1 sm:flex-none px-5 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-black rounded-xl shadow-md transition-all">เข้าใจแล้ว ปิดหน้าต่าง</button>
                 </div>
             </div>
 
@@ -1996,8 +2191,8 @@
                         <span id="streakModalDays" class="text-5xl font-black">0</span>
                         <span class="text-xl font-bold">วัน</span>
                     </div>
-                    <p id="streakModalTierName" class="text-xs font-black mt-1 tracking-wide uppercase px-3 py-0.5 rounded-full bg-white/25 backdrop-blur-md">ไฟสีฟ้า (Blue Fire 🔥)</p>
-                    <p id="streakModalSubtitle" class="text-[11px] text-white/90 mt-1">ไฟสีฟ้านีออน! รับโบนัสเหรียญ +10 💰 ต่อการบันทึก</p>
+                    <p id="streakModalTierName" class="text-xs font-black mt-1 tracking-wide uppercase px-3 py-0.5 rounded-full bg-white/25 backdrop-blur-md">ไฟเริ่มต้น 🔥</p>
+                    <p id="streakModalSubtitle" class="text-[11px] text-white/90 mt-1">ไฟส้มอ่อนเริ่มต้น! สะสมครบ 3 วันเพื่ออัปเกรดสีไฟ</p>
                 </div>
             </div>
 
@@ -2016,7 +2211,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <h4 class="font-black text-slate-800 text-xs flex items-center gap-1.5">
-                            <i class="ph-bold ph-flame text-orange-500"></i> ลำดับสีไฟ (Flame Tiers)
+                            <i class="ph-bold ph-flame text-orange-500"></i> ลำดับระดับสีไฟ
                         </h4>
                         <span class="text-[10px] text-slate-400 font-bold">สะสมวันเปลี่ยนสี</span>
                     </div>
@@ -2026,7 +2221,7 @@
                             <div class="flex items-center gap-2.5">
                                 <span class="text-xl streak-fire-base streak-fire-soft">🔥</span>
                                 <div>
-                                    <p class="font-bold text-slate-700 text-[11px]">1–2 วัน · Starter Fire</p>
+                                    <p class="font-bold text-slate-700 text-[11px]">1–2 วัน · ไฟเริ่มต้น</p>
                                     <p class="text-[9px] text-slate-400">ไฟส้มอ่อน (ประกายไฟเริ่มต้น)</p>
                                 </div>
                             </div>
@@ -2037,7 +2232,7 @@
                             <div class="flex items-center gap-2.5">
                                 <span class="text-xl streak-fire-base streak-fire-classic">🔥</span>
                                 <div>
-                                    <p class="font-bold text-orange-800 text-[11px]">3–6 วัน · Classic Fire</p>
+                                    <p class="font-bold text-orange-800 text-[11px]">3–6 วัน · ไฟส้มแดง</p>
                                     <p class="text-[9px] text-orange-600">ไฟส้มแดงมาตรฐาน (+5 💰)</p>
                                 </div>
                             </div>
@@ -2048,7 +2243,7 @@
                             <div class="flex items-center gap-2.5">
                                 <span class="text-xl streak-fire-base streak-fire-blue">🔥</span>
                                 <div>
-                                    <p class="font-bold text-cyan-900 text-[11px]">7–13 วัน · Blue Fire</p>
+                                    <p class="font-bold text-cyan-900 text-[11px]">7–13 วัน · ไฟสีฟ้า</p>
                                     <p class="text-[9px] text-cyan-700">ไฟสีฟ้านีออน (+10 💰)</p>
                                 </div>
                             </div>
@@ -2059,7 +2254,7 @@
                             <div class="flex items-center gap-2.5">
                                 <span class="text-xl streak-fire-base streak-fire-purple">🔥</span>
                                 <div>
-                                    <p class="font-bold text-purple-900 text-[11px]">14–29 วัน · Violet Fire</p>
+                                    <p class="font-bold text-purple-900 text-[11px]">14–29 วัน · ไฟสีม่วง</p>
                                     <p class="text-[9px] text-purple-700">ไฟสีม่วงนีออน สายขยันจริงจัง (+12 💰)</p>
                                 </div>
                             </div>
@@ -2070,7 +2265,7 @@
                             <div class="flex items-center gap-2.5">
                                 <span class="text-xl streak-fire-base streak-fire-gold">🔥</span>
                                 <div>
-                                    <p class="font-bold text-amber-900 text-[11px]">30–99 วัน · Golden Fire</p>
+                                    <p class="font-bold text-amber-900 text-[11px]">30–99 วัน · ไฟสีทอง</p>
                                     <p class="text-[9px] text-amber-700">ไฟสีทองเปล่งประกาย ขั้นเซียน (+15 💰)</p>
                                 </div>
                             </div>
@@ -2081,7 +2276,7 @@
                             <div class="flex items-center gap-2.5">
                                 <span class="text-xl streak-fire-base streak-fire-cosmic">🔥</span>
                                 <div>
-                                    <p class="font-bold text-pink-900 text-[11px]">100+ วัน · Cosmic Fire</p>
+                                    <p class="font-bold text-pink-900 text-[11px]">100+ วัน · ไฟสายรุ้ง</p>
                                     <p class="text-[9px] text-purple-700">ไฟสายรุ้งอภิมหาตำนาน (+20 💰)</p>
                                 </div>
                             </div>
@@ -2093,9 +2288,7 @@
 
             <!-- Modal Footer -->
             <div class="p-3 bg-slate-50 border-t border-slate-100">
-                <button type="button" onclick="closeStreakModal()" class="w-full py-2 bg-slate-800 hover:bg-slate-900 text-white font-black rounded-xl text-xs shadow-sm transition-all">
-                    เข้าใจแล้ว
-                </button>
+                <button type="button" onclick="closeStreakModal()" class="w-full py-2 bg-slate-800 hover:bg-slate-900 text-white font-black rounded-xl text-xs shadow-sm transition-all">เข้าใจแล้ว</button>
             </div>
         </div>
     </div>
@@ -2110,7 +2303,7 @@
                         <i class="ph-bold ph-printer"></i>
                     </div>
                     <div>
-                        <p class="text-xs sm:text-sm font-black">พิมพ์พอร์ตโฟลิโอการเรียนรู้ (Student Learning Portfolio)</p>
+                        <p class="text-xs sm:text-sm font-black">พิมพ์พอร์ตโฟลิโอการเรียนรู้</p>
                         <p class="text-[10px] text-slate-400">ใบรายงานและสรุปพัฒนาการทักษะภาษาอังกฤษเพื่อใช้ยื่นผลงาน</p>
                     </div>
                 </div>
@@ -2180,6 +2373,12 @@
         let userData = null;
         let mySkillChart = null;
 
+        const t = (th, en) => (window.currentLang === 'en' ? en : th);
+        const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const dayKey = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        const toDayNum = d => Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000;
+        const logDate = l => (l.timestamp && l.timestamp.toDate) ? l.timestamp.toDate() : (typeof l.timestamp === 'string' ? new Date(l.timestamp) : new Date());
+
         // ==========================================
         // 🌟 GUEST MODE (โหมดทดลองใช้ - ไม่บันทึกข้อมูลถาวร)
         // ==========================================
@@ -2192,13 +2391,27 @@
             location.reload();
         };
 
+        function syncUserHeaderLang() {
+            if (!currentUser) return;
+            const roleEl = document.getElementById('userRole');
+            if (isGuest) {
+                document.getElementById('userEmail').textContent = t('ผู้ทดลองใช้งาน', 'Guest Tester');
+                if (roleEl) {
+                    roleEl.innerHTML = `${t('ผู้เยี่ยมชม', 'Guest')} <span class="bg-amber-100 text-amber-800 text-[9px] font-black px-1.5 py-0.5 rounded border border-amber-300 ml-1">DEMO</span>`;
+                }
+            } else if (roleEl) {
+                const isTeacher = isTeacherEmail(currentUser.email);
+                roleEl.textContent = isTeacher ? t('คุณครู', 'Teacher') : t('นักเรียน', 'Student');
+            }
+        }
+
         function startGuestMode() {
             isGuest = true;
             localStorage.setItem('melIsGuest', 'true');
             currentUser = {
                 uid: 'guest_demo_user',
                 email: 'guest@demo.local',
-                displayName: 'ผู้ทดลองใช้งาน (Guest)',
+                displayName: t('ผู้ทดลองใช้งาน', 'Guest Tester'),
                 photoURL: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DemoGuest'
             };
 
@@ -2211,13 +2424,8 @@
                 equippedTitle: null
             };
 
-            document.getElementById('userEmail').textContent = currentUser.displayName;
             document.getElementById('userPhoto').src = currentUser.photoURL;
-
-            const roleEl = document.getElementById('userRole');
-            if (roleEl) {
-                roleEl.innerHTML = `ผู้เยี่ยมชม <span class="bg-amber-100 text-amber-800 text-[9px] font-black px-1.5 py-0.5 rounded border border-amber-300 ml-1">DEMO</span>`;
-            }
+            syncUserHeaderLang();
 
             document.getElementById('guestWarningBanner')?.classList.remove('hidden');
 
@@ -2237,9 +2445,12 @@
                     topic: 'TED Talk - 5 Techniques to Speak Any Language',
                     mediaType: 'YouTube',
                     skills: ['Listening', 'Speaking'],
+                    duration: 20,
                     summary: 'ฟังเคล็ดลับการฝึกภาษาและจดคำศัพท์ใหม่ เช่น immersion, muscle memory',
+                    summaryEn: 'Learned language-learning tips and key terms like immersion and muscle memory.',
                     score: 10,
-                    teacherFeedback: 'เลือกวิดีโอที่สร้างแรงบันดาลใจได้ดีมากครับ!'
+                    teacherFeedback: 'เลือกวิดีโอที่สร้างแรงบันดาลใจได้ดีมากครับ!',
+                    teacherFeedbackEn: 'Great choice of an inspiring video!'
                 },
                 {
                     id: 'guest_demo_8',
@@ -2248,9 +2459,12 @@
                     topic: 'English Idioms & Slang in Daily Life',
                     mediaType: 'Article',
                     skills: ['Reading', 'Vocabulary'],
+                    duration: 15,
                     summary: 'อ่านบทความเรื่อง Idioms ที่พบบ่อย เช่น piece of cake, under the weather',
+                    summaryEn: 'Read an article about common idioms such as piece of cake and under the weather.',
                     score: 9,
-                    teacherFeedback: 'นำสำนวนเหล่านี้ไปลองแต่งประโยคเพิ่มนะครับ'
+                    teacherFeedback: 'นำสำนวนเหล่านี้ไปลองแต่งประโยคเพิ่มนะครับ',
+                    teacherFeedbackEn: 'Try using these idioms in your own sentences!'
                 },
                 {
                     id: 'guest_demo_1',
@@ -2259,9 +2473,12 @@
                     topic: 'BBC 6 Minute English - Food & Culture',
                     mediaType: 'Podcast',
                     skills: ['Listening', 'Vocabulary'],
+                    duration: 30,
                     summary: 'ได้เรียนรู้คำศัพท์เกี่ยวกับอาหารและวัฒนธรรม สำนวน take it with a pinch of salt',
+                    summaryEn: 'Learned vocabulary about food & culture, plus the idiom take it with a pinch of salt.',
                     score: 10,
-                    teacherFeedback: 'สรุปได้ใจความดีมากครับ มีการบันทึก Idioms เพิ่มเติม ยอดเยี่ยม!'
+                    teacherFeedback: 'สรุปได้ใจความดีมากครับ มีการบันทึก Idioms เพิ่มเติม ยอดเยี่ยม!',
+                    teacherFeedbackEn: 'Clear summary and awesome job noting down extra idioms!'
                 },
                 {
                     id: 'guest_demo_2',
@@ -2270,9 +2487,12 @@
                     topic: 'Breaking News English - Space Exploration',
                     mediaType: 'Article',
                     skills: ['Reading', 'Vocabulary'],
+                    duration: 25,
                     summary: 'อ่านบทความเรื่องการสำรวจอวกาศและการค้นพบดาวดวงใหม่ ฝึกจับใจความสำคัญ',
+                    summaryEn: 'Read a news article on space exploration and new planet discoveries.',
                     score: 9,
-                    teacherFeedback: 'ดีมากครับ ฝึกอ่านบทความระดับที่ยากขึ้นเรื่อยๆ นะครับ'
+                    teacherFeedback: 'ดีมากครับ ฝึกอ่านบทความระดับที่ยากขึ้นเรื่อยๆ นะครับ',
+                    teacherFeedbackEn: 'Well done! Keep challenging yourself with higher-level articles.'
                 },
                 {
                     id: 'guest_demo_3',
@@ -2281,9 +2501,12 @@
                     topic: 'English Grammar in Use - Present Perfect vs Past Simple',
                     mediaType: 'YouTube',
                     skills: ['Grammar', 'Writing'],
+                    duration: 30,
                     summary: 'ทำความเข้าใจความต่างระหว่างเหตุการณ์ที่จบไปแล้วกับเหตุการณ์ที่ส่งผลถึงปัจจุบัน',
+                    summaryEn: 'Practiced the difference between completed past actions and actions connected to the present.',
                     score: 10,
-                    teacherFeedback: 'แยกความแตกต่างของทั้งสอง Tense ได้ชัดเจนมากครับ'
+                    teacherFeedback: 'แยกความแตกต่างของทั้งสอง Tense ได้ชัดเจนมากครับ',
+                    teacherFeedbackEn: 'You distinguished both tenses very clearly!'
                 },
                 {
                     id: 'guest_demo_4',
@@ -2292,9 +2515,12 @@
                     topic: 'Shadowing Technique - Daily English Conversation',
                     mediaType: 'YouTube',
                     skills: ['Speaking', 'Listening'],
+                    duration: 15,
                     summary: 'ฝึกออกเสียงเลียนแบบสำเนียงเจ้าของภาษาตามวิดีโอ 15 นาที เน้นการเชื่อมเสียง (Linking sounds)',
+                    summaryEn: 'Practiced 15 minutes of shadowing native speakers, focusing on linking sounds.',
                     score: 10,
-                    teacherFeedback: 'เทคนิค Shadowing ช่วยให้สำเนียงเป็นธรรมชาติขึ้นมาก เก่งมากครับ!'
+                    teacherFeedback: 'เทคนิค Shadowing ช่วยให้สำเนียงเป็นธรรมชาติขึ้นมาก เก่งมากครับ!',
+                    teacherFeedbackEn: 'Shadowing really helps make your pronunciation sound natural. Great job!'
                 },
                 {
                     id: 'guest_demo_5',
@@ -2303,9 +2529,12 @@
                     topic: 'Writing a Short Essay - My Favorite Place',
                     mediaType: 'Other',
                     skills: ['Writing', 'Grammar', 'Vocabulary'],
+                    duration: 45,
                     summary: 'เขียนเรียงความสั้น 120 คำ บรรยายสถานที่ท่องเที่ยวที่ประทับใจ',
+                    summaryEn: 'Wrote a 120-word short essay describing my favorite travel destination.',
                     score: 10,
-                    teacherFeedback: 'ใช้คำคุณศัพท์บรรยายได้เห็นภาพชัดเจนมากครับ'
+                    teacherFeedback: 'ใช้คำคุณศัพท์บรรยายได้เห็นภาพชัดเจนมากครับ',
+                    teacherFeedbackEn: 'Vivid use of descriptive adjectives!'
                 }
             ];
             renderHistory(userLogs);
@@ -2319,20 +2548,20 @@
 
         document.getElementById('guestLoginBtn')?.addEventListener('click', () => {
             Swal.fire({
-                title: '⚠️ โหมดผู้เยี่ยมชม (Guest Mode)',
+                title: t('⚠️ โหมดผู้เยี่ยมชม', '⚠️ Guest Demo Mode'),
                 html: `
                     <div class="text-xs text-slate-600 text-left space-y-2 bg-amber-50 p-3 rounded-xl border border-amber-200">
-                        <p class="font-bold text-amber-900">• ข้อมูลการบันทึกจะไม่ถูกบันทึกลงเซิร์ฟเวอร์จริง</p>
-                        <p>• มีเหรียญทดสอบ 500 💰 และไอเทมไว้เพื่อทดสอบระบบเท่านั้น</p>
-                        <p>• สามารถเข้าสู่ระบบด้วย Google ภายหลังได้ทุกเมื่อ</p>
+                        <p class="font-bold text-amber-900">${t('• ข้อมูลการบันทึกจะไม่ถูกบันทึกลงเซิร์ฟเวอร์จริง', '• Learning logs will not be saved permanently to the server')}</p>
+                        <p>${t('• มีเหรียญทดสอบ 500 💰 และไอเทมไว้เพื่อทดสอบระบบเท่านั้น', '• Includes 500 💰 demo coins & sample data for testing')}</p>
+                        <p>${t('• สามารถเข้าสู่ระบบด้วย Google ภายหลังได้ทุกเมื่อ', '• You can sign in with Google anytime later')}</p>
                     </div>
                 `,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#f59e0b',
                 cancelButtonColor: '#94a3b8',
-                confirmButtonText: 'เข้าใจแล้ว เข้าใช้งาน',
-                cancelButtonText: 'ยกเลิก'
+                confirmButtonText: t('เข้าใจแล้ว เข้าใช้งาน', 'Start Demo'),
+                cancelButtonText: t('ยกเลิก', 'Cancel')
             }).then((res) => {
                 if (res.isConfirmed) {
                     startGuestMode();
@@ -2545,14 +2774,14 @@
             const input = document.getElementById('selectedDuration');
             const badge = document.getElementById('durationDisplayBadge');
             if (input) input.value = mins;
-            if (badge) badge.textContent = `${mins} นาที`;
+            if (badge) badge.textContent = t(`${mins} นาที`, `${mins} mins`);
 
             document.querySelectorAll('.duration-pill').forEach(btn => {
                 const btnMins = parseInt(btn.dataset.duration);
                 if (btnMins === mins) {
-                    btn.className = "duration-pill px-3 py-1.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-xs font-black text-emerald-700 active:scale-95 transition-all shadow-xs";
+                    btn.className = "duration-pill px-2.5 py-1 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-xs font-black text-emerald-700 active:scale-95 transition-all shadow-xs";
                 } else {
-                    btn.className = "duration-pill px-3 py-1.5 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all";
+                    btn.className = "duration-pill px-2.5 py-1 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all";
                 }
             });
         }
@@ -2630,6 +2859,7 @@
             const modal = document.getElementById('logFormModal');
             if (!modal) return;
             syncSavedNameUI();
+            setDuration(document.getElementById('selectedDuration')?.value || 15);
             modal.classList.remove('hidden');
             setTimeout(() => {
                 const topicEl = document.getElementById('topic');
@@ -2684,7 +2914,7 @@
                     const roleEl = document.getElementById('userRole');
                     if (roleEl) {
                         if (isTeacher) {
-                            roleEl.textContent = "คุณครู / Teacher";
+                            roleEl.textContent = t("คุณครู", "Teacher");
                             roleEl.classList.replace('text-emerald-600', 'text-indigo-500');
 
                             // Give teacher infinite testing money
@@ -2692,7 +2922,7 @@
                                 await updateDoc(userRef, { coins: 999999 });
                             }
                         } else {
-                            roleEl.textContent = "นักเรียน / Student";
+                            roleEl.textContent = t("นักเรียน", "Student");
                             roleEl.classList.replace('text-indigo-500', 'text-emerald-600');
                         }
                     }
@@ -2732,20 +2962,19 @@
                         title: t('เบราว์เซอร์บล็อกหน้าต่างล็อกอิน 🚫', 'Pop-up Was Blocked 🚫'),
                         html: `
                             <div class="text-left text-xs text-slate-600 space-y-2.5 my-2">
-                                <p>เบราว์เซอร์ของคุณกำลังบล็อกหน้าต่างเข้าสู่ระบบ Google</p>
+                                <p>${t('เบราว์เซอร์ของคุณกำลังบล็อกหน้าต่างเข้าสู่ระบบ Google', 'Your browser blocked the Google sign-in window.')}</p>
                                 <div class="p-3 bg-amber-50 rounded-2xl border border-amber-200 text-amber-900 text-xs leading-relaxed space-y-1.5">
-                                    <div><b>1. หากเพิ่งกด Allow:</b> ให้กด <b>รีเฟรชหน้าเว็บ (F5 หรือปุ่ม 🔄)</b> 1 ครั้ง</div>
-                                    <div><b>2. ปิด AdBlock / Shield:</b> หากมีส่วนขยายบล็อกโฆษณา ให้กดหยุดชั่วคราวบนเว็บนี้</div>
-                                    <div><b>3. คุกกี้บุคคลที่สาม (Third-party cookies):</b> ตรวจสอบว่าไม่ได้ปิดกั้นคุกกี้สำหรับ Firebase</div>
+                                    <div>${t('<b>1. หากเพิ่งกด Allow:</b> ให้กด <b>รีเฟรชหน้าเว็บ (F5 หรือปุ่ม 🔄)</b> 1 ครั้ง', '<b>1. Just allowed pop-ups?</b> Reload this page once.')}</div>
+                                    <div>${t('<b>2. ปิด AdBlock / Shield:</b> หากมีส่วนขยายบล็อกโฆษณา ให้กดหยุดชั่วคราวบนเว็บนี้', '<b>2. Disable AdBlock / Shield:</b> Pause extensions on this site.')}</div>
+                                    <div>${t('<b>3. คุกกี้บุคคลที่สาม:</b> ตรวจสอบว่าไม่ได้ปิดกั้นคุกกี้สำหรับ Firebase', '<b>3. Third-party cookies:</b> Ensure cookies are allowed for Firebase.')}</div>
                                 </div>
-                                <p class="text-[11px] text-slate-500 text-center">หากยังไม่เปิด ให้ลองกดปุ่มด้านล่างเพื่อรีโหลดและลองใหม่</p>
                             </div>
                         `,
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#10b981',
                         cancelButtonColor: '#94a3b8',
-                        confirmButtonText: t('รีเฟรชหน้าเว็บ (Reload)', 'Reload Page'),
+                        confirmButtonText: t('รีเฟรชหน้าเว็บ', 'Reload Page'),
                         cancelButtonText: t('ปิด', 'Close')
                     }).then((r) => {
                         if (r.isConfirmed) {
@@ -2767,13 +2996,13 @@
         document.getElementById('loginBtn').addEventListener('click', handleLogin);
         document.getElementById('logoutBtn').addEventListener('click', () => {
             Swal.fire({
-                title: isGuest ? 'ออกจากโหมดทดลอง?' : 'ออกจากระบบ?',
-                text: isGuest ? 'ข้อมูลทดสอบทั้งหมดจะถูกรีเซ็ต' : '',
+                title: isGuest ? t('ออกจากโหมดทดลอง?', 'Exit Guest Demo?') : t('ออกจากระบบ?', 'Sign out?'),
+                text: isGuest ? t('ข้อมูลทดสอบทั้งหมดจะถูกรีเซ็ต', 'All demo data will be reset') : '',
                 showCancelButton: true,
                 confirmButtonColor: '#10b981',
                 cancelButtonColor: '#ef4444',
-                confirmButtonText: 'ใช่',
-                cancelButtonText: 'ยกเลิก'
+                confirmButtonText: t('ใช่', 'Yes'),
+                cancelButtonText: t('ยกเลิก', 'Cancel')
             }).then(r => {
                 if (r.isConfirmed) {
                     if (isGuest) {
@@ -2789,7 +3018,7 @@
         document.getElementById('imageFile').addEventListener('change', function (e) {
             const file = e.target.files[0];
             if (!file) return;
-            document.getElementById('fileNameDisplay').innerHTML = `<span class="text-amber-500">กำลังย่อรูป...</span>`;
+            document.getElementById('fileNameDisplay').innerHTML = `<span class="text-amber-500">${t('กำลังย่อรูป...', 'Compressing image...')}</span>`;
             const reader = new FileReader();
             reader.onload = (event) => {
                 const img = new Image();
@@ -2812,7 +3041,7 @@
             e.stopPropagation(); document.getElementById('imageFile').value = ""; base64Image = null;
             document.getElementById('uploadPlaceholder').classList.remove('hidden');
             document.getElementById('previewContainer').classList.add('hidden');
-            document.getElementById('fileNameDisplay').textContent = "แตะเพื่อแนบรูปภาพประกอบ (ถ้ามี)";
+            document.getElementById('fileNameDisplay').textContent = t("แตะเพื่อแนบรูปภาพประกอบ (ถ้ามี)", "Tap to attach a screenshot (optional)");
         });
 
         // Submit Form
@@ -2820,7 +3049,7 @@
             e.preventDefault();
             const mediaType = document.getElementById('selectedMedia').value;
             if (!mediaType) {
-                Swal.fire({ icon: 'warning', title: 'เลือกสื่อด้วยนะ!', text: 'กรุณาเลือกประเภทสื่อที่ใช้เรียน', timer: 2000, showConfirmButton: false });
+                Swal.fire({ icon: 'warning', title: t('เลือกสื่อด้วยนะ!', 'Please select media!'), text: t('กรุณาเลือกประเภทสื่อที่ใช้เรียน', 'Please choose the type of media you used'), timer: 2000, showConfirmButton: false });
                 return;
             }
             const btn = document.getElementById('submitBtn');
@@ -2874,15 +3103,15 @@
 
                 renderHistory(userLogs, currentHistoryFilter);
                 updateGameState(userLogs);
-                if (mySkillChart) updateSkillRadar(userLogs);
+                if (mySkillChart) renderSkillChart();
 
                 queuePopup(() => Swal.fire({
-                    title: 'บันทึกสำเร็จ! (โหมดทดลอง) 🎉',
+                    title: t('บันทึกสำเร็จ! (โหมดทดลอง) 🎉', 'Saved! (Demo Mode) 🎉'),
                     html: `<div class="flex justify-center gap-2 mt-1">
                               <span class="bg-amber-100 text-amber-700 font-black px-3 py-1.5 rounded-xl">+${reward} 💰</span>
                               <span class="bg-teal-100 text-teal-700 font-black px-3 py-1.5 rounded-xl">+${gainedXP} XP</span>
                            </div>
-                           <p class="text-xs text-amber-700 font-bold mt-3">⚠️ ข้อมูลถูกจำลองในเครื่อง (ไม่ได้บันทึกลงเซิร์ฟเวอร์จริง)</p>`,
+                           <p class="text-xs text-amber-700 font-bold mt-3">${t('⚠️ ข้อมูลถูกจำลองในเครื่อง (ไม่ได้บันทึกลงเซิร์ฟเวอร์จริง)', '⚠️ Simulated locally (not saved to server)')}</p>`,
                     icon: 'success',
                     timer: 2800,
                     showConfirmButton: false
@@ -2890,7 +3119,7 @@
                 return;
             }
 
-            btn.disabled = true; btn.innerHTML = '<i class="ph-bold ph-spinner-gap animate-spin"></i> บันทึก...';
+            btn.disabled = true; btn.innerHTML = `<i class="ph-bold ph-spinner-gap animate-spin"></i> ${t('บันทึก...', 'Saving...')}`;
             const reward = submitReward();
             const newLog = {
                 uid: currentUser.uid, email: currentUser.email, studentName: name,
@@ -2948,21 +3177,16 @@
                            <p class="text-xs text-slate-400 mt-3">${t('อย่าลืมกดรับรางวัลภารกิจประจำวันนะ 🎯', "Don't forget to claim your daily quests 🎯")}</p>`,
                     icon: 'success', timer: 2600, showConfirmButton: false
                 }));
-            } catch (error) { sfx('error'); Swal.fire('Error', 'ไม่สามารถบันทึกได้', 'error'); }
+            } catch (error) { sfx('error'); Swal.fire('Error', t('ไม่สามารถบันทึกได้', 'Could not save log'), 'error'); }
             finally {
                 submitting = false; flushCelebrations();
-                btn.disabled = false; btn.innerHTML = 'บันทึกรับ 10 💰 <i class="ph-bold ph-paper-plane-right text-lg"></i>';
+                btn.disabled = false; btn.innerHTML = `${t('บันทึกรับ 10 💰', 'Log & Get 10 💰')} <i class="ph-bold ph-paper-plane-right text-lg"></i>`;
             }
         });
 
         // =====================================================
         // 🎮 Gamification Engine (XP / Level / Quests / Chest)
         // =====================================================
-        const t = (th, en) => (window.currentLang === 'en' ? en : th);
-        const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-        const dayKey = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-        const toDayNum = d => Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000;
-        const logDate = l => (l.timestamp && l.timestamp.toDate) ? l.timestamp.toDate() : new Date(); // pending writes = now
 
         // ---- Sound FX (WebAudio, no files needed) ----
         let audioCtx = null;
@@ -3047,21 +3271,31 @@
             while (rest >= need) { rest -= need; lvl++; need = 100 + (lvl - 1) * 50; }
             return { lvl, cur: rest, need };
         }
-        const LEVEL_TITLES = [[20, '👑', 'Legend'], [16, '🏆', 'Champion'], [12, '🧙', 'Master'], [8, '🎓', 'Scholar'], [5, '📘', 'Learner'], [3, '🧭', 'Explorer'], [1, '🌱', 'Newbie']];
+        const LEVEL_TITLES = [
+            [20, '👑', 'ตำนานอังกฤษ', 'Legend'],
+            [16, '🏆', 'แชมเปียน', 'Champion'],
+            [12, '🧙', 'ปรมาจารย์', 'Master'],
+            [8, '🎓', 'นักปราชญ์', 'Scholar'],
+            [5, '📘', 'ผู้ใฝ่รู้', 'Learner'],
+            [3, '🧭', 'นักสำรวจ', 'Explorer'],
+            [1, '🌱', 'มือใหม่', 'Newbie']
+        ];
         const levelTitle = lvl => LEVEL_TITLES.find(([m]) => lvl >= m);
 
         function renderLevel(logs) {
             if (!currentUser) return;
             const xp = logs.reduce((s, l) => s + logXP(l), 0);
             const { lvl, cur, need } = levelInfo(xp);
-            const [, emo, title] = levelTitle(lvl);
+            const [, emo, thTitle, enTitle] = levelTitle(lvl);
+            const title = t(thTitle, enTitle);
             const nextTitle = LEVEL_TITLES.slice().reverse().find(([m]) => m > lvl);
+            const nextRankName = nextTitle ? t(nextTitle[2], nextTitle[3]) : '';
             document.getElementById('levelBadge').textContent = lvl;
             document.getElementById('levelTitle').textContent = `${emo} Lv.${lvl} · ${title}`;
             document.getElementById('xpText').textContent = `${cur} / ${need} XP`;
             document.getElementById('xpFill').style.width = `${Math.max(3, (cur / need) * 100)}%`;
             document.getElementById('xpNextHint').textContent = nextTitle
-                ? t(`อีก ${need - cur} XP เลเวลอัป · ปลดล็อกยศ ${nextTitle[1]} ${nextTitle[2]} ที่ Lv.${nextTitle[0]}`, `${need - cur} XP to level up · ${nextTitle[1]} ${nextTitle[2]} at Lv.${nextTitle[0]}`)
+                ? t(`อีก ${need - cur} XP เลเวลอัป · ปลดล็อกยศ ${nextTitle[1]} ${nextRankName} ที่ Lv.${nextTitle[0]}`, `${need - cur} XP to level up · ${nextTitle[1]} ${nextRankName} at Lv.${nextTitle[0]}`)
                 : t(`อีก ${need - cur} XP เลเวลอัป · คุณคือตำนาน!`, `${need - cur} XP to level up · You are a legend!`);
 
             const key = 'melLevel_' + currentUser.uid;
@@ -3079,7 +3313,7 @@
             })();
             return Swal.fire({
                 html: `<div class="text-6xl mb-2 mel-float">${emo}</div>
-                       <p class="text-xs font-black tracking-[.3em] text-amber-500 uppercase">Level Up!</p>
+                       <p class="text-xs font-black tracking-[.3em] text-amber-500 uppercase">${t('เลเวลอัป!', 'Level Up!')}</p>
                        <p class="text-5xl font-black text-slate-800 my-1">Lv.${lvl}</p>
                        <p class="text-sm font-bold text-slate-500">${t('ยศของคุณ', 'Your rank')}: <span class="text-teal-600">${title}</span></p>`,
                 confirmButtonText: t('สุดยอด! 🚀', 'Awesome! 🚀'), confirmButtonColor: '#14b8a6'
@@ -3107,9 +3341,10 @@
                 return {
                     tierNum: 6,
                     days: s,
-                    name: 'ไฟสายรุ้ง (Cosmic Fire 🔥)',
+                    name: 'ไฟสายรุ้ง 🔥',
                     enName: 'Cosmic Fire 🔥',
                     desc: 'ไฟสายรุ้งอภิมหาตำนาน! สะสมครบ 100 วัน โบนัสเหรียญ +20 💰 ต่อการบันทึก',
+                    enDesc: 'Legendary Cosmic Fire! 100+ day streak · +20 💰 bonus coins per log',
                     badgeBg: 'bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white border border-pink-300 shadow-md shadow-purple-300/40 ring-2 ring-pink-300 animate-pulse',
                     fireClass: 'streak-fire-cosmic',
                     headerBg: 'bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600',
@@ -3119,9 +3354,10 @@
                 return {
                     tierNum: 5,
                     days: s,
-                    name: 'ไฟสีทอง (Golden Fire 🔥)',
+                    name: 'ไฟสีทอง 🔥',
                     enName: 'Golden Fire 🔥',
                     desc: 'ไฟสีทองอร่ามขั้นเซียน! สะสมครบ 30 วัน โบนัสเหรียญ +15 💰 ต่อการบันทึก',
+                    enDesc: 'Master Golden Fire! 30+ day streak · +15 💰 bonus coins per log',
                     badgeBg: 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-amber-950 border border-yellow-200 shadow-md shadow-yellow-300/60 ring-2 ring-yellow-300',
                     fireClass: 'streak-fire-gold',
                     headerBg: 'bg-gradient-to-r from-amber-500 via-yellow-500 to-orange-500',
@@ -3131,9 +3367,10 @@
                 return {
                     tierNum: 4,
                     days: s,
-                    name: 'ไฟสีม่วง (Violet Fire 🔥)',
+                    name: 'ไฟสีม่วง 🔥',
                     enName: 'Violet Fire 🔥',
                     desc: 'ไฟสีม่วงนีออน สายขยันจริงจัง! สะสมครบ 14 วัน โบนัสเหรียญ +12 💰 ต่อการบันทึก',
+                    enDesc: 'Neon Violet Fire! 14+ day streak · +12 💰 bonus coins per log',
                     badgeBg: 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white border border-purple-300 shadow-md shadow-purple-300/50 ring-2 ring-purple-200',
                     fireClass: 'streak-fire-purple',
                     headerBg: 'bg-gradient-to-r from-purple-600 to-indigo-700',
@@ -3143,9 +3380,10 @@
                 return {
                     tierNum: 3,
                     days: s,
-                    name: 'ไฟสีฟ้า (Blue Fire 🔥)',
+                    name: 'ไฟสีฟ้า 🔥',
                     enName: 'Blue Fire 🔥',
                     desc: 'ไฟสีฟ้านีออน! สะสมครบ 7 วัน โบนัสเหรียญ +10 💰 ต่อการบันทึก',
+                    enDesc: 'Neon Blue Fire! 7+ day streak · +10 💰 bonus coins per log',
                     badgeBg: 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white border border-cyan-200 shadow-md shadow-cyan-300/50 ring-2 ring-cyan-200',
                     fireClass: 'streak-fire-blue',
                     headerBg: 'bg-gradient-to-r from-cyan-600 to-blue-700',
@@ -3155,9 +3393,10 @@
                 return {
                     tierNum: 2,
                     days: s,
-                    name: 'ไฟส้มแดง (Classic Fire 🔥)',
+                    name: 'ไฟส้มแดง 🔥',
                     enName: 'Classic Fire 🔥',
                     desc: 'ไฟส้มแดงมาตรฐาน! สะสมครบ 3 วัน โบนัสเหรียญ +5 💰 ต่อการบันทึก',
+                    enDesc: 'Classic Flame! 3+ day streak · +5 💰 bonus coins per log',
                     badgeBg: 'bg-gradient-to-r from-orange-500 to-red-500 text-white border border-amber-300 shadow-md shadow-orange-300/40',
                     fireClass: 'streak-fire-classic',
                     headerBg: 'bg-gradient-to-r from-orange-500 to-red-600',
@@ -3167,9 +3406,10 @@
                 return {
                     tierNum: 1,
                     days: s,
-                    name: 'ไฟส้มอ่อน (Starter Fire 🔥)',
+                    name: 'ไฟเริ่มต้น 🔥',
                     enName: 'Starter Fire 🔥',
                     desc: 'ไฟเริ่มต้น สะสมครบ 3 วันเพื่อเปลี่ยนเป็นไฟส้มแดง!',
+                    enDesc: 'Starter Flame! Reach a 3-day streak to upgrade to Classic Fire!',
                     badgeBg: 'bg-orange-50 text-orange-600 border border-orange-200 shadow-xs',
                     fireClass: 'streak-fire-soft',
                     headerBg: 'bg-gradient-to-r from-slate-700 to-slate-800',
@@ -3188,13 +3428,14 @@
 
         function updateStreakFlameVisual(streak) {
             const theme = getStreakTheme(streak);
+            const tierName = t(theme.name, theme.enName);
             const btn = document.getElementById('streakBadgeBtn');
             const icon = document.getElementById('streakFireIcon');
             const count = document.getElementById('streakCount');
             if (count) count.textContent = streak;
             if (btn) {
                 btn.className = `streak-badge-btn px-3 py-1.5 rounded-xl font-black flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer ${theme.badgeBg}`;
-                btn.title = `Streak ${streak} วัน (${theme.name}) - คลิกดูระดับสีไฟ`;
+                btn.title = t(`ไฟต่อเนื่อง ${streak} วัน (${tierName}) - คลิกดูระดับสีไฟ`, `${streak}-Day Streak (${tierName}) - Click to view flame tiers`);
             }
             if (icon) {
                 icon.className = `text-sm streak-fire-base ${theme.fireClass}`;
@@ -3206,8 +3447,9 @@
             if (!el) return;
             const s = currentStreak, b = streakBonus(s);
             const theme = getStreakTheme(s);
+            const tierName = t(theme.name, theme.enName);
             if (b > 0) {
-                el.innerHTML = t(`🔥 <b>${theme.name}</b> · รับโบนัส <b>+${b} 💰</b> ทุกครั้งที่บันทึก`, `🔥 <b>${theme.name}</b> · Bonus <b>+${b} 💰</b> per log`);
+                el.innerHTML = t(`🔥 <b>${tierName}</b> · รับโบนัส <b>+${b} 💰</b> ทุกครั้งที่บันทึก`, `🔥 <b>${tierName}</b> · Bonus <b>+${b} 💰</b> per log`);
             } else {
                 el.innerHTML = t(`🔥 บันทึกครบ 3 วันเพื่อเปลี่ยนระดับไฟ (+5 💰)`, `🔥 Reach 3 days to upgrade flame (+5 💰)`);
             }
@@ -3221,12 +3463,14 @@
 
             const s = currentStreak || 0;
             const theme = getStreakTheme(s);
+            const tierName = t(theme.name, theme.enName);
+            const tierDesc = t(theme.desc, theme.enDesc);
 
             const header = document.getElementById('streakModalHeader');
             if (header) header.className = `p-6 text-center text-white relative overflow-hidden transition-all duration-500 ${theme.headerBg}`;
             document.getElementById('streakModalDays').textContent = s;
-            document.getElementById('streakModalTierName').textContent = theme.name;
-            document.getElementById('streakModalSubtitle').textContent = theme.desc;
+            document.getElementById('streakModalTierName').textContent = tierName;
+            document.getElementById('streakModalSubtitle').textContent = tierDesc;
             const fire = document.getElementById('streakModalFire');
             if (fire) fire.className = `text-6xl mb-2 streak-fire-base filter drop-shadow-lg ${theme.fireClass}`;
 
@@ -3236,16 +3480,16 @@
             const statusBadge = document.getElementById('streakStatusBadge');
             if (hasLoggedToday) {
                 if (statusIcon) statusIcon.textContent = '✅';
-                if (statusText) statusText.textContent = 'วันนี้บันทึกการเรียนรู้แล้ว!';
+                if (statusText) statusText.textContent = t('วันนี้บันทึกการเรียนรู้แล้ว!', "You've logged today!");
                 if (statusBadge) {
-                    statusBadge.textContent = 'Streak ปลอดภัย';
+                    statusBadge.textContent = t('ไฟปลอดภัย', 'Streak Safe');
                     statusBadge.className = 'bg-emerald-100 text-emerald-700 px-2.5 py-0.5 rounded-full text-[10px] font-black';
                 }
             } else {
                 if (statusIcon) statusIcon.textContent = '⏳';
-                if (statusText) statusText.textContent = 'วันนี้ยังไม่ได้บันทึก รีบบันทึกเพื่อรักษาไฟ!';
+                if (statusText) statusText.textContent = t('วันนี้ยังไม่ได้บันทึก รีบบันทึกเพื่อรักษาไฟ!', 'Not logged today — log now to save your streak!');
                 if (statusBadge) {
-                    statusBadge.textContent = 'รอเช็กอิน';
+                    statusBadge.textContent = t('รอเช็กอิน', 'Pending');
                     statusBadge.className = 'bg-amber-100 text-amber-700 px-2.5 py-0.5 rounded-full text-[10px] font-black animate-pulse';
                 }
             }
@@ -3310,23 +3554,27 @@
             const area = document.getElementById('portfolioPrintArea');
             if (!area) return;
 
-            const name = (document.getElementById('studentName')?.value) || currentUser?.displayName || 'Student Learner';
+            const locale = window.currentLang === 'en' ? 'en-US' : 'th-TH';
+            const name = (document.getElementById('studentName')?.value) || currentUser?.displayName || t('นักเรียนตัวอย่าง', 'Student Learner');
             const email = currentUser?.email || 'student@mel.school';
             const photo = currentUser?.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(name)}`;
             const myXp = userLogs.reduce((acc, l) => acc + logXP(l), 0);
             const lvl = levelInfo(myXp);
+            const [, rankEmo, rankTh, rankEn] = levelTitle(lvl.lvl);
+            const rankTitle = t(rankTh, rankEn);
             const streak = lastStreaks.current || currentStreak || 0;
             const streakTheme = getStreakTheme(streak);
+            const streakTierName = t(streakTheme.name, streakTheme.enName);
             const coins = userData?.coins || 0;
 
             const skillKeys = ['Listening', 'Reading', 'Vocabulary', 'Grammar', 'Speaking', 'Writing'];
             const skillLabels = {
-                Listening: { th: 'การฟัง (Listening)', icon: '🎧', color: 'from-cyan-500 to-blue-500' },
-                Reading: { th: 'การอ่าน (Reading)', icon: '📖', color: 'from-blue-500 to-indigo-500' },
-                Vocabulary: { th: 'คำศัพท์ (Vocabulary)', icon: '📝', color: 'from-purple-500 to-pink-500' },
-                Grammar: { th: 'ไวยากรณ์ (Grammar)', icon: '📐', color: 'from-amber-500 to-orange-500' },
-                Speaking: { th: 'การพูด (Speaking)', icon: '🗣️', color: 'from-rose-500 to-red-500' },
-                Writing: { th: 'การเขียน (Writing)', icon: '✍️', color: 'from-emerald-500 to-teal-500' }
+                Listening: { th: 'การฟัง', en: 'Listening', icon: '🎧', color: 'from-cyan-500 to-blue-500' },
+                Reading: { th: 'การอ่าน', en: 'Reading', icon: '📖', color: 'from-blue-500 to-indigo-500' },
+                Vocabulary: { th: 'คำศัพท์', en: 'Vocabulary', icon: '📝', color: 'from-purple-500 to-pink-500' },
+                Grammar: { th: 'ไวยากรณ์', en: 'Grammar', icon: '📐', color: 'from-amber-500 to-orange-500' },
+                Speaking: { th: 'การพูด', en: 'Speaking', icon: '🗣️', color: 'from-rose-500 to-red-500' },
+                Writing: { th: 'การเขียน', en: 'Writing', icon: '✍️', color: 'from-emerald-500 to-teal-500' }
             };
             const skillCounts = { Listening: 0, Reading: 0, Vocabulary: 0, Grammar: 0, Speaking: 0, Writing: 0 };
             userLogs.forEach(l => (l.skills || []).forEach(s => { if (skillCounts[s] !== undefined) skillCounts[s]++; }));
@@ -3346,10 +3594,17 @@
             const equippedTitleText = equippedTitleObj ? equippedTitleObj.text : '';
 
             const now = new Date();
-            const dateStr = now.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
+            const dateStr = now.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
             const docRef = `MEL-${(currentUser?.uid || 'GUEST').substring(0, 8).toUpperCase()}-${now.getFullYear()}`;
 
             const recentLogs = [...userLogs].reverse().slice(0, 4);
+            const MEDIA_LOCAL = {
+                YouTube: 'YouTube',
+                Podcast: 'Podcast',
+                Article: t('บทความ', 'Article'),
+                Game: t('เกม', 'Game'),
+                Other: t('อื่นๆ', 'Other')
+            };
 
             area.innerHTML = `
                 <!-- Official Header -->
@@ -3362,16 +3617,16 @@
                                     MY ENGLISH LOG (MEL)
                                 </h1>
                                 <p class="text-xs font-extrabold text-teal-700 uppercase tracking-widest mt-1">
-                                    Student English Learning Portfolio · แฟ้มสะสมผลงานการเรียนรู้ภาษาอังกฤษ
+                                    ${t('แฟ้มสะสมผลงานการเรียนรู้ภาษาอังกฤษ', 'Student English Learning Portfolio')}
                                 </p>
-                                <p class="text-[11px] text-slate-500 font-medium">ระบบบันทึกและประเมินสมรรถนะการเรียนรู้ภาษาอังกฤษด้วยตนเอง (Self-Directed Learning)</p>
+                                <p class="text-[11px] text-slate-500 font-medium">${t('ระบบบันทึกและประเมินสมรรถนะการเรียนรู้ภาษาอังกฤษด้วยตนเอง', 'Self-Directed English Competency & Learning Record')}</p>
                             </div>
                         </div>
                         <div class="text-right flex-shrink-0">
                             <span class="inline-block bg-slate-100 text-slate-700 text-[10px] font-black px-2.5 py-1 rounded-md border border-slate-200">
-                                เลขที่เอกสาร: ${docRef}
+                                ${t('เลขที่เอกสาร:', 'Doc Ref:')} ${docRef}
                             </span>
-                            <p class="text-[10px] text-slate-500 mt-1">วันที่พิมพ์: <span class="font-bold text-slate-700">${dateStr}</span></p>
+                            <p class="text-[10px] text-slate-500 mt-1">${t('วันที่พิมพ์:', 'Printed:')} <span class="font-bold text-slate-700">${dateStr}</span></p>
                         </div>
                     </div>
                 </div>
@@ -3392,8 +3647,8 @@
                             </div>
                             <p class="text-xs text-slate-500">${email}</p>
                             <p class="text-[11px] text-teal-700 font-bold mt-0.5 flex items-center gap-1">
-                                <span>${lvl.emoji}</span>
-                                <span>ระดับ: ${lvl.title} (สะสม ${myXp} XP)</span>
+                                <span>${rankEmo}</span>
+                                <span>${t('ระดับ:', 'Rank:')} ${rankTitle} (${myXp} XP)</span>
                             </p>
                         </div>
                     </div>
@@ -3403,13 +3658,13 @@
                         <div class="px-3 py-2 rounded-xl text-center border ${streakTheme.badgeBg}">
                             <div class="text-xs font-black flex items-center justify-center gap-1">
                                 <span class="${streakTheme.fireClass}">🔥</span>
-                                <span>${streak} วัน</span>
+                                <span>${streak} ${t('วัน', 'days')}</span>
                             </div>
-                            <p class="text-[9px] font-bold opacity-90">${streakTheme.name}</p>
+                            <p class="text-[9px] font-bold opacity-90">${streakTierName}</p>
                         </div>
                         <div class="bg-amber-50 border border-amber-200 px-3 py-2 rounded-xl text-center text-amber-900">
                             <div class="text-xs font-black">💰 ${coins}</div>
-                            <p class="text-[9px] font-bold text-amber-700">เหรียญสะสม</p>
+                            <p class="text-[9px] font-bold text-amber-700">${t('เหรียญสะสม', 'Total Coins')}</p>
                         </div>
                     </div>
                 </div>
@@ -3418,19 +3673,19 @@
                 <div class="grid grid-cols-4 gap-2 text-center">
                     <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
                         <p class="text-lg sm:text-xl font-black text-slate-800">${userLogs.length}</p>
-                        <p class="text-[10px] font-bold text-slate-500 mt-0.5">📝 บันทึกทั้งหมด</p>
+                        <p class="text-[10px] font-bold text-slate-500 mt-0.5">${t('📝 บันทึกทั้งหมด', '📝 Total Logs')}</p>
                     </div>
                     <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
                         <p class="text-lg sm:text-xl font-black text-indigo-600">${totalSkillsPracticed}</p>
-                        <p class="text-[10px] font-bold text-slate-500 mt-0.5">🎯 ทักษะที่ฝึกสะสม</p>
+                        <p class="text-[10px] font-bold text-slate-500 mt-0.5">${t('🎯 ทักษะที่ฝึกสะสม', '🎯 Skills Practiced')}</p>
                     </div>
                     <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
                         <p class="text-lg sm:text-xl font-black text-amber-600">${avgScore} <span class="text-xs font-normal text-slate-400">/ 10</span></p>
-                        <p class="text-[10px] font-bold text-slate-500 mt-0.5">⭐ คะแนนเฉลี่ย</p>
+                        <p class="text-[10px] font-bold text-slate-500 mt-0.5">${t('⭐ คะแนนเฉลี่ย', '⭐ Avg Score')}</p>
                     </div>
                     <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
-                        <p class="text-lg sm:text-xl font-black text-orange-600">${lastStreaks.best || streak} <span class="text-xs font-normal text-slate-400">วัน</span></p>
-                        <p class="text-[10px] font-bold text-slate-500 mt-0.5">🔥 Streak สูงสุด</p>
+                        <p class="text-lg sm:text-xl font-black text-orange-600">${lastStreaks.best || streak} <span class="text-xs font-normal text-slate-400">${t('วัน', 'days')}</span></p>
+                        <p class="text-[10px] font-bold text-slate-500 mt-0.5">${t('🔥 ไฟต่อเนื่องสูงสุด', '🔥 Best Streak')}</p>
                     </div>
                 </div>
 
@@ -3438,28 +3693,28 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                            <i class="ph-bold ph-chart-bar text-teal-600"></i> สรุปสมรรถนะทักษะภาษาอังกฤษทั้ง 6 ด้าน (Skills Competency)
+                            <i class="ph-bold ph-chart-bar text-teal-600"></i> ${t('สรุปสมรรถนะทักษะภาษาอังกฤษทั้ง 6 ด้าน', '6-Skill Competency Breakdown')}
                         </h3>
-                        <span class="text-[10px] text-slate-400">ประเมินจากจำนวนครั้งที่ฝึกฝน</span>
+                        <span class="text-[10px] text-slate-400">${t('ประเมินจากจำนวนครั้งที่ฝึกฝน', 'Evaluated by practice frequency')}</span>
                     </div>
                     <div class="grid grid-cols-2 gap-2.5">
                         ${skillKeys.map(k => {
                             const count = skillCounts[k];
                             const pct = Math.min(100, Math.round((count / (maxSkill || 1)) * 100));
                             const info = skillLabels[k];
-                            const tag = count >= 8 ? '🌟 ยอดเยี่ยม (Mastery)' : count >= 5 ? '👍 ดีมาก (Proficient)' : count >= 2 ? '🌱 กำลังพัฒนา (Developing)' : '🎯 เริ่มต้น (Beginner)';
+                            const tag = count >= 8 ? t('🌟 ยอดเยี่ยม', '🌟 Mastery') : count >= 5 ? t('👍 ดีมาก', '👍 Proficient') : count >= 2 ? t('🌱 กำลังพัฒนา', '🌱 Developing') : t('🎯 เริ่มต้น', '🎯 Beginner');
                             const tagColor = count >= 8 ? 'text-amber-700 bg-amber-50 border-amber-200' : count >= 5 ? 'text-emerald-700 bg-emerald-50 border-emerald-200' : 'text-slate-600 bg-slate-50 border-slate-200';
                             return `
                                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-2.5">
                                     <div class="flex items-center justify-between text-xs font-bold mb-1">
-                                        <span class="text-slate-800">${info.icon} ${info.th}</span>
-                                        <span class="font-black text-slate-900">${count} ครั้ง</span>
+                                        <span class="text-slate-800">${info.icon} ${t(info.th, info.en)}</span>
+                                        <span class="font-black text-slate-900">${count} ${t('ครั้ง', 'logs')}</span>
                                     </div>
                                     <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden mb-1.5">
                                         <div class="bg-gradient-to-r ${info.color} h-full rounded-full" style="width: ${pct}%"></div>
                                     </div>
                                     <div class="flex items-center justify-between text-[9px]">
-                                        <span class="text-slate-400">ระดับสมรรถนะ:</span>
+                                        <span class="text-slate-400">${t('ระดับสมรรถนะ:', 'Competency:')}</span>
                                         <span class="font-extrabold px-1.5 py-0.2 rounded border ${tagColor}">${tag}</span>
                                     </div>
                                 </div>
@@ -3471,7 +3726,7 @@
                 <!-- Media Usage Diversity -->
                 <div>
                     <h3 class="text-xs font-black text-slate-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                        <i class="ph-bold ph-film-strip text-teal-600"></i> ความหลากหลายของสื่อที่ใช้เรียนรู้ (Media Diversity)
+                        <i class="ph-bold ph-film-strip text-teal-600"></i> ${t('ความหลากหลายของสื่อที่ใช้เรียนรู้', 'Learning Media Diversity')}
                     </h3>
                     <div class="flex flex-wrap gap-2 text-xs">
                         ${Object.keys(mediaCounts).map(m => {
@@ -3479,8 +3734,8 @@
                             const p = Math.round((c / (userLogs.length || 1)) * 100);
                             return `
                                 <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-1.5 shadow-xs">
-                                    <span class="font-bold text-slate-700">${m}</span>
-                                    <span class="bg-teal-50 text-teal-700 text-[10px] font-black px-1.5 py-0.5 rounded border border-teal-200">${c} ครั้ง (${p}%)</span>
+                                    <span class="font-bold text-slate-700">${MEDIA_LOCAL[m] || m}</span>
+                                    <span class="bg-teal-50 text-teal-700 text-[10px] font-black px-1.5 py-0.5 rounded border border-teal-200">${c} ${t('ครั้ง', 'logs')} (${p}%)</span>
                                 </div>
                             `;
                         }).join('')}
@@ -3491,33 +3746,36 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                            <i class="ph-bold ph-bookmarks text-teal-600"></i> ไฮไลต์สิ่งที่ได้เรียนรู้ & ความเห็นจากคุณครู (Learning Highlights)
+                            <i class="ph-bold ph-bookmarks text-teal-600"></i> ${t('ไฮไลต์สิ่งที่ได้เรียนรู้ & ความเห็นจากคุณครู', 'Recent Learning Highlights & Teacher Feedback')}
                         </h3>
-                        <span class="text-[10px] text-slate-400">ตัวอย่างบันทึกล่าสุด</span>
+                        <span class="text-[10px] text-slate-400">${t('ตัวอย่างบันทึกล่าสุด', 'Latest entries')}</span>
                     </div>
                     <div class="space-y-2">
                         ${recentLogs.map((l, idx) => {
-                            const d = l.timestamp ? new Date(l.timestamp).toLocaleDateString('th-TH', { month: 'short', day: 'numeric' }) : '';
+                            const d = l.timestamp ? logDate(l).toLocaleDateString(locale, { month: 'short', day: 'numeric' }) : '';
+                            const sumText = (window.currentLang === 'en' && l.summaryEn) ? l.summaryEn : (l.summary || '-');
+                            const fbText = (window.currentLang === 'en' && l.teacherFeedbackEn) ? l.teacherFeedbackEn : (l.teacherFeedback || '');
+                            const mLabel = MEDIA_LOCAL[l.mediaType] || l.mediaType || t('อื่นๆ', 'Other');
                             return `
                                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs space-y-1.5">
                                     <div class="flex items-center justify-between">
                                         <div class="flex items-center gap-2">
                                             <span class="w-4 h-4 rounded-full bg-teal-600 text-white flex items-center justify-center text-[9px] font-black">${idx + 1}</span>
-                                            <span class="font-black text-slate-800">${l.topic || 'English Practice'}</span>
-                                            <span class="bg-slate-200 text-slate-600 text-[9px] font-bold px-1.5 py-0.2 rounded">${l.mediaType || 'Other'}</span>
+                                            <span class="font-black text-slate-800">${esc(l.topic || 'English Practice')}</span>
+                                            <span class="bg-slate-200 text-slate-600 text-[9px] font-bold px-1.5 py-0.2 rounded">${esc(mLabel)}</span>
                                         </div>
                                         <span class="text-[10px] text-slate-400">${d}</span>
                                     </div>
-                                    <p class="text-[11px] text-slate-600 leading-relaxed pl-6">${l.summary || '-'}</p>
-                                    ${l.teacherFeedback ? `
+                                    <p class="text-[11px] text-slate-600 leading-relaxed pl-6">${esc(sumText)}</p>
+                                    ${fbText ? `
                                         <div class="ml-6 bg-amber-50/80 border border-amber-200 rounded-lg p-2 text-[10px] text-amber-900 flex items-start gap-1.5">
                                             <span class="text-xs">💬</span>
                                             <div class="flex-1">
                                                 <div class="flex items-center justify-between">
-                                                    <span class="font-bold text-amber-800">ฟีดแบ็กจากคุณครู:</span>
+                                                    <span class="font-bold text-amber-800">${t('ความเห็นจากคุณครู:', 'Teacher Feedback:')}</span>
                                                     ${l.score ? `<span class="bg-amber-500 text-white font-black px-1.5 py-0.2 rounded text-[9px]">⭐ ${l.score}/10</span>` : ''}
                                                 </div>
-                                                <p class="mt-0.5">${l.teacherFeedback}</p>
+                                                <p class="mt-0.5">${esc(fbText)}</p>
                                             </div>
                                         </div>
                                     ` : ''}
@@ -3531,20 +3789,20 @@
                 <div class="border-t border-slate-200 pt-6 mt-4">
                     <div class="grid grid-cols-2 gap-8 text-center text-xs">
                         <div class="space-y-4">
-                            <p class="text-slate-500 text-[11px]">ลงชื่อผู้เรียน (Student Signature)</p>
+                            <p class="text-slate-500 text-[11px]">${t('ลงชื่อผู้เรียน', 'Student Signature')}</p>
                             <div class="border-b border-dashed border-slate-300 w-48 mx-auto h-8"></div>
                             <p class="font-bold text-slate-700">(${name})</p>
                         </div>
                         <div class="space-y-4">
-                            <p class="text-slate-500 text-[11px]">ลงชื่อครูผู้ตรวจ / ประทับตรารับรอง (MEL Endorsement)</p>
+                            <p class="text-slate-500 text-[11px]">${t('ลงชื่อครูผู้ตรวจ / ประทับตรารับรอง', 'Teacher Endorsement')}</p>
                             <div class="border-b border-dashed border-slate-300 w-48 mx-auto h-8 flex items-center justify-center text-emerald-600">
                                 <i class="ph-fill ph-seal-check text-xl"></i>
                             </div>
-                            <p class="font-bold text-slate-700">(คุณครูผู้ประเมินผล My English Log)</p>
+                            <p class="font-bold text-slate-700">${t('(คุณครูผู้ประเมินผล My English Log)', '(MEL Evaluating Teacher)')}</p>
                         </div>
                     </div>
                     <p class="text-center text-[10px] text-slate-400 mt-6">
-                        เอกสารนี้ออกโดยระบบ My English Log (MEL) · รับรองการบันทึกการเรียนรู้และการพัฒนาทักษะภาษาอังกฤษ
+                        ${t('เอกสารนี้ออกโดยระบบ My English Log (MEL) · รับรองการบันทึกการเรียนรู้และการพัฒนาทักษะภาษาอังกฤษ', 'Official portfolio generated by My English Log (MEL) · Self-Directed English Learning System')}
                     </p>
                 </div>
             `;
@@ -3572,12 +3830,12 @@
 
         // ---- Daily Quests ----
         const QUEST_POOL = [
-            { icon: '📸', th: 'แนบรูปผลงาน (Screenshot)', en: 'Attach a screenshot', test: L => L.some(l => l.image) },
-            { icon: '🗣️', th: 'ฝึก Speaking หรือ Writing', en: 'Practice Speaking or Writing', test: L => L.some(l => (l.skills || []).some(s => s === 'Speaking' || s === 'Writing')) },
-            { icon: '🎧', th: 'เรียนจาก Podcast', en: 'Learn from a Podcast', test: L => L.some(l => l.mediaType === 'Podcast') },
+            { icon: '📸', th: 'แนบรูปผลงานการเรียนรู้', en: 'Attach a screenshot', test: L => L.some(l => l.image) },
+            { icon: '🗣️', th: 'ฝึกทักษะการพูดหรือการเขียน', en: 'Practice Speaking or Writing', test: L => L.some(l => (l.skills || []).some(s => s === 'Speaking' || s === 'Writing')) },
+            { icon: '🎧', th: 'เรียนจากพอดแคสต์ (Podcast)', en: 'Learn from a Podcast', test: L => L.some(l => l.mediaType === 'Podcast') },
             { icon: '✍️', th: 'เขียนสรุปยาว 80 ตัวอักษรขึ้นไป', en: 'Write a summary of 80+ characters', test: L => L.some(l => (l.summary || '').length >= 80) },
             { icon: '⚡', th: 'บันทึกการเรียนรู้ 2 ครั้งในวันนี้', en: 'Log 2 times today', test: L => L.length >= 2 },
-            { icon: '🎬', th: 'เรียนจาก YouTube', en: 'Learn from YouTube', test: L => L.some(l => l.mediaType === 'YouTube') },
+            { icon: '🎬', th: 'เรียนจากคลิป YouTube', en: 'Learn from YouTube', test: L => L.some(l => l.mediaType === 'YouTube') },
             { icon: '📖', th: 'อ่านบทความภาษาอังกฤษ', en: 'Read an English article', test: L => L.some(l => l.mediaType === 'Article') },
         ];
         function todaysLogs() {
@@ -3646,10 +3904,10 @@
             const tabQuestsBadge = document.getElementById('tabQuestsBadge');
             if (tabQuestsBadge) {
                 if (claimableCount > 0 || (claimedCount === quests.length && !st.chest)) {
-                    tabQuestsBadge.textContent = claimableCount > 0 ? `รับรางวัล (${claimableCount})` : '🎁 เปิดหีบ!';
+                    tabQuestsBadge.textContent = claimableCount > 0 ? t(`รับรางวัล (${claimableCount})`, `Claim (${claimableCount})`) : t('🎁 เปิดหีบ!', '🎁 Open Chest!');
                     tabQuestsBadge.className = "text-[10px] font-black bg-amber-400 text-amber-950 px-1.5 py-0.5 rounded-full animate-pulse";
                 } else if (st.chest) {
-                    tabQuestsBadge.textContent = `✓ ครบแล้ว`;
+                    tabQuestsBadge.textContent = t('✓ ครบแล้ว', '✓ All Done');
                     tabQuestsBadge.className = "text-[10px] font-black bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full";
                 } else {
                     tabQuestsBadge.textContent = `${claimedCount}/${quests.length}`;
@@ -3677,7 +3935,7 @@
                     <div class="flex items-center gap-3 p-3 rounded-2xl bg-gradient-to-r from-slate-50 to-amber-50 border-2 border-dashed border-amber-200">
                         <div class="text-3xl grayscale opacity-70">🎁</div>
                         <div class="flex-1 min-w-0">
-                            <p class="text-xs font-black text-slate-600">กล่องสมบัติประจำวัน</p>
+                            <p class="text-xs font-black text-slate-600">${t('กล่องสมบัติประจำวัน', 'Daily Treasure Chest')}</p>
                             <p class="text-[10px] text-slate-400 mb-1.5">${t('รับรางวัลครบ 3 ภารกิจเพื่อปลดล็อก', 'Claim all 3 quests to unlock')}</p>
                             <div class="h-1.5 rounded-full bg-slate-200 overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all" style="width:${(claimedCount / quests.length) * 100}%"></div></div>
                         </div>
@@ -3698,7 +3956,7 @@
                 floatReward(`+${q.reward} 💰`);
                 confetti({ particleCount: 40, spread: 55, origin: { y: 0.35 } });
             } catch (e) {
-                sfx('error'); Swal.fire('Error', t('รับรางวัลไม่สำเร็จ ลองใหม่อีกครั้ง', 'Could not claim reward, please retry'), 'error');
+                sfx('error'); Swal.fire(t('เกิดข้อผิดพลาด', 'Error'), t('รับรางวัลไม่สำเร็จ ลองใหม่อีกครั้ง', 'Could not claim reward, please retry'), 'error');
             } finally { dailyBusy = false; renderDaily(); }
         };
         window.openChest = async () => {
@@ -3726,18 +3984,36 @@
                     confirmButtonText: t('เก็บเลย!', 'Collect!'), confirmButtonColor: prize.col
                 });
             } catch (e) {
-                sfx('error'); Swal.fire('Error', t('เปิดกล่องไม่สำเร็จ ลองใหม่อีกครั้ง', 'Could not open chest, please retry'), 'error');
+                sfx('error'); Swal.fire(t('เกิดข้อผิดพลาด', 'Error'), t('เปิดกล่องไม่สำเร็จ ลองใหม่อีกครั้ง', 'Could not open chest, please retry'), 'error');
             } finally { dailyBusy = false; renderDaily(); }
         };
         setInterval(() => { if (currentUser) { renderDaily(); renderWeek(computeStreaks(userLogs).daySet); } }, 60000);
 
         window.melRerender = () => {
+            syncUserHeaderLang();
+            const durInput = document.getElementById('selectedDuration');
+            if (durInput) setDuration(parseInt(durInput.value) || 15);
             if (!currentUser) return;
-            renderLevel(userLogs); renderStreakHint(); renderWeek(lastStreaks.daySet); renderDaily();
+            const streaks = computeStreaks(userLogs);
+            currentStreak = streaks.current;
+            lastStreaks = streaks;
+            updateStreakFlameVisual(streaks.current);
+            renderLevel(userLogs);
+            renderStreakHint();
+            renderWeek(streaks.daySet);
+            renderDaily();
             if (typeof renderDailyWord === 'function') renderDailyWord();
-            renderBadges(userLogs, lastStreaks, true);
+            renderBentoDashboard(userLogs, streaks);
+            renderBadges(userLogs, streaks, true);
+            renderHistory(userLogs, currentHistoryFilter);
+            applyEquippedItems();
+            if (mySkillChart || !viewSkills.classList.contains('hidden')) renderSkillChart();
             if (!viewShop.classList.contains('hidden')) renderShop();
-            if (!viewLeaderboard.classList.contains('hidden')) loadLeaderboard();
+            if (!viewLeaderboard.classList.contains('hidden')) { loadLeaderboard(); loadResources(); }
+            const pModal = document.getElementById('portfolioModal');
+            if (pModal && !pModal.classList.contains('hidden')) renderPortfolio();
+            const sModal = document.getElementById('streakModal');
+            if (sModal && !sModal.classList.contains('hidden')) openStreakModal();
         };
 
         // ==========================================
@@ -3760,21 +4036,21 @@
             const best = streaks ? (streaks.best || streaks.current) : 0;
 
             if (streakNumEl) streakNumEl.textContent = current;
-            if (bestStreakEl) bestStreakEl.textContent = `🏆 สูงสุด ${best} วัน`;
+            if (bestStreakEl) bestStreakEl.textContent = t(`🏆 สูงสุด ${best} วัน`, `🏆 Best ${best}d`);
 
             const streakTheme = getStreakTheme(current);
-            if (streakTierEl) streakTierEl.textContent = streakTheme.name || '🌱 เริ่มต้น';
+            if (streakTierEl) streakTierEl.textContent = t(streakTheme.name, streakTheme.enName);
             if (bgIconEl) bgIconEl.textContent = '🔥';
 
             if (statusBoxEl && statusDotEl && statusTextEl) {
                 if (hasLoggedToday) {
                     statusBoxEl.className = "mb-3 flex items-center justify-between gap-2 px-3 py-2 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs font-black text-emerald-800 cursor-pointer hover:bg-emerald-100/70 transition-all";
                     statusDotEl.className = "w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping flex-shrink-0";
-                    statusTextEl.textContent = `✓ บันทึกวันนี้แล้ว · ไฟ ${current} วันปลอดภัย!`;
+                    statusTextEl.textContent = t(`✓ บันทึกวันนี้แล้ว · ไฟ ${current} วันปลอดภัย!`, `✓ Logged today · ${current}-day streak safe!`);
                 } else {
                     statusBoxEl.className = "mb-3 flex items-center justify-between gap-2 px-3 py-2 rounded-2xl bg-amber-50 border border-amber-200/90 text-xs font-black text-amber-800 cursor-pointer hover:bg-amber-100/70 transition-all";
                     statusDotEl.className = "w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse flex-shrink-0";
-                    statusTextEl.textContent = "⏳ วันนี้ยังไม่ได้บันทึก · แตะเพื่อบันทึกและรักษาไฟ!";
+                    statusTextEl.textContent = t("⏳ วันนี้ยังไม่ได้บันทึก · แตะเพื่อบันทึกและรักษาไฟ!", "⏳ Not logged today · Tap to log & keep your streak!");
                 }
             }
 
@@ -3795,6 +4071,7 @@
             const tooltipEl = document.getElementById('bentoHeatmapTooltip');
             if (!gridEl) return;
 
+            const locale = window.currentLang === 'en' ? 'en-US' : 'th-TH';
             const today = toDayNum(new Date());
             const logCountsByDay = {};
             const logMinsByDay = {};
@@ -3824,12 +4101,13 @@
                 else if (count >= 3) bgClass = "bg-teal-600 border border-teal-700 text-white shadow-xs";
 
                 const ringClass = isToday ? "ring-2 ring-emerald-500 ring-offset-1" : "";
-                const dateStr = dateObj.toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
+                const dateStr = dateObj.toLocaleDateString(locale, { day: 'numeric', month: 'short' });
+                const cellTitle = `${dateStr}: ${t(`${count} ครั้ง (${mins} นาที)`, `${count} logs (${mins}m)`)}`;
 
                 cellsHtml += `
                     <div data-date="${dateStr}" data-count="${count}" data-mins="${mins}"
                          class="h-6 sm:h-7 rounded-md ${bgClass} ${ringClass} flex items-center justify-center text-[9px] font-black cursor-pointer hover:scale-110 active:scale-95 transition-all select-none"
-                         title="${dateStr}: ${count} ครั้ง (${mins} นาที)">
+                         title="${cellTitle}">
                         ${isToday ? '★' : ''}
                     </div>
                 `;
@@ -3838,29 +4116,23 @@
             gridEl.innerHTML = cellsHtml;
 
             const pct = Math.round((activeDaysCount / 30) * 100);
-            if (statsEl) statsEl.textContent = `${activeDaysCount}/30 วัน (${pct}%)`;
+            if (statsEl) statsEl.textContent = t(`${activeDaysCount}/30 วัน (${pct}%)`, `${activeDaysCount}/30 days (${pct}%)`);
+            if (tooltipEl) tooltipEl.textContent = t('💡 แตะที่ช่องเพื่อดูจำนวนครั้งที่ฝึก', '💡 Tap any square to view daily activity');
+
+            const showCellTooltip = (cell) => {
+                const d = cell.dataset.date;
+                const c = parseInt(cell.dataset.count);
+                const m = parseInt(cell.dataset.mins);
+                if (tooltipEl) {
+                    tooltipEl.innerHTML = c > 0
+                        ? t(`📅 <b>${d}</b>: ฝึก ${c} ครั้ง (${m} นาที) ✨`, `📅 <b>${d}</b>: ${c} log(s) (${m} mins) ✨`)
+                        : t(`📅 <b>${d}</b>: ยังไม่มีบันทึก`, `📅 <b>${d}</b>: No activity`);
+                }
+            };
 
             gridEl.querySelectorAll('div[data-date]').forEach(cell => {
-                cell.addEventListener('mouseenter', () => {
-                    const d = cell.dataset.date;
-                    const c = parseInt(cell.dataset.count);
-                    const m = parseInt(cell.dataset.mins);
-                    if (tooltipEl) {
-                        tooltipEl.innerHTML = c > 0
-                            ? `📅 <b>${d}</b>: ฝึก ${c} ครั้ง (${m} นาที) ✨`
-                            : `📅 <b>${d}</b>: ยังไม่มีบันทึก`;
-                    }
-                });
-                cell.addEventListener('click', () => {
-                    const d = cell.dataset.date;
-                    const c = parseInt(cell.dataset.count);
-                    const m = parseInt(cell.dataset.mins);
-                    if (tooltipEl) {
-                        tooltipEl.innerHTML = c > 0
-                            ? `📅 <b>${d}</b>: ฝึก ${c} ครั้ง (${m} นาที) ✨`
-                            : `📅 <b>${d}</b>: ยังไม่มีบันทึก`;
-                    }
-                });
+                cell.addEventListener('mouseenter', () => showCellTooltip(cell));
+                cell.addEventListener('click', () => showCellTooltip(cell));
             });
         }
 
@@ -3890,7 +4162,7 @@
             if (totalSkills === 0) {
                 barEl.innerHTML = '<div class="w-full h-full bg-slate-200"></div>';
                 if (topBadgeEl) topBadgeEl.textContent = '-';
-                if (nudgeEl) nudgeEl.textContent = 'บันทึกการเรียนรู้เพื่อดูสัดส่วนทักษะ';
+                if (nudgeEl) nudgeEl.textContent = t('บันทึกการเรียนรู้เพื่อดูสัดส่วนทักษะที่ฝึก', 'Log your learning to see your skill balance');
                 return;
             }
 
@@ -3901,6 +4173,15 @@
                 Grammar: '#f97316',
                 Speaking: '#f43f5e',
                 Writing: '#10b981'
+            };
+
+            const SKILL_LOCAL_NAMES = {
+                Listening: t('🎧 ฟัง', '🎧 Listening'),
+                Reading: t('📖 อ่าน', '📖 Reading'),
+                Vocabulary: t('📝 ศัพท์', '📝 Vocab'),
+                Grammar: t('📐 ไวยากรณ์', '📐 Grammar'),
+                Speaking: t('🗣️ พูด', '🗣️ Speaking'),
+                Writing: t('✍️ เขียน', '✍️ Writing')
             };
 
             let barHtml = '';
@@ -3914,22 +4195,20 @@
                 if (count < minCount) { minCount = count; minSkill = skill; }
                 if (count > 0) {
                     const pct = ((count / totalSkills) * 100).toFixed(1);
-                    barHtml += `<div style="width: ${pct}%; background-color: ${SKILL_COLOR_HEX[skill] || '#94a3b8'}" title="${skill}: ${pct}%" class="h-full"></div>`;
+                    barHtml += `<div style="width: ${pct}%; background-color: ${SKILL_COLOR_HEX[skill] || '#94a3b8'}" title="${SKILL_LOCAL_NAMES[skill] || skill}: ${pct}%" class="h-full"></div>`;
                 }
             });
 
             barEl.innerHTML = barHtml;
 
             const topPct = Math.round((maxCount / totalSkills) * 100);
-            if (topBadgeEl) topBadgeEl.textContent = `${maxSkill} ${topPct}%`;
-
-            const SKILL_TH_NAMES = {
-                Listening: '🎧 ฟัง', Reading: '📖 อ่าน', Vocabulary: '📝 ศัพท์',
-                Grammar: '📐 ไวยากรณ์', Speaking: '🗣️ พูด', Writing: '✍️ เขียน'
-            };
+            if (topBadgeEl) topBadgeEl.textContent = `${SKILL_LOCAL_NAMES[maxSkill] || maxSkill} ${topPct}%`;
 
             if (nudgeEl) {
-                nudgeEl.innerHTML = `💡 เน้น <b>${SKILL_TH_NAMES[maxSkill] || maxSkill}</b> · ลองฝึก <b>${SKILL_TH_NAMES[minSkill] || minSkill}</b> เพิ่มเติม`;
+                nudgeEl.innerHTML = t(
+                    `💡 เน้น <b>${SKILL_LOCAL_NAMES[maxSkill] || maxSkill}</b> · ลองฝึก <b>${SKILL_LOCAL_NAMES[minSkill] || minSkill}</b> เพิ่มเติม`,
+                    `💡 Top: <b>${SKILL_LOCAL_NAMES[maxSkill] || maxSkill}</b> · Try more <b>${SKILL_LOCAL_NAMES[minSkill] || minSkill}</b>`
+                );
             }
         }
 
@@ -3968,8 +4247,8 @@
             circleEl.style.stroke = pct >= 100 ? '#10b981' : (pct >= 60 ? '#06b6d4' : '#f59e0b');
 
             if (pctEl) pctEl.textContent = `${pct}%`;
-            if (labelEl) labelEl.textContent = `${daysCount} / ${TARGET_DAYS} วัน`;
-            if (minsEl) minsEl.textContent = `${weekTotalMins} นาทีสะสม`;
+            if (labelEl) labelEl.textContent = t(`${daysCount} / ${TARGET_DAYS} วัน`, `${daysCount} / ${TARGET_DAYS} days`);
+            if (minsEl) minsEl.textContent = t(`${weekTotalMins} นาทีสะสม`, `${weekTotalMins} mins total`);
         }
 
         // ==========================================
@@ -4021,6 +4300,7 @@
             const expandBtn = document.getElementById('toggleHistoryExpandBtn');
             if (!list) return;
 
+            const locale = window.currentLang === 'en' ? 'en-US' : 'th-TH';
             const allLogs = logs || [];
             document.getElementById('historyCount').textContent = allLogs.length;
 
@@ -4034,7 +4314,7 @@
             if (filtered.length === 0) {
                 list.innerHTML = `<div class="text-center text-slate-400 py-6">
                     <span class="text-2xl block mb-1">🔍</span>
-                    ${filter === 'all' ? 'ยังไม่มีประวัติ เริ่มเลย!' : 'ไม่พบรายการในหมวดนี้'}
+                    ${filter === 'all' ? t('ยังไม่มีประวัติ เริ่มเลย!', "No history yet, let's start!") : t('ไม่พบรายการในหมวดนี้', 'No logs found in this filter')}
                 </div>`;
                 if (expandWrap) expandWrap.classList.add('hidden');
                 return;
@@ -4042,6 +4322,13 @@
 
             list.innerHTML = '';
             const MEDIA_ICON = { YouTube: '🎬', Podcast: '🎧', Article: '📖', Game: '🎮', Other: '✨' };
+            const MEDIA_LABEL = {
+                YouTube: 'YouTube',
+                Podcast: 'Podcast',
+                Article: t('บทความ', 'Article'),
+                Game: t('เกม', 'Game'),
+                Other: t('อื่นๆ', 'Other')
+            };
             const MEDIA_BADGE_CLASS = {
                 YouTube: 'bg-red-50 text-red-600 border-red-200',
                 Podcast: 'bg-purple-50 text-purple-600 border-purple-200',
@@ -4057,36 +4344,45 @@
                 Speaking: 'bg-rose-50 text-rose-700 border-rose-200',
                 Writing: 'bg-emerald-50 text-emerald-700 border-emerald-200',
             };
+            const SKILL_LABEL = {
+                Listening: t('การฟัง', 'Listening'),
+                Reading: t('การอ่าน', 'Reading'),
+                Vocabulary: t('คำศัพท์', 'Vocabulary'),
+                Grammar: t('ไวยากรณ์', 'Grammar'),
+                Speaking: t('การพูด', 'Speaking'),
+                Writing: t('การเขียน', 'Writing'),
+            };
 
             const visibleLogs = showAllHistory ? filtered : filtered.slice(0, 3);
             if (expandWrap && expandBtn) {
                 if (filtered.length > 3) {
                     expandWrap.classList.remove('hidden');
                     expandBtn.innerHTML = showAllHistory
-                        ? `<span>ย่อประวัติ (แสดง 3 รายการล่าสุด) ▴</span>`
-                        : `<span>ดูประวัติทั้งหมด (${filtered.length} รายการ) ▾</span>`;
+                        ? `<span>${t('ย่อประวัติ (แสดง 3 รายการล่าสุด) ▴', 'Show Less (Latest 3) ▴')}</span>`
+                        : `<span>${t(`ดูประวัติทั้งหมด (${filtered.length} รายการ) ▾`, `View All History (${filtered.length}) ▾`)}</span>`;
                 } else {
                     expandWrap.classList.add('hidden');
                 }
             }
 
             visibleLogs.forEach(log => {
-                let d = "เพิ่งส่ง";
+                let d = t("เพิ่งส่ง", "Just now");
                 if (log.timestamp) {
-                    if (log.timestamp.toDate) d = log.timestamp.toDate().toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
-                    else if (typeof log.timestamp === 'string') d = new Date(log.timestamp).toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
+                    if (log.timestamp.toDate) d = log.timestamp.toDate().toLocaleDateString(locale, { day: 'numeric', month: 'short' });
+                    else if (typeof log.timestamp === 'string') d = new Date(log.timestamp).toLocaleDateString(locale, { day: 'numeric', month: 'short' });
                 }
 
                 // Duration badge
                 const mins = parseInt(log.duration) || parseInt(log.durationMinutes) || 15;
-                const durationBadge = `<span class="inline-flex items-center gap-0.5 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 bg-slate-50 text-slate-600">⏱️ ${mins}m</span>`;
+                const durationBadge = `<span class="inline-flex items-center gap-0.5 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 bg-slate-50 text-slate-600">⏱️ ${mins}${t(' นาที', 'm')}</span>`;
 
                 // Media Badge
                 let mediaBadge = '';
                 if (log.mediaType) {
                     const cls = MEDIA_BADGE_CLASS[log.mediaType] || 'bg-slate-100 text-slate-500 border-slate-200';
                     const icon = MEDIA_ICON[log.mediaType] || '✨';
-                    mediaBadge = `<span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full border ${cls}">${icon} ${log.mediaType}</span>`;
+                    const mText = MEDIA_LABEL[log.mediaType] || log.mediaType;
+                    mediaBadge = `<span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full border ${cls}">${icon} ${esc(mText)}</span>`;
                 }
 
                 // Skill Chips
@@ -4094,27 +4390,29 @@
                 if (log.skills && log.skills.length > 0) {
                     skillChips = log.skills.map(s => {
                         const cls = SKILL_CHIP_CLASS[s] || 'bg-slate-100 text-slate-500 border-slate-200';
-                        return `<span class="inline-flex text-[10px] font-bold px-2 py-0.5 rounded-full border ${cls}">${s}</span>`;
+                        const sText = SKILL_LABEL[s] || s;
+                        return `<span class="inline-flex text-[10px] font-bold px-2 py-0.5 rounded-full border ${cls}">${esc(sText)}</span>`;
                     }).join('');
                 }
 
                 // Optimistic Syncing Badge
                 let optimisticBadge = '';
                 if (log.isOptimistic) {
-                    optimisticBadge = `<span class="inline-flex items-center gap-1 text-[9px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300 animate-pulse">⏳ กำลังบันทึก...</span>`;
+                    optimisticBadge = `<span class="inline-flex items-center gap-1 text-[9px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300 animate-pulse">${t('⏳ กำลังบันทึก...', '⏳ Saving...')}</span>`;
                 }
 
                 // Teacher Feedback
                 let feedbackHtml = '';
-                if (log.score || log.teacherFeedback) {
+                const fbText = (window.currentLang === 'en' && log.teacherFeedbackEn) ? log.teacherFeedbackEn : (log.teacherFeedback || '');
+                if (log.score || fbText) {
                     feedbackHtml = `
                         <div class="mt-3 bg-amber-50 border border-amber-100 rounded-lg p-3 relative shadow-inner">
-                            <div class="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">คุณครูตรวจแล้ว</div>
+                            <div class="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">${t('คุณครูตรวจแล้ว', 'Graded')}</div>
                             <div class="flex items-center gap-2 mb-1">
                                 <span class="text-lg">⭐</span>
-                                <span class="font-black text-amber-700 text-sm">คะแนน: ${esc(log.score || '-')} / 10</span>
+                                <span class="font-black text-amber-700 text-sm">${t('คะแนน:', 'Score:')} ${esc(log.score || '-')} / 10</span>
                             </div>
-                            <p class="text-xs text-amber-600 font-semibold">${esc(log.teacherFeedback || '')}</p>
+                            <p class="text-xs text-amber-600 font-semibold">${esc(fbText)}</p>
                         </div>
                     `;
                 }
@@ -4127,6 +4425,7 @@
                     Other: 'border-l-slate-400'
                 };
                 const leftBorderClass = log.mediaType ? (borderColorMap[log.mediaType] || 'border-l-slate-400') : 'border-l-slate-400';
+                const sumText = (window.currentLang === 'en' && log.summaryEn) ? log.summaryEn : (log.summary || '');
 
                 list.innerHTML += `
                     <div class="p-3.5 bg-white border border-slate-100 border-l-4 ${leftBorderClass} rounded-2xl relative overflow-hidden shadow-xs hover:shadow-md transition-all">
@@ -4137,7 +4436,7 @@
                                 <span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">${d}</span>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-500 line-clamp-2 mb-2.5">${esc(log.summary)}</p>
+                        <p class="text-xs text-slate-500 line-clamp-2 mb-2.5">${esc(sumText)}</p>
                         <div class="flex flex-wrap gap-1.5 items-center">
                             ${durationBadge}
                             ${mediaBadge}
@@ -4180,7 +4479,7 @@
         // Leaderboard Logic
         async function loadLeaderboard() {
             const list = document.getElementById('leaderboardList');
-            list.innerHTML = '<div class="p-6 text-center text-slate-400"><i class="ph-bold ph-spinner-gap animate-spin text-2xl"></i> กำลังประมวลผล...</div>';
+            list.innerHTML = `<div class="p-6 text-center text-slate-400"><i class="ph-bold ph-spinner-gap animate-spin text-2xl"></i> ${t('กำลังประมวลผล...', 'Loading...')}</div>`;
 
             try {
                 // ดึงข้อมูลทั้งหมดมาคำนวณอันดับ (ตาม XP)
@@ -4207,7 +4506,7 @@
                     u.xp += logXP(data);
                     if (ts >= u.ts) {
                         u.ts = ts;
-                        u.name = data.studentName || data.email || 'Student';
+                        u.name = data.studentName || data.email || t('นักเรียน', 'Student');
                         u.email = userEmail || u.email;
                         u.lastTopic = data.topic || '';
                         u.avatar = data.userPhoto || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(u.name)}`;
@@ -4222,30 +4521,34 @@
                 if (all.length === 0 || isGuest) {
                     const myXP = userLogs.reduce((acc, l) => acc + logXP(l), 0) || 190;
                     const mockList = [
-                        { uid: 'mock_1', name: 'ด.ช.กิตติศักดิ์ (Kittisak)', count: 18, xp: 580, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Kittisak', sFrame: 'frame-fire', sName: 'name-gold', sTitle: '💎 The Polyglot' },
-                        { uid: 'mock_2', name: 'ด.ญ.ณิชา (Nicha)', count: 14, xp: 440, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Nicha', sFrame: 'frame-neon', sName: 'name-neon', sTitle: '⚔️ Grammar Knight' },
-                        { uid: 'mock_3', name: 'ด.ช.สมชาย (Somchai)', count: 11, xp: 350, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Somchai', sFrame: 'frame-ocean', sName: '', sTitle: '🪄 Vocab Wizard' },
-                        { uid: 'mock_4', name: 'ด.ญ.ปิยะดา (Piyada)', count: 9, xp: 270, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Piyada', sFrame: 'frame-sakura', sName: 'name-pink', sTitle: '📚 หนอนหนังสือ' },
-                        { uid: 'mock_5', name: 'ด.ช.ธีรพัฒน์ (Teerapat)', count: 6, xp: 170, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Teerapat', sFrame: '', sName: '', sTitle: '' },
-                        { uid: 'mock_6', name: 'ด.ญ.วรรณภา (Wannapa)', count: 5, xp: 140, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Wannapa', sFrame: '', sName: '', sTitle: '' },
-                        { uid: 'mock_7', name: 'ด.ช.อนาวิล (Anawin)', count: 4, xp: 110, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Anawin', sFrame: '', sName: '', sTitle: '' },
-                        { uid: 'mock_8', name: 'ด.ญ.พิมพ์มาดา (Pimmada)', count: 3, xp: 80, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Pimmada', sFrame: '', sName: '', sTitle: '' },
-                        { uid: 'mock_9', name: 'ด.ช.ภานุพงศ์ (Panupong)', count: 2, xp: 50, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Panupong', sFrame: '', sName: '', sTitle: '' }
+                        { uid: 'mock_1', name: t('ด.ช.กิตติศักดิ์', 'Kittisak'), count: 18, xp: 580, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Kittisak', sFrame: 'frame-fire', sName: 'name-gold', sTitle: 'title_polyglot' },
+                        { uid: 'mock_2', name: t('ด.ญ.ณิชา', 'Nicha'), count: 14, xp: 440, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Nicha', sFrame: 'frame-neon', sName: 'name-neon', sTitle: 'title_knight' },
+                        { uid: 'mock_3', name: t('ด.ช.สมชาย', 'Somchai'), count: 11, xp: 350, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Somchai', sFrame: 'frame-ocean', sName: '', sTitle: 'title_wizard' },
+                        { uid: 'mock_4', name: t('ด.ญ.ปิยะดา', 'Piyada'), count: 9, xp: 270, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Piyada', sFrame: 'frame-sakura', sName: 'name-pink', sTitle: 'badge_b5' },
+                        { uid: 'mock_5', name: t('ด.ช.ธีรพัฒน์', 'Teerapat'), count: 6, xp: 170, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Teerapat', sFrame: '', sName: '', sTitle: '' },
+                        { uid: 'mock_6', name: t('ด.ญ.วรรณภา', 'Wannapa'), count: 5, xp: 140, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Wannapa', sFrame: '', sName: '', sTitle: '' },
+                        { uid: 'mock_7', name: t('ด.ช.อนาวิล', 'Anawin'), count: 4, xp: 110, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Anawin', sFrame: '', sName: '', sTitle: '' },
+                        { uid: 'mock_8', name: t('ด.ญ.พิมพ์มาดา', 'Pimmada'), count: 3, xp: 80, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Pimmada', sFrame: '', sName: '', sTitle: '' },
+                        { uid: 'mock_9', name: t('ด.ช.ภานุพงศ์', 'Panupong'), count: 2, xp: 50, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Panupong', sFrame: '', sName: '', sTitle: '' }
                     ];
 
                     if (!isTeacherEmail(currentUser?.email)) {
-                        mockList.push({ uid: currentUser?.uid || 'guest_demo_user', name: (document.getElementById('studentName')?.value) || 'คุณ (Guest Tester)', count: userLogs.length || 6, xp: myXP, avatar: currentUser?.photoURL || 'https://api.dicebear.com/7.x/avataaars/svg?seed=DemoGuest', sFrame: userData?.equippedFrame ? (SHOP_ITEMS.frames.find(x => x.id === userData.equippedFrame)?.class || '') : '', sName: userData?.equippedName ? (SHOP_ITEMS.names.find(x => x.id === userData.equippedName)?.class || '') : '', sTitle: userData?.equippedTitle ? (getTitleInfo(userData.equippedTitle)?.text || '') : '' });
+                        const rawStudentName = document.getElementById('studentName')?.value || '';
+                        const displayGuestName = isGuest
+                            ? ((!rawStudentName || rawStudentName === 'นักเรียนตัวอย่าง' || rawStudentName === 'Demo Student' || rawStudentName.includes('นักเรียนตัวอย่าง'))
+                                ? t('นักเรียนตัวอย่าง (คุณ)', 'Demo Student (You)')
+                                : rawStudentName)
+                            : (rawStudentName || currentUser?.displayName || t('คุณ', 'You'));
+                        mockList.push({ uid: currentUser?.uid || 'guest_demo_user', name: displayGuestName, count: userLogs.length || 6, xp: myXP, avatar: currentUser?.photoURL || 'https://api.dicebear.com/7.x/avataaars/svg?seed=DemoGuest', sFrame: userData?.equippedFrame ? (SHOP_ITEMS.frames.find(x => x.id === userData.equippedFrame)?.class || '') : '', sName: userData?.equippedName ? (SHOP_ITEMS.names.find(x => x.id === userData.equippedName)?.class || '') : '', sTitle: userData?.equippedTitle || '' });
                     }
                     all = mockList.sort((a, b) => b.xp - a.xp);
 
                     all.forEach(m => {
-                        if (!shopDataMap[m.uid]) {
-                            shopDataMap[m.uid] = {
-                                equippedFrame: m.sFrame ? SHOP_ITEMS.frames.find(x => x.class === m.sFrame)?.id : null,
-                                equippedName: m.sName ? SHOP_ITEMS.names.find(x => x.class === m.sName)?.id : null,
-                                equippedTitle: m.sTitle || null
-                            };
-                        }
+                        shopDataMap[m.uid] = {
+                            equippedFrame: m.sFrame ? SHOP_ITEMS.frames.find(x => x.class === m.sFrame)?.id : (shopDataMap[m.uid]?.equippedFrame || null),
+                            equippedName: m.sName ? SHOP_ITEMS.names.find(x => x.class === m.sName)?.id : (shopDataMap[m.uid]?.equippedName || null),
+                            equippedTitle: m.sTitle || (shopDataMap[m.uid]?.equippedTitle || null)
+                        };
                     });
                 }
 
@@ -4293,7 +4596,7 @@
                 }
 
                 list.innerHTML = '';
-                if (all.length === 0) { list.innerHTML = '<div class="p-4 text-center text-sm text-slate-500">ยังไม่มีข้อมูลในระบบ</div>'; return; }
+                if (all.length === 0) { list.innerHTML = `<div class="p-4 text-center text-sm text-slate-500">${t('ยังไม่มีข้อมูลในระบบ', 'No data available yet')}</div>`; return; }
 
                 const row = (u, index) => {
                     const s = styleFor(u), lv = levelInfo(u.xp).lvl, isMe = index === myIdx;
@@ -4305,7 +4608,7 @@
                                     <img src="${esc(u.avatar)}" class="w-full h-full rounded-full object-cover relative z-10 bg-white ${s.frame}">
                                 </div>
                                 <div class="min-w-0">
-                                    <h4 class="${s.name} truncate">${esc(u.name)} ${isMe ? '<span class="text-[9px] font-black bg-teal-500 text-white px-1.5 py-0.5 rounded-full align-middle">YOU</span>' : ''}</h4>
+                                    <h4 class="${s.name} truncate">${esc(u.name)} ${isMe ? `<span class="text-[9px] font-black bg-teal-500 text-white px-1.5 py-0.5 rounded-full align-middle">${t('คุณ', 'YOU')}</span>` : ''}</h4>
                                     <p class="text-[10px] text-slate-500 truncate w-40 flex items-center gap-1 flex-wrap">
                                         ${s.title ? `<span class="mel-title-badge text-[9px] px-2 py-0.5 shadow-xs">${esc(s.title)}</span>` : ''}<span>Lv.${lv} · ${u.count} ${t('งาน', 'logs')}</span>
                                     </p>
@@ -4320,10 +4623,10 @@
                 let html = all.slice(3, 10).map((u, i) => row(u, i + 3)).join('');
                 if (isCurrentTeacher) {
                     html = `<div class="p-3 mb-2 bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl text-center text-xs font-bold text-indigo-700 shadow-xs flex items-center justify-center gap-2">
-                        <span>👩‍🏫</span> <span>บัญชีคุณครู (${esc(currentUser.email)}) — ไม่ได้ร่วมจัดอันดับบนกระดานผู้นำนักเรียน</span>
+                        <span>👩‍🏫</span> <span>${t(`บัญชีคุณครู (${esc(currentUser.email)}) — ไม่ได้ร่วมจัดอันดับบนกระดานผู้นำนักเรียน`, `Teacher Account (${esc(currentUser.email)}) — Excluded from student rankings`)}</span>
                     </div>` + html;
                 } else if (myIdx >= 10) {
-                    html += `<div class="px-3 pt-3 pb-1 text-[10px] font-black text-slate-400 uppercase tracking-wider">อันดับของคุณ</div>` + row(all[myIdx], myIdx);
+                    html += `<div class="px-3 pt-3 pb-1 text-[10px] font-black text-slate-400 uppercase tracking-wider">${t('อันดับของคุณ', 'Your Rank')}</div>` + row(all[myIdx], myIdx);
                 }
                 if (!html) {
                     html = `<div class="p-4 text-center text-xs font-bold text-slate-400">${myIdx >= 0 && myIdx < 3 ? t('คุณอยู่บนโพเดียมแล้ว! 🏆', "You're on the podium! 🏆") : t('ฝึกและบันทึกเพิ่มเพื่อไต่อันดับ!', 'Log more to climb the board!')}</div>`;
@@ -4331,7 +4634,7 @@
                 list.innerHTML = html;
             } catch (err) {
                 console.error(err);
-                list.innerHTML = '<div class="p-4 text-center text-red-500 text-sm">โหลดข้อมูลไม่สำเร็จ</div>';
+                list.innerHTML = `<div class="p-4 text-center text-red-500 text-sm">${t('โหลดข้อมูลไม่สำเร็จ', 'Failed to load data')}</div>`;
             }
         }
 
@@ -4347,22 +4650,22 @@
                             <ul class="space-y-1 font-semibold text-slate-700">
                                 <li>✍️ <strong>+20 XP</strong> ${t('บันทึกการเรียนรู้', 'Record learning log')}</li>
                                 <li>🎯 <strong>+5 XP</strong> ${t('ต่อทุกทักษะที่เลือกฝึก (สูงสุด +30 XP)', 'Per skill practiced (up to +30 XP)')}</li>
-                                <li>📸 <strong>+5 XP</strong> ${t('เมื่อมีภาพ Screenshot ผลงาน', 'When attaching a screenshot')}</li>
-                                <li>⭐ <strong>+คะแนน × 3 XP</strong> ${t('คะแนนที่ได้รับจากคุณครู (0–30 XP)', 'Score awarded by teacher (0–30 XP)')}</li>
+                                <li>📸 <strong>+5 XP</strong> ${t('เมื่อมีภาพหลักฐานผลงาน', 'When attaching a screenshot')}</li>
+                                <li>⭐ <strong>+${t('คะแนน', 'Score')} × 3 XP</strong> ${t('คะแนนที่ได้รับจากคุณครู (0–30 XP)', 'Score awarded by teacher (0–30 XP)')}</li>
                                 <li>💡 <strong>+10 XP</strong> ${t('ตอบคำถามคำศัพท์ประจำวันถูกต้อง', 'Answer daily word challenge')}</li>
                                 <li>🏅 <strong>+30 XP</strong> ${t('ทุกครั้งที่ปลดล็อกเหรียญตราใหม่', 'For every new badge unlocked')}</li>
                             </ul>
                         </div>
                         <div class="p-3 bg-amber-50 border border-amber-200 rounded-2xl">
-                            <p class="font-black text-amber-800 text-sm mb-1.5 flex items-center gap-1.5"><i class="ph-bold ph-crown text-amber-600"></i> ${t('ยศและขั้นเลเวล (Level Tiers)', 'Level Tiers')}:</p>
+                            <p class="font-black text-amber-800 text-sm mb-1.5 flex items-center gap-1.5"><i class="ph-bold ph-crown text-amber-600"></i> ${t('ยศและขั้นเลเวล', 'Level Tiers')}:</p>
                             <div class="grid grid-cols-2 gap-1.5 text-[11px] font-bold">
-                                <div>🌱 Lv.1–2 : Newbie</div>
-                                <div>🧭 Lv.3–4 : Explorer</div>
-                                <div>📘 Lv.5–7 : Learner</div>
-                                <div>🎓 Lv.8–11 : Scholar</div>
-                                <div>🧙 Lv.12–15 : Master</div>
-                                <div>🏆 Lv.16–19 : Champion</div>
-                                <div class="col-span-2 text-amber-700">👑 Lv.20+ : English Legend</div>
+                                <div>🌱 Lv.1–2 : ${t('มือใหม่', 'Newbie')}</div>
+                                <div>🧭 Lv.3–4 : ${t('นักสำรวจ', 'Explorer')}</div>
+                                <div>📘 Lv.5–7 : ${t('ผู้ใฝ่รู้', 'Learner')}</div>
+                                <div>🎓 Lv.8–11 : ${t('นักปราชญ์', 'Scholar')}</div>
+                                <div>🧙 Lv.12–15 : ${t('ปรมาจารย์', 'Master')}</div>
+                                <div>🏆 Lv.16–19 : ${t('แชมเปียน', 'Champion')}</div>
+                                <div class="col-span-2 text-amber-700">👑 Lv.20+ : ${t('ตำนานอังกฤษ', 'Legend')}</div>
                             </div>
                         </div>
                     </div>
@@ -4374,20 +4677,20 @@
 
         // ---- Feature: Daily Word Challenge (Mini-Game) ----
         const WORD_CHALLENGE_POOL = [
-            { word: "Persevere", phonetic: "/ˌpɜː.sɪˈvɪər/", pos: "verb", meaning: "พยายามมุ่งมั่นไม่ยอมแพ้", example: "She persevered through the challenge and succeeded.", distractors: ["ยอมจำนนง่ายๆ", "หลีกเลี่ยงปัญหา"] },
-            { word: "Accomplish", phonetic: "/əˈkʌm.plɪʃ/", pos: "verb", meaning: "ทำสำเร็จ บรรลุผล", example: "You can accomplish anything with consistent practice.", distractors: ["ล้มเลิกกลางคัน", "ปฏิเสธความรับผิดชอบ"] },
-            { word: "Enthusiastic", phonetic: "/ɪnˌθjuː.ziˈæs.tɪk/", pos: "adj.", meaning: "กระตือรือร้น มีใจรัก", example: "He is enthusiastic about learning new vocabulary.", distractors: ["เฉยชา ไม่สนใจ", "เบื่อหน่าย"] },
-            { word: "Resilient", phonetic: "/rɪˈzɪl.i.ənt/", pos: "adj.", meaning: "ยืดหยุ่น ปรับตัวเก่ง ฟื้นตัวเร็ว", example: "Resilient students learn from their mistakes.", distractors: ["เปราะบาง แตกหักง่าย", "ดื้อดึง"] },
-            { word: "Curious", phonetic: "/ˈkjʊə.ri.əs/", pos: "adj.", meaning: "อยากรู้อยากเห็น ช่างสงสัย", example: "Curious learners ask great questions in class.", distractors: ["ไม่สนใจสิ่งรอบตัว", "ขี้เกียจ"] },
-            { word: "Brilliant", phonetic: "/ˈbrɪl.jənt/", pos: "adj.", meaning: "ยอดเยี่ยม ฉลาดมาก สว่างไสว", example: "That was a brilliant presentation today!", distractors: ["ธรรมดาทั่วไป", "สับสน มืดมน"] },
-            { word: "Collaborate", phonetic: "/kəˈlæb.ə.reɪt/", pos: "verb", meaning: "ร่วมมือ ทำงานร่วมกัน", example: "We collaborate with classmates on group projects.", distractors: ["แข่งขันเอาชนะ", "ทำงานโดดเดี่ยว"] },
-            { word: "Inspire", phonetic: "/ɪnˈspaɪər/", pos: "verb", meaning: "สร้างแรงบันดาลใจ", example: "Good stories inspire us to speak English more.", distractors: ["ทำให้ท้อแท้", "กีดกัน"] },
-            { word: "Consistency", phonetic: "/kənˈsɪs.tən.si/", pos: "noun", meaning: "ความสม่ำเสมอ ต่อเนื่อง", example: "Consistency is the secret key to fluency.", distractors: ["ความไม่แน่นอน", "ความเร่งรีบ"] },
-            { word: "Opportunity", phonetic: "/ˌɒp.əˈtjuː.nə.ti/", pos: "noun", meaning: "โอกาส โอกาสที่ดี", example: "Every English class is a great opportunity.", distractors: ["อุปสรรค ขวากหนาม", "ความสูญเปล่า"] },
-            { word: "Confidence", phonetic: "/ˈkɒn.fɪ.dəns/", pos: "noun", meaning: "ความมั่นใจ ความเชื่อมั่น", example: "Speaking daily builds your speaking confidence.", distractors: ["ความลังเล ขี้ขลาด", "ความหวาดกลัว"] },
-            { word: "Fascinating", phonetic: "/ˈfæs.ɪ.neɪ.tɪŋ/", pos: "adj.", meaning: "น่าหลงใหล มีเสน่ห์ น่าสนใจยิ่ง", example: "Learning languages is a fascinating journey.", distractors: ["น่าเบื่อ น่ารำคาญ", "ไร้สาระ"] },
-            { word: "Deliberate", phonetic: "/dɪˈlɪb.ər.ət/", pos: "adj.", meaning: "ตั้งใจ รอบคอบ เจตนา", example: "Deliberate practice makes your skills sharp.", distractors: ["ประมาทเลินเล่อ", "ไม่ตั้งใจ"] },
-            { word: "Creativity", phonetic: "/ˌkriː.eɪˈtɪv.ə.ti/", pos: "noun", meaning: "ความคิดสร้างสรรค์", example: "English opens doors to limitless creativity.", distractors: ["การลอกเลียนแบบ", "ความซ้ำซาก"] }
+            { word: "Persevere", phonetic: "/ˌpɜː.sɪˈvɪər/", pos: "verb", meaning: "พยายามมุ่งมั่นไม่ยอมแพ้", enMeaning: "Keep trying and never give up", example: "She persevered through the challenge and succeeded.", distractors: ["ยอมจำนนง่ายๆ", "หลีกเลี่ยงปัญหา"], enDistractors: ["Give up easily", "Avoid problems"] },
+            { word: "Accomplish", phonetic: "/əˈkʌm.plɪʃ/", pos: "verb", meaning: "ทำสำเร็จ บรรลุผล", enMeaning: "Achieve or complete successfully", example: "You can accomplish anything with consistent practice.", distractors: ["ล้มเลิกกลางคัน", "ปฏิเสธความรับผิดชอบ"], enDistractors: ["Quit halfway", "Refuse responsibility"] },
+            { word: "Enthusiastic", phonetic: "/ɪnˌθjuː.ziˈæs.tɪk/", pos: "adj.", meaning: "กระตือรือร้น มีใจรัก", enMeaning: "Showing eager enjoyment and interest", example: "He is enthusiastic about learning new vocabulary.", distractors: ["เฉยชา ไม่สนใจ", "เบื่อหน่าย"], enDistractors: ["Uninterested and passive", "Bored and tired"] },
+            { word: "Resilient", phonetic: "/rɪˈzɪl.i.ənt/", pos: "adj.", meaning: "ยืดหยุ่น ปรับตัวเก่ง ฟื้นตัวเร็ว", enMeaning: "Able to recover quickly from difficulties", example: "Resilient students learn from their mistakes.", distractors: ["เปราะบาง แตกหักง่าย", "ดื้อดึง"], enDistractors: ["Fragile and easily broken", "Stubborn and rigid"] },
+            { word: "Curious", phonetic: "/ˈkjʊə.ri.əs/", pos: "adj.", meaning: "อยากรู้อยากเห็น ช่างสงสัย", enMeaning: "Eager to know or learn something", example: "Curious learners ask great questions in class.", distractors: ["ไม่สนใจสิ่งรอบตัว", "ขี้เกียจ"], enDistractors: ["Ignoring surroundings", "Lazy and unmotivated"] },
+            { word: "Brilliant", phonetic: "/ˈbrɪl.jənt/", pos: "adj.", meaning: "ยอดเยี่ยม ฉลาดมาก สว่างไสว", enMeaning: "Exceptionally clever, talented, or impressive", example: "That was a brilliant presentation today!", distractors: ["ธรรมดาทั่วไป", "สับสน มืดมน"], enDistractors: ["Ordinary and plain", "Confusing and dull"] },
+            { word: "Collaborate", phonetic: "/kəˈlæb.ə.reɪt/", pos: "verb", meaning: "ร่วมมือ ทำงานร่วมกัน", enMeaning: "Work jointly with others on an activity", example: "We collaborate with classmates on group projects.", distractors: ["แข่งขันเอาชนะ", "ทำงานโดดเดี่ยว"], enDistractors: ["Compete against others", "Work completely alone"] },
+            { word: "Inspire", phonetic: "/ɪnˈspaɪər/", pos: "verb", meaning: "สร้างแรงบันดาลใจ", enMeaning: "Fill someone with the urge to do something creative", example: "Good stories inspire us to speak English more.", distractors: ["ทำให้ท้อแท้", "กีดกัน"], enDistractors: ["Discourage someone", "Prevent or block"] },
+            { word: "Consistency", phonetic: "/kənˈsɪs.tən.si/", pos: "noun", meaning: "ความสม่ำเสมอ ต่อเนื่อง", enMeaning: "Steady continuity and regular practice", example: "Consistency is the secret key to fluency.", distractors: ["ความไม่แน่นอน", "ความเร่งรีบ"], enDistractors: ["Uncertainty and randomness", "Rushing in a hurry"] },
+            { word: "Opportunity", phonetic: "/ˌɒp.əˈtjuː.nə.ti/", pos: "noun", meaning: "โอกาส โอกาสที่ดี", enMeaning: "A favorable time or set of circumstances", example: "Every English class is a great opportunity.", distractors: ["อุปสรรค ขวากหนาม", "ความสูญเปล่า"], enDistractors: ["An obstacle or barrier", "A complete waste"] },
+            { word: "Confidence", phonetic: "/ˈkɒn.fɪ.dəns/", pos: "noun", meaning: "ความมั่นใจ ความเชื่อมั่น", enMeaning: "Belief in oneself and one's abilities", example: "Speaking daily builds your speaking confidence.", distractors: ["ความลังเล ขี้ขลาด", "ความหวาดกลัว"], enDistractors: ["Hesitation and timidity", "Fear and anxiety"] },
+            { word: "Fascinating", phonetic: "/ˈfæs.ɪ.neɪ.tɪŋ/", pos: "adj.", meaning: "น่าหลงใหล มีเสน่ห์ น่าสนใจยิ่ง", enMeaning: "Extremely interesting and captivating", example: "Learning languages is a fascinating journey.", distractors: ["น่าเบื่อ น่ารำคาญ", "ไร้สาระ"], enDistractors: ["Boring and annoying", "Meaningless nonsense"] },
+            { word: "Deliberate", phonetic: "/dɪˈlɪb.ər.ət/", pos: "adj.", meaning: "ตั้งใจ รอบคอบ เจตนา", enMeaning: "Done consciously, carefully, and intentionally", example: "Deliberate practice makes your skills sharp.", distractors: ["ประมาทเลินเล่อ", "ไม่ตั้งใจ"], enDistractors: ["Careless and reckless", "Accidental and unplanned"] },
+            { word: "Creativity", phonetic: "/ˌkriː.eɪˈtɪv.ə.ti/", pos: "noun", meaning: "ความคิดสร้างสรรค์", enMeaning: "The use of imagination or original ideas", example: "English opens doors to limitless creativity.", distractors: ["การลอกเลียนแบบ", "ความซ้ำซาก"], enDistractors: ["Blind imitation", "Monotonous repetition"] }
         ];
 
         window.speakWord = (w) => {
@@ -4415,6 +4718,8 @@
             const now = new Date();
             const wordObj = WORD_CHALLENGE_POOL[toDayNum(now) % WORD_CHALLENGE_POOL.length];
             const isSolved = getDailyWordState();
+            const correctMeaning = t(wordObj.meaning, wordObj.enMeaning);
+            const distractorList = window.currentLang === 'en' ? wordObj.enDistractors : wordObj.distractors;
 
             if (isSolved) {
                 if (badge) {
@@ -4422,7 +4727,7 @@
                     badge.className = "text-[10px] font-black bg-emerald-400/30 text-emerald-100 px-2.5 py-1 rounded-full border border-emerald-300/40";
                 }
                 if (tabWordBadge) {
-                    tabWordBadge.textContent = "✓ สำเร็จ";
+                    tabWordBadge.textContent = t("✓ สำเร็จ", "✓ Done");
                     tabWordBadge.className = "text-[10px] font-black bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full";
                 }
                 container.innerHTML = `
@@ -4433,11 +4738,11 @@
                                 <span class="text-xs text-teal-100 font-mono">${wordObj.phonetic}</span>
                                 <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full uppercase">${wordObj.pos}</span>
                             </div>
-                            <button type="button" onclick="speakWord('${wordObj.word}')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors" title="ฟังการออกเสียง">
+                            <button type="button" onclick="speakWord('${wordObj.word}')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors" title="${t('ฟังการออกเสียง', 'Listen to pronunciation')}">
                                 <i class="ph-bold ph-speaker-high text-base"></i>
                             </button>
                         </div>
-                        <p class="text-sm font-bold text-white mb-2">✨ ความหมาย: <span class="text-amber-200">${wordObj.meaning}</span></p>
+                        <p class="text-sm font-bold text-white mb-2">✨ ${t('ความหมาย:', 'Meaning:')} <span class="text-amber-200">${correctMeaning}</span></p>
                         <p class="text-xs text-teal-100 italic">“${wordObj.example}”</p>
                         <div class="mt-3 flex items-center gap-1.5 text-[11px] font-black text-emerald-200">
                             <i class="ph-bold ph-check-circle text-base"></i> ${t('คุณตอบคำถามประจำวันเรียบร้อยแล้ว (+5 💰 +10 XP)', 'You earned +5 💰 +10 XP for today!')}
@@ -4453,8 +4758,11 @@
                     tabWordBadge.textContent = "+5 💰";
                     tabWordBadge.className = "text-[10px] font-black bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full";
                 }
-                const choices = [wordObj.meaning, ...wordObj.distractors];
-                const shuffled = choices.slice().sort((a, b) => (a.charCodeAt(0) - b.charCodeAt(0)) * (toDayNum(now) % 2 === 0 ? 1 : -1));
+                const choices = [
+                    { text: correctMeaning, isCorrect: true },
+                    ...distractorList.map(d => ({ text: d, isCorrect: false }))
+                ];
+                const shuffled = choices.slice().sort((a, b) => (a.text.charCodeAt(0) - b.text.charCodeAt(0)) * (toDayNum(now) % 2 === 0 ? 1 : -1));
 
                 container.innerHTML = `
                     <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20">
@@ -4464,15 +4772,15 @@
                                 <span class="text-xs text-teal-100 font-mono">${wordObj.phonetic}</span>
                                 <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full uppercase">${wordObj.pos}</span>
                             </div>
-                            <button type="button" onclick="speakWord('${wordObj.word}')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors" title="ฟังการออกเสียง">
+                            <button type="button" onclick="speakWord('${wordObj.word}')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors" title="${t('ฟังการออกเสียง', 'Listen to pronunciation')}">
                                 <i class="ph-bold ph-speaker-high text-base"></i>
                             </button>
                         </div>
                         <p class="text-xs font-bold text-teal-50 mb-3">${t('คำว่า', 'What does')} <strong class="text-white underline">"${wordObj.word}"</strong> ${t('มีความหมายตรงกับข้อใด?', 'mean?')}</p>
                         <div class="grid grid-cols-1 gap-2" id="wordChoiceButtons">
                             ${shuffled.map(c => `
-                                <button type="button" onclick="answerDailyWord('${c.replace(/'/g, "\\'")}')" class="word-choice-btn w-full text-left bg-white/15 hover:bg-white/30 active:scale-[0.98] border border-white/25 rounded-xl px-3.5 py-2.5 text-xs font-bold text-white transition-all flex items-center justify-between">
-                                    <span>${c}</span>
+                                <button type="button" onclick="answerDailyWord(${c.isCorrect})" class="word-choice-btn w-full text-left bg-white/15 hover:bg-white/30 active:scale-[0.98] border border-white/25 rounded-xl px-3.5 py-2.5 text-xs font-bold text-white transition-all flex items-center justify-between">
+                                    <span>${c.text}</span>
                                     <i class="ph-bold ph-arrow-circle-right opacity-60"></i>
                                 </button>
                             `).join('')}
@@ -4486,7 +4794,9 @@
             if (!currentUser) return;
             const now = new Date();
             const wordObj = WORD_CHALLENGE_POOL[toDayNum(now) % WORD_CHALLENGE_POOL.length];
-            if (selected === wordObj.meaning) {
+            const isCorrect = (selected === true || selected === wordObj.meaning || selected === wordObj.enMeaning);
+            const correctMeaning = t(wordObj.meaning, wordObj.enMeaning);
+            if (isCorrect) {
                 sfx('levelup');
                 confetti({ particleCount: 70, spread: 60, origin: { y: 0.4 } });
                 floatReward('+5 💰');
@@ -4503,7 +4813,7 @@
                     html: `
                         <div class="text-center my-2">
                             <p class="text-3xl font-black text-emerald-600 mb-1">${wordObj.word}</p>
-                            <p class="text-sm font-bold text-slate-600 mb-2">${wordObj.meaning}</p>
+                            <p class="text-sm font-bold text-slate-600 mb-2">${correctMeaning}</p>
                             <p class="text-xs text-slate-500 italic bg-slate-50 p-3 rounded-xl border border-slate-100 mb-3">“${wordObj.example}”</p>
                             <div class="flex justify-center gap-2">
                                 <span class="bg-amber-100 text-amber-700 font-black px-3 py-1 rounded-xl text-xs">+5 💰</span>
@@ -4528,22 +4838,21 @@
             }
         };
 
-        // ---- Feature 1: Badge System ----
         // ---- Feature 1: Badge & Title Equipping System ----
         const BADGE_DEFINITIONS = [
-            { id: 'b1', emoji: '🌱', name: 'ก้าวแรกสู่ภาษา', enName: 'First Step', desc: 'บันทึกการเรียนรู้ครั้งแรก', check: (L) => L.length >= 1, progress: (L) => `${Math.min(L.length, 1)}/1` },
-            { id: 'b2', emoji: '🔥', name: 'ไฟแรง 3 วัน', enName: '3-Day Streak', desc: 'เรียนรู้ต่อเนื่อง 3 วันติด', check: (L, s) => s >= 3, progress: (L, s) => `${Math.min(s, 3)}/3 วัน` },
-            { id: 'b3', emoji: '⚡', name: 'สายฟ้าฟาด 7 วัน', enName: '7-Day Streak', desc: 'เรียนรู้ต่อเนื่อง 7 วันติด', check: (L, s) => s >= 7, progress: (L, s) => `${Math.min(s, 7)}/7 วัน` },
-            { id: 'b4', emoji: '👑', name: 'ตำนาน 14 วัน', enName: '14-Day Streak', desc: 'เรียนรู้ต่อเนื่อง 14 วันติด', check: (L, s) => s >= 14, progress: (L, s) => `${Math.min(s, 14)}/14 วัน` },
-            { id: 'b5', emoji: '📚', name: 'หนอนหนังสือ', enName: 'Bookworm', desc: 'อ่านบทความภาษาอังกฤษ 3 ครั้ง', check: (L) => L.filter(l => l.mediaType === 'Article').length >= 3, progress: (L) => `${Math.min(L.filter(l => l.mediaType === 'Article').length, 3)}/3` },
-            { id: 'b6', emoji: '🎬', name: 'ผู้สำรวจวิดีโอ', enName: 'Video Explorer', desc: 'ดูคลิปภาษาอังกฤษ 5 ครั้ง', check: (L) => L.filter(l => l.mediaType === 'YouTube').length >= 5, progress: (L) => `${Math.min(L.filter(l => l.mediaType === 'YouTube').length, 5)}/5` },
-            { id: 'b7', emoji: '🎧', name: 'นักฟังตัวยง', enName: 'Podcast Master', desc: 'ฟัง Podcast ภาษาอังกฤษ 3 ครั้ง', check: (L) => L.filter(l => l.mediaType === 'Podcast').length >= 3, progress: (L) => `${Math.min(L.filter(l => l.mediaType === 'Podcast').length, 3)}/3` },
-            { id: 'b8', emoji: '🎮', name: 'ผู้พิชิตเกม', enName: 'Game Master', desc: 'เรียนรู้ผ่านเกมภาษาอังกฤษ 3 ครั้ง', check: (L) => L.filter(l => l.mediaType === 'Game').length >= 3, progress: (L) => `${Math.min(L.filter(l => l.mediaType === 'Game').length, 3)}/3` },
-            { id: 'b9', emoji: '🏆', name: 'ผู้มุ่งมั่น 10 บันทึก', enName: 'Dedicated 10', desc: 'สะสมการบันทึกครบ 10 ครั้ง', check: (L) => L.length >= 10, progress: (L) => `${Math.min(L.length, 10)}/10` },
-            { id: 'b10', emoji: '🎯', name: 'นักสู้ 25 บันทึก', enName: 'Achiever 25', desc: 'สะสมการบันทึกครบ 25 ครั้ง', check: (L) => L.length >= 25, progress: (L) => `${Math.min(L.length, 25)}/25` },
-            { id: 'b11', emoji: '🌟', name: 'ผู้เชี่ยวชาญรอบด้าน', enName: 'All-Rounder', desc: 'ฝึกครบทั้ง 6 ทักษะ (ฟัง, พูด, อ่าน, เขียน, ไวยากรณ์, คำศัพท์)', check: (L, s, allS) => allS, progress: (L, s, allS, countS) => `${countS}/6 ทักษะ` },
-            { id: 'b12', emoji: '⭐', name: 'เด็กเกียรตินิยม', enName: 'Top Scorer', desc: 'ได้รับคะแนน 10 เต็มจากคุณครู', check: (L) => L.some(l => parseFloat(l.score) === 10), progress: (L) => L.some(l => parseFloat(l.score) === 10) ? '1/1' : '0/1' },
-            { id: 'b13', emoji: '🚀', name: 'บัณฑิตอังกฤษ', enName: 'English Scholar', desc: 'สะสม XP จนถึงเลเวล 5 ขึ้นไป', check: (L) => levelInfo(L.reduce((sum, l) => sum + logXP(l), 0)).lvl >= 5, progress: (L) => `Lv.${levelInfo(L.reduce((sum, l) => sum + logXP(l), 0)).lvl}/5` },
+            { id: 'b1', emoji: '🌱', name: 'ก้าวแรกสู่ภาษา', enName: 'First Step', desc: 'บันทึกการเรียนรู้ครั้งแรก', enDesc: 'Submit your first learning log', check: (L) => L.length >= 1, progress: (L) => `${Math.min(L.length, 1)}/1` },
+            { id: 'b2', emoji: '🔥', name: 'ไฟแรง 3 วัน', enName: '3-Day Streak', desc: 'เรียนรู้ต่อเนื่อง 3 วันติด', enDesc: 'Maintain a 3-day learning streak', check: (L, s) => s >= 3, progress: (L, s) => `${Math.min(s, 3)}/3 ${t('วัน', 'days')}` },
+            { id: 'b3', emoji: '⚡', name: 'สายฟ้าฟาด 7 วัน', enName: '7-Day Streak', desc: 'เรียนรู้ต่อเนื่อง 7 วันติด', enDesc: 'Maintain a 7-day learning streak', check: (L, s) => s >= 7, progress: (L, s) => `${Math.min(s, 7)}/7 ${t('วัน', 'days')}` },
+            { id: 'b4', emoji: '👑', name: 'ตำนาน 14 วัน', enName: '14-Day Streak', desc: 'เรียนรู้ต่อเนื่อง 14 วันติด', enDesc: 'Maintain a 14-day learning streak', check: (L, s) => s >= 14, progress: (L, s) => `${Math.min(s, 14)}/14 ${t('วัน', 'days')}` },
+            { id: 'b5', emoji: '📚', name: 'หนอนหนังสือ', enName: 'Bookworm', desc: 'อ่านบทความภาษาอังกฤษ 3 ครั้ง', enDesc: 'Read 3 English articles', check: (L) => L.filter(l => l.mediaType === 'Article').length >= 3, progress: (L) => `${Math.min(L.filter(l => l.mediaType === 'Article').length, 3)}/3` },
+            { id: 'b6', emoji: '🎬', name: 'ผู้สำรวจวิดีโอ', enName: 'Video Explorer', desc: 'ดูคลิปภาษาอังกฤษ 5 ครั้ง', enDesc: 'Watch 5 English YouTube videos', check: (L) => L.filter(l => l.mediaType === 'YouTube').length >= 5, progress: (L) => `${Math.min(L.filter(l => l.mediaType === 'YouTube').length, 5)}/5` },
+            { id: 'b7', emoji: '🎧', name: 'นักฟังตัวยง', enName: 'Podcast Master', desc: 'ฟังพอดแคสต์ภาษาอังกฤษ 3 ครั้ง', enDesc: 'Listen to 3 English podcasts', check: (L) => L.filter(l => l.mediaType === 'Podcast').length >= 3, progress: (L) => `${Math.min(L.filter(l => l.mediaType === 'Podcast').length, 3)}/3` },
+            { id: 'b8', emoji: '🎮', name: 'ผู้พิชิตเกม', enName: 'Game Master', desc: 'เรียนรู้ผ่านเกมภาษาอังกฤษ 3 ครั้ง', enDesc: 'Learn English through games 3 times', check: (L) => L.filter(l => l.mediaType === 'Game').length >= 3, progress: (L) => `${Math.min(L.filter(l => l.mediaType === 'Game').length, 3)}/3` },
+            { id: 'b9', emoji: '🏆', name: 'ผู้มุ่งมั่น 10 บันทึก', enName: 'Dedicated 10', desc: 'สะสมการบันทึกครบ 10 ครั้ง', enDesc: 'Complete 10 learning logs', check: (L) => L.length >= 10, progress: (L) => `${Math.min(L.length, 10)}/10` },
+            { id: 'b10', emoji: '🎯', name: 'นักสู้ 25 บันทึก', enName: 'Achiever 25', desc: 'สะสมการบันทึกครบ 25 ครั้ง', enDesc: 'Complete 25 learning logs', check: (L) => L.length >= 25, progress: (L) => `${Math.min(L.length, 25)}/25` },
+            { id: 'b11', emoji: '🌟', name: 'ผู้เชี่ยวชาญรอบด้าน', enName: 'All-Rounder', desc: 'ฝึกครบทั้ง 6 ทักษะ (ฟัง, พูด, อ่าน, เขียน, ไวยากรณ์, คำศัพท์)', enDesc: 'Practice all 6 English skills', check: (L, s, allS) => allS, progress: (L, s, allS, countS) => `${countS}/6 ${t('ทักษะ', 'skills')}` },
+            { id: 'b12', emoji: '⭐', name: 'เด็กเกียรตินิยม', enName: 'Top Scorer', desc: 'ได้รับคะแนน 10 เต็มจากคุณครู', enDesc: 'Earn a perfect 10/10 score from your teacher', check: (L) => L.some(l => parseFloat(l.score) === 10), progress: (L) => L.some(l => parseFloat(l.score) === 10) ? '1/1' : '0/1' },
+            { id: 'b13', emoji: '🚀', name: 'บัณฑิตอังกฤษ', enName: 'English Scholar', desc: 'สะสม XP จนถึงเลเวล 5 ขึ้นไป', enDesc: 'Reach Level 5 or higher', check: (L) => levelInfo(L.reduce((sum, l) => sum + logXP(l), 0)).lvl >= 5, progress: (L) => `Lv.${levelInfo(L.reduce((sum, l) => sum + logXP(l), 0)).lvl}/5` },
         ];
 
         // Universal Title Resolver (Shop titles & Unlocked Badge titles)
@@ -4551,13 +4860,19 @@
             if (!titleId) return null;
             // 1. Check shop items
             if (typeof SHOP_ITEMS !== 'undefined' && SHOP_ITEMS.titles) {
-                const shopItem = SHOP_ITEMS.titles.find(t => t.id === titleId);
-                if (shopItem) return { id: shopItem.id, text: shopItem.text, emoji: shopItem.emoji, name: shopItem.name, type: 'shop', rarity: shopItem.rarity };
+                const shopItem = SHOP_ITEMS.titles.find(item => item.id === titleId);
+                if (shopItem) {
+                    const localName = t(shopItem.thName || shopItem.name, shopItem.name);
+                    return { id: shopItem.id, text: `${shopItem.emoji} ${localName}`, emoji: shopItem.emoji, name: localName, type: 'shop', rarity: shopItem.rarity };
+                }
             }
             // 2. Check badge titles (e.g. "b1" or "badge_b1")
             const cleanId = String(titleId).replace(/^badge_/, '');
             const badge = BADGE_DEFINITIONS.find(b => b.id === cleanId);
-            if (badge) return { id: badge.id, text: `${badge.emoji} ${badge.name}`, emoji: badge.emoji, name: badge.name, type: 'badge', rarity: 'ACHIEVEMENT' };
+            if (badge) {
+                const localBadgeName = t(badge.name, badge.enName);
+                return { id: badge.id, text: `${badge.emoji} ${localBadgeName}`, emoji: badge.emoji, name: localBadgeName, type: 'badge', rarity: 'ACHIEVEMENT' };
+            }
             // 3. Fallback
             return { id: titleId, text: String(titleId), emoji: '🏅', name: String(titleId), type: 'custom', rarity: 'COMMON' };
         }
@@ -4575,7 +4890,7 @@
                     <div class="text-center my-1">
                         <div class="text-6xl mb-2 ${b.unlocked ? 'mel-float' : 'opacity-40 grayscale'}">${b.emoji}</div>
                         <h3 class="text-xl font-black text-slate-800">${t(b.name, b.enName)}</h3>
-                        <p class="text-xs text-slate-500 mt-1 mb-3">${b.desc}</p>
+                        <p class="text-xs text-slate-500 mt-1 mb-3">${t(b.desc, b.enDesc)}</p>
                         <div class="bg-slate-50 rounded-2xl p-3 border border-slate-100 mb-3">
                             <div class="flex justify-between items-center text-xs font-bold mb-1">
                                 <span class="text-slate-500">${t('ความคืบหน้า', 'Progress')}</span>
@@ -4597,7 +4912,7 @@
                                 <span>${isEquipped ? t('ถอดฉายานี้ออก', 'Unequip Title') : t('สวมใส่เป็นฉายาประจำตัว ✨', 'Equip as Profile Title ✨')}</span>
                             </button>
                         ` : `
-                            <p class="text-[11px] text-slate-400 font-bold">ปลดล็อกเหรียญตรานี้เพื่อนำมาสวมใส่เป็นฉายาประจำตัวได้</p>
+                            <p class="text-[11px] text-slate-400 font-bold">${t('ปลดล็อกเหรียญตรานี้เพื่อนำมาสวมใส่เป็นฉายาประจำตัวได้', 'Unlock this badge to equip it as your profile title')}</p>
                         `}
                     </div>
                 `,
@@ -4629,21 +4944,22 @@
             renderBadges(userLogs, lastStreaks);
             if (window.sfx) window.sfx(isEquipped ? 'click' : 'equip');
 
+            const localBadgeTitle = t(badge.name, badge.enName);
             Swal.close();
             if (!isEquipped) {
                 confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
-                floatReward(`🪪 ${badge.emoji} ${badge.name}`);
+                floatReward(`🪪 ${badge.emoji} ${localBadgeTitle}`);
                 Swal.fire({
-                    title: 'สวมใส่ฉายาสำเร็จ! ✨',
-                    html: `<p class="text-sm font-bold text-slate-600 mb-2">คุณกำลังใช้ฉายา:</p><div class="flex justify-center"><span class="mel-title-badge text-xs">${badge.emoji} ${badge.name}</span></div><p class="text-[11px] text-slate-400 mt-2">แสดงบนโปรไฟล์และกระดานผู้นำเรียบร้อยแล้ว!</p>`,
+                    title: t('สวมใส่ฉายาสำเร็จ! ✨', 'Title Equipped! ✨'),
+                    html: `<p class="text-sm font-bold text-slate-600 mb-2">${t('คุณกำลังใช้ฉายา:', 'Equipped Title:')}</p><div class="flex justify-center"><span class="mel-title-badge text-xs">${badge.emoji} ${localBadgeTitle}</span></div><p class="text-[11px] text-slate-400 mt-2">${t('แสดงบนโปรไฟล์และกระดานผู้นำเรียบร้อยแล้ว!', 'Now displayed on your profile and leaderboard!')}</p>`,
                     icon: 'success',
                     timer: 2300,
                     showConfirmButton: false
                 });
             } else {
                 Swal.fire({
-                    title: 'ถอดฉายาแล้ว',
-                    text: 'คุณได้ถอดฉายาประจำตัวเรียบร้อยแล้ว',
+                    title: t('ถอดฉายาแล้ว', 'Title Unequipped'),
+                    text: t('คุณได้ถอดฉายาประจำตัวเรียบร้อยแล้ว', 'Your profile title has been removed.'),
                     icon: 'info',
                     timer: 1500,
                     showConfirmButton: false
@@ -4710,7 +5026,7 @@
                     <div onclick="showBadgeDetail('${b.id}')" class="badge-card flex-shrink-0 bg-white rounded-2xl p-3 flex flex-col items-center gap-1 border-2 ${isEquipped ? 'border-indigo-400 ring-2 ring-indigo-200 shadow-md' : locked ? 'border-slate-100 opacity-40 grayscale' : 'border-emerald-100 shadow-sm'} min-w-[80px] relative transition-transform hover:scale-105 active:scale-95 cursor-pointer">
                         <span class="text-2xl">${b.emoji}</span>
                         <span class="text-[10px] font-bold text-slate-700 text-center leading-tight truncate max-w-[72px]">${t(b.name, b.enName)}</span>
-                        ${isEquipped ? '<span class="absolute -top-1.5 -left-1.5 bg-indigo-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full shadow-sm animate-pulse">🪪 ฉายา</span>' : ''}
+                        ${isEquipped ? `<span class="absolute -top-1.5 -left-1.5 bg-indigo-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full shadow-sm animate-pulse">${t('🪪 ฉายา', '🪪 Title')}</span>` : ''}
                         ${!locked ? '<span class="absolute -top-1.5 -right-1.5 bg-emerald-500 text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-sm">✓</span>' : ''}
                     </div>`;
             }).join('');
@@ -4722,32 +5038,32 @@
         // ---- Feature: Shop System (Frames, Names, Titles, Live Dressing Room) ----
         const SHOP_ITEMS = {
             frames: [
-                { id: 'frame_neon', name: 'Neon Green', price: 50, class: 'frame-neon', emoji: '🟢', rarity: 'RARE' },
-                { id: 'frame_fire', name: 'Blazing Fire', price: 100, class: 'frame-fire', emoji: '🔥', rarity: 'EPIC' },
-                { id: 'frame_ocean', name: 'Ocean Wave', price: 120, class: 'frame-ocean', emoji: '🌊', rarity: 'EPIC' },
-                { id: 'frame_sakura', name: 'Sakura Blossom', price: 140, class: 'frame-sakura', emoji: '🌸', rarity: 'EPIC' },
-                { id: 'frame_purple', name: 'Amethyst', price: 150, class: 'frame-purple', emoji: '🔮', rarity: 'EPIC' },
-                { id: 'frame_galaxy', name: 'Cosmic Galaxy', price: 180, class: 'frame-galaxy', emoji: '🌌', rarity: 'LEGENDARY' },
-                { id: 'frame_gold', name: 'Royal Gold', price: 200, class: 'frame-gold', emoji: '👑', rarity: 'LEGENDARY' },
-                { id: 'frame_cyber', name: 'Cyberpunk', price: 300, class: 'frame-cyber', emoji: '🤖', rarity: 'LEGENDARY' },
-                { id: 'frame_rainbow', name: 'Rainbow Aura', price: 350, class: 'frame-rainbow', emoji: '🌈', rarity: 'LEGENDARY' }
+                { id: 'frame_neon', name: 'Neon Green', thName: 'เขียวนีออน', price: 50, class: 'frame-neon', emoji: '🟢', rarity: 'RARE' },
+                { id: 'frame_fire', name: 'Blazing Fire', thName: 'เปลวไฟลุกโชน', price: 100, class: 'frame-fire', emoji: '🔥', rarity: 'EPIC' },
+                { id: 'frame_ocean', name: 'Ocean Wave', thName: 'คลื่นมหาสมุทร', price: 120, class: 'frame-ocean', emoji: '🌊', rarity: 'EPIC' },
+                { id: 'frame_sakura', name: 'Sakura Blossom', thName: 'ซากุระบาน', price: 140, class: 'frame-sakura', emoji: '🌸', rarity: 'EPIC' },
+                { id: 'frame_purple', name: 'Amethyst', thName: 'อัญมณีสีม่วง', price: 150, class: 'frame-purple', emoji: '🔮', rarity: 'EPIC' },
+                { id: 'frame_galaxy', name: 'Cosmic Galaxy', thName: 'กาแล็กซีจักรวาล', price: 180, class: 'frame-galaxy', emoji: '🌌', rarity: 'LEGENDARY' },
+                { id: 'frame_gold', name: 'Royal Gold', thName: 'ทองคำราชันย์', price: 200, class: 'frame-gold', emoji: '👑', rarity: 'LEGENDARY' },
+                { id: 'frame_cyber', name: 'Cyberpunk', thName: 'ไซเบอร์พังก์', price: 300, class: 'frame-cyber', emoji: '🤖', rarity: 'LEGENDARY' },
+                { id: 'frame_rainbow', name: 'Rainbow Aura', thName: 'ออร่าสายรุ้ง', price: 350, class: 'frame-rainbow', emoji: '🌈', rarity: 'LEGENDARY' }
             ],
             names: [
-                { id: 'name_rainbow', name: 'Rainbow Colors', price: 80, class: 'name-rainbow', emoji: '🌈', rarity: 'RARE' },
-                { id: 'name_neon', name: 'Cyber Neon', price: 100, class: 'name-neon', emoji: '⚡', rarity: 'RARE' },
-                { id: 'name_sparkle', name: 'Pink Sparkle', price: 120, class: 'name-sparkle', emoji: '✨', rarity: 'EPIC' },
-                { id: 'name_hacker', name: 'Hacker Matrix', price: 150, class: 'name-hacker', emoji: '💻', rarity: 'EPIC' },
-                { id: 'name_cosmic', name: 'Cosmic Gradient', price: 180, class: 'name-cosmic', emoji: '🌌', rarity: 'LEGENDARY' },
-                { id: 'name_fire', name: 'Hell Fire', price: 200, class: 'name-fire', emoji: '🔥', rarity: 'LEGENDARY' },
-                { id: 'name_gold', name: 'Golden VIP', price: 250, class: 'name-gold', emoji: '⭐', rarity: 'LEGENDARY' }
+                { id: 'name_rainbow', name: 'Rainbow Colors', thName: 'ชื่อสีรุ้งสดใส', price: 80, class: 'name-rainbow', emoji: '🌈', rarity: 'RARE' },
+                { id: 'name_neon', name: 'Cyber Neon', thName: 'ฟ้านีออนไซเบอร์', price: 100, class: 'name-neon', emoji: '⚡', rarity: 'RARE' },
+                { id: 'name_sparkle', name: 'Pink Sparkle', thName: 'ชมพูประกายดาว', price: 120, class: 'name-sparkle', emoji: '✨', rarity: 'EPIC' },
+                { id: 'name_hacker', name: 'Hacker Matrix', thName: 'แฮกเกอร์เมทริกซ์', price: 150, class: 'name-hacker', emoji: '💻', rarity: 'EPIC' },
+                { id: 'name_cosmic', name: 'Cosmic Gradient', thName: 'มิติจักรวาล', price: 180, class: 'name-cosmic', emoji: '🌌', rarity: 'LEGENDARY' },
+                { id: 'name_fire', name: 'Hell Fire', thName: 'อัคคีเพลิงโลกันตร์', price: 200, class: 'name-fire', emoji: '🔥', rarity: 'LEGENDARY' },
+                { id: 'name_gold', name: 'Golden VIP', thName: 'ทองคำวีไอพี', price: 250, class: 'name-gold', emoji: '⭐', rarity: 'LEGENDARY' }
             ],
             titles: [
-                { id: 'title_wizard', name: 'Vocab Wizard', price: 50, text: '🪄 Vocab Wizard', rarity: 'RARE', emoji: '🪄' },
-                { id: 'title_knight', name: 'Grammar Knight', price: 80, text: '⚔️ Grammar Knight', rarity: 'RARE', emoji: '⚔️' },
-                { id: 'title_eagle', name: 'English Eagle', price: 120, text: '🦅 English Eagle', rarity: 'EPIC', emoji: '🦅' },
-                { id: 'title_native', name: 'Voice of Native', price: 150, text: '🎙️ Voice of Native', rarity: 'EPIC', emoji: '🎙️' },
-                { id: 'title_polyglot', name: 'The Polyglot', price: 200, text: '💎 The Polyglot', rarity: 'LEGENDARY', emoji: '💎' },
-                { id: 'title_cosmic', name: 'Galaxy Explorer', price: 250, text: '🪐 Galaxy Explorer', rarity: 'LEGENDARY', emoji: '🪐' }
+                { id: 'title_wizard', name: 'Vocab Wizard', thName: 'พ่อมดคำศัพท์', price: 50, text: '🪄 Vocab Wizard', rarity: 'RARE', emoji: '🪄' },
+                { id: 'title_knight', name: 'Grammar Knight', thName: 'อัศวินไวยากรณ์', price: 80, text: '⚔️ Grammar Knight', rarity: 'RARE', emoji: '⚔️' },
+                { id: 'title_eagle', name: 'English Eagle', thName: 'พญาอินทรีอังกฤษ', price: 120, text: '🦅 English Eagle', rarity: 'EPIC', emoji: '🦅' },
+                { id: 'title_native', name: 'Voice of Native', thName: 'สำเนียงเจ้าของภาษา', price: 150, text: '🎙️ Voice of Native', rarity: 'EPIC', emoji: '🎙️' },
+                { id: 'title_polyglot', name: 'The Polyglot', thName: 'ปรมาจารย์หลายภาษา', price: 200, text: '💎 The Polyglot', rarity: 'LEGENDARY', emoji: '💎' },
+                { id: 'title_cosmic', name: 'Galaxy Explorer', thName: 'นักสำรวจจักรวาล', price: 250, text: '🪐 Galaxy Explorer', rarity: 'LEGENDARY', emoji: '🪐' }
             ]
         };
 
@@ -4781,7 +5097,10 @@
             if (!avatarEl || !nameEl) return;
 
             avatarEl.src = currentUser.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(currentUser.email)}`;
-            nameEl.textContent = (document.getElementById('studentName')?.value) || currentUser.email.split('@')[0];
+            const rawName = (document.getElementById('studentName')?.value) || currentUser.email.split('@')[0];
+            nameEl.textContent = (isGuest && (rawName === 'นักเรียนตัวอย่าง' || rawName === 'Demo Student'))
+                ? t('นักเรียนตัวอย่าง', 'Demo Student')
+                : rawName;
 
             const activeFrame = previewFrame || userData?.equippedFrame;
             const activeName = previewName || userData?.equippedName;
@@ -4863,7 +5182,7 @@
                         Swal.fire(t('สำเร็จ!', 'Success!'), t('คุณได้รับไอเทมใหม่แล้ว ลองสวมใส่เลย!', 'Item purchased! Go ahead and equip it!'), 'success');
                     } catch (e) {
                         sfx('error');
-                        Swal.fire('Error', t('ไม่สามารถซื้อได้', 'Purchase failed'), 'error');
+                        Swal.fire(t('เกิดข้อผิดพลาด', 'Error'), t('ไม่สามารถซื้อได้', 'Purchase failed'), 'error');
                     }
                 }
             });
@@ -4929,6 +5248,12 @@
                 EPIC: 'rarity-epic',
                 LEGENDARY: 'rarity-legendary'
             };
+            const rarityTextMap = {
+                COMMON: t('ทั่วไป', 'COMMON'),
+                RARE: t('หายาก', 'RARE'),
+                EPIC: t('มหากาพย์', 'EPIC'),
+                LEGENDARY: t('ตำนาน', 'LEGENDARY')
+            };
 
             const renderItem = (item, type) => {
                 const owned = inv.includes(item.id);
@@ -4945,7 +5270,7 @@
                     btnHtml = `
                         <div class="flex gap-1.5 mt-2">
                             <button onclick="previewItem('${item.id}', '${type}')" class="flex-1 py-1.5 rounded-lg text-[11px] font-bold border ${isPreviewing ? 'bg-amber-100 border-amber-300 text-amber-800' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}">
-                                ${isPreviewing ? 'ลองอยู่' : 'ลองดู'}
+                                ${isPreviewing ? t('ลองอยู่', 'Trying') : t('ลองดู', 'Try On')}
                             </button>
                             <button onclick="equipItem('${item.id}', '${type}')" class="flex-1 py-1.5 rounded-lg text-[11px] font-bold transition-colors ${equipped ? 'bg-slate-200 text-slate-700 hover:bg-slate-300' : 'bg-emerald-500 text-white hover:bg-emerald-600'}">
                                 ${equipped ? t('ถอดออก', 'Unequip') : t('สวมใส่', 'Equip')}
@@ -4956,7 +5281,7 @@
                     btnHtml = `
                         <div class="flex gap-1.5 mt-2">
                             <button onclick="previewItem('${item.id}', '${type}')" class="flex-1 py-1.5 rounded-lg text-[11px] font-bold border ${isPreviewing ? 'bg-amber-100 border-amber-300 text-amber-800' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}">
-                                ${isPreviewing ? 'ลองอยู่' : 'ลองดู'}
+                                ${isPreviewing ? t('ลองอยู่', 'Trying') : t('ลองดู', 'Try On')}
                             </button>
                             <button onclick="buyItem('${item.id}', ${item.price}, '${type}')" class="flex-1 py-1.5 rounded-lg text-[11px] font-bold bg-amber-400 text-amber-900 hover:bg-amber-500 flex items-center justify-center gap-1 shadow-sm">
                                 💰 ${item.price}
@@ -4966,15 +5291,17 @@
                 }
 
                 const rClass = rarityClassMap[item.rarity || 'COMMON'];
+                const rLabel = rarityTextMap[item.rarity || 'COMMON'] || item.rarity;
+                const itemDisplayName = t(item.thName || item.name, item.name);
 
                 return `
                     <div class="bg-slate-50 border border-slate-100 rounded-2xl p-3 text-center shadow-sm relative flex flex-col justify-between">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="rarity-badge ${rClass}">${item.rarity}</span>
-                            ${equipped ? '<span class="text-[9px] font-black bg-emerald-500 text-white px-1.5 py-0.2 rounded-full">สวมใส่</span>' : ''}
+                            <span class="rarity-badge ${rClass}">${rLabel}</span>
+                            ${equipped ? `<span class="text-[9px] font-black bg-emerald-500 text-white px-1.5 py-0.2 rounded-full">${t('สวมใส่', 'Equipped')}</span>` : ''}
                         </div>
                         <div class="text-3xl my-1 flex justify-center items-center h-10">${item.emoji}</div>
-                        <p class="text-xs font-bold text-slate-700 truncate">${item.name}</p>
+                        <p class="text-xs font-bold text-slate-700 truncate">${itemDisplayName}</p>
                         ${btnHtml}
                     </div>
                 `;
@@ -5024,6 +5351,14 @@
         function renderSkillChart() {
             const skills = ['Listening', 'Reading', 'Vocabulary', 'Grammar', 'Speaking', 'Writing'];
             const skillEmojis = { Listening: '🎧', Reading: '📖', Vocabulary: '📝', Grammar: '📐', Speaking: '🗣️', Writing: '✍️' };
+            const skillLocalNames = {
+                Listening: t('การฟัง', 'Listening'),
+                Reading: t('การอ่าน', 'Reading'),
+                Vocabulary: t('คำศัพท์', 'Vocabulary'),
+                Grammar: t('ไวยากรณ์', 'Grammar'),
+                Speaking: t('การพูด', 'Speaking'),
+                Writing: t('การเขียน', 'Writing'),
+            };
             const skillCardColors = {
                 Listening: { bg: 'bg-cyan-50', text: 'text-cyan-700', bar: 'bg-cyan-400' },
                 Reading: { bg: 'bg-blue-50', text: 'text-blue-700', bar: 'bg-blue-400' },
@@ -5050,9 +5385,9 @@
             mySkillChart = new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: skills,
+                    labels: skills.map(s => skillLocalNames[s] || s),
                     datasets: [{
-                        label: 'ทักษะ',
+                        label: t('ทักษะ', 'Skills'),
                         data: data,
                         fill: true,
                         backgroundColor: 'rgba(16,185,129,0.2)',
@@ -5079,7 +5414,7 @@
                     <div class="${c.bg} rounded-2xl p-3">
                         <div class="flex items-center gap-1 mb-1">
                             <span class="text-base">${skillEmojis[s]}</span>
-                            <span class="text-xs font-black ${c.text} truncate">${s}</span>
+                            <span class="text-xs font-black ${c.text} truncate">${skillLocalNames[s] || s}</span>
                         </div>
                         <p class="text-2xl font-black ${c.text}">${counts[s]}</p>
                         <div class="mt-1 bg-white/60 rounded-full h-1.5 overflow-hidden">
@@ -5093,7 +5428,7 @@
         async function loadResources() {
             const resourceListEl = document.getElementById('resourceList');
             if (!resourceListEl) return;
-            resourceListEl.innerHTML = '<div class="text-center text-slate-400 py-4 text-sm">กำลังโหลด...</div>';
+            resourceListEl.innerHTML = `<div class="text-center text-slate-400 py-4 text-sm">${t('กำลังโหลด...', 'Loading...')}</div>`;
 
             const MEDIA_ICON = { YouTube: '🎬', Podcast: '🎧', Article: '📖', Game: '🎮', Other: '✨' };
 
@@ -5102,7 +5437,25 @@
                 const snapshot = await getDocs(q);
 
                 if (snapshot.empty) {
-                    resourceListEl.innerHTML = '<div class="text-center text-slate-400 py-4 text-sm">ครูยังไม่ได้เพิ่มสื่อแนะนำ</div>';
+                    if (isGuest) {
+                        const demoResources = [
+                            { mediaType: 'Podcast', title: 'BBC Learning English: 6 Minute English', descTh: 'ฝึกฟังภาษาอังกฤษวันละ 6 นาทีพร้อมคำศัพท์น่ารู้', descEn: '6-minute daily English listening practice with key vocabulary', url: 'https://www.bbc.co.uk/learningenglish' },
+                            { mediaType: 'YouTube', title: 'TED-Ed: Lessons Worth Sharing', descTh: 'แอนิเมชันความรู้ภาษาอังกฤษเข้าใจง่ายพร้อมซับไตเติล', descEn: 'Short animated educational videos with English subtitles', url: 'https://www.youtube.com/@TEDEd' },
+                            { mediaType: 'Game', title: 'Cambridge English: Games & Quizzes', descTh: 'เกมทายคำศัพท์และไวยากรณ์สนุกๆ จากมหาวิทยาลัยเคมบริดจ์', descEn: 'Interactive vocabulary & grammar mini-games by Cambridge', url: 'https://www.cambridgeenglish.org/learning-english/games-social/' }
+                        ];
+                        resourceListEl.innerHTML = demoResources.map(r => `
+                            <a href="${r.url}" target="_blank" rel="noopener noreferrer"
+                               class="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl hover:bg-emerald-50 cursor-pointer border border-transparent hover:border-emerald-200 transition-all">
+                                <span class="text-2xl flex-shrink-0">${MEDIA_ICON[r.mediaType] || '✨'}</span>
+                                <div class="flex-1 min-w-0">
+                                    <p class="font-bold text-slate-800 text-sm truncate">${r.title}</p>
+                                    <p class="text-xs text-slate-400 truncate">${t(r.descTh, r.descEn)}</p>
+                                </div>
+                                <i class="ph-bold ph-arrow-square-out text-slate-400 flex-shrink-0"></i>
+                            </a>`).join('');
+                        return;
+                    }
+                    resourceListEl.innerHTML = `<div class="text-center text-slate-400 py-4 text-sm">${t('ครูยังไม่ได้เพิ่มสื่อแนะนำ', 'No recommended resources added yet')}</div>`;
                     return;
                 }
 
@@ -5115,14 +5468,14 @@
                            class="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl hover:bg-emerald-50 cursor-pointer border border-transparent hover:border-emerald-200 transition-all">
                             <span class="text-2xl flex-shrink-0">${icon}</span>
                             <div class="flex-1 min-w-0">
-                                <p class="font-bold text-slate-800 text-sm truncate">${r.title || 'ไม่มีชื่อ'}</p>
+                                <p class="font-bold text-slate-800 text-sm truncate">${r.title || t('ไม่มีชื่อ', 'Untitled')}</p>
                                 ${r.description ? `<p class="text-xs text-slate-400 truncate">${r.description}</p>` : ''}
                             </div>
                             <i class="ph-bold ph-arrow-square-out text-slate-400 flex-shrink-0"></i>
                         </a>`;
                 });
             } catch (err) {
-                resourceListEl.innerHTML = '<div class="text-center text-slate-400 py-4 text-sm">ไม่สามารถโหลดสื่อได้</div>';
+                resourceListEl.innerHTML = `<div class="text-center text-slate-400 py-4 text-sm">${t('ไม่สามารถโหลดสื่อได้', 'Failed to load resources')}</div>`;
             }
         }
     </script>

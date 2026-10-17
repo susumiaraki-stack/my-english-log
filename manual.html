@@ -64,6 +64,34 @@
             color: #0369a1;
             font-weight: 700;
         }
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        @page {
+            size: A4 portrait;
+            margin: 8mm;
+        }
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                padding: 0 !important;
+                display: block !important;
+            }
+            .infographic-sheet {
+                max-width: 100% !important;
+                box-shadow: none !important;
+                border-radius: 16px !important;
+                border: 1px solid #cbd5e1 !important;
+            }
+            .mockup-frame {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body class="p-3 sm:p-6 text-slate-800 antialiased min-h-screen flex items-center justify-center">
@@ -76,8 +104,14 @@
             <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
             <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-sky-300/20 rounded-full blur-2xl pointer-events-none"></div>
 
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold mb-2 text-sky-100 border border-white/20">
-                <span>📖 คู่มือการใช้งานสำหรับนักเรียน · อัปเดต v3.2.1</span>
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold text-sky-100 border border-white/20">
+                    <span>📖 คู่มือการใช้งานสำหรับนักเรียน · อัปเดต v3.2.1</span>
+                </div>
+                <a href="manual.pdf" download="MyEnglishLog-Manual-v3.2.1.pdf"
+                    class="no-print inline-flex items-center gap-1.5 px-3 py-1 bg-amber-400 hover:bg-amber-300 text-amber-950 rounded-full text-xs font-extrabold shadow-sm transition-all active:scale-95">
+                    <span>📥 ดาวน์โหลด PDF</span>
+                </a>
             </div>
             <h1 class="text-xl sm:text-2xl font-extrabold tracking-wide drop-shadow-sm">
                 การใช้งานระบบ My English Log ผ่านหน้าเว็บไซต์
@@ -574,7 +608,7 @@
                         <li><b>➕ ปุ่มลอยบันทึกด่วน (Floating Button):</b> กดปุ่ม ➕ มุมขวาล่างหรือปุ่มสีเขียวด้านบนสุดเพื่อเปิดหน้าต่างกรอกข้อมูลได้ทันทีโดยไม่ต้องเลื่อนหน้าจอ</li>
                         <li><b>🗂️ กรอง & ย่อประวัติ (Compact History):</b> แสดงประวัติ 3 รายการล่าสุดเพื่อให้หน้าเว็บกระชับ กดกรองตามทักษะหรือกดปุ่ม "ดูประวัติทั้งหมด" เพื่อขยายดูรายการทั้งหมดได้</li>
                         <li><b>🔥 ระดับสีไฟต่อเนื่อง:</b> บันทึกต่อเนื่องทุกวันเพื่อเปลี่ยนสีเปลวไฟ 🔥 (ส้ม ➡️ ฟ้า ➡️ ม่วง ➡️ ทอง ➡️ สายรุ้ง) พร้อมรับโบนัสเหรียญพิเศษสูงสุด +20 💰</li>
-                        <li><b>📄 พอร์ตโฟลิโอ A4:</b> กดพิมพ์หรือบันทึก PDF สรุปผลประเมิน 6 ทักษะและข้อเสนอแนะครูได้จากแถบ "ประวัติของฉัน"</li>
+                        <li><b>📄 พอร์ตโฟลิโอ A4 & คู่มือ PDF (`manual.pdf`):</b> กดพิมพ์ใบพอร์ตโฟลิโอ A4 ได้จากแถบ "ประวัติของฉัน" และดาวน์โหลดไฟล์คู่มือ `manual.pdf` เก็บไว้ดูแบบออฟไลน์ได้ทันที</li>
                         <li>ระบบจะบันทึกข้อความร่างและจำชื่อ-นามสกุลให้อัตโนมัติ ป้องกันข้อมูลสูญหายระหว่างพิมพ์</li>
                     </ul>
                 </div>
@@ -587,6 +621,9 @@
     <script>
         const manualDict = {
             "📖 คู่มือการใช้งานสำหรับนักเรียน · อัปเดต v3.2.1": "📖 Student User Guide · Updated v3.2.1",
+            "📥 ดาวน์โหลด PDF": "📥 Download PDF",
+            "📄 พอร์ตโฟลิโอ A4 & คู่มือ PDF (`manual.pdf`):": "📄 Official A4 Portfolio & PDF Guide (`manual.pdf`):",
+            "กดพิมพ์ใบพอร์ตโฟลิโอ A4 ได้จากแถบ \"ประวัติของฉัน\" และดาวน์โหลดไฟล์คู่มือ `manual.pdf` เก็บไว้ดูแบบออฟไลน์ได้ทันที": "Print your A4 portfolio from \"My History\" and download `manual.pdf` anytime for offline viewing.",
             "การใช้งานระบบ My English Log ผ่านหน้าเว็บไซต์": "How to Use My English Log on the Web",
             "บันทึกการเรียนรู้แบบด่วน สะสมไฟต่อเนื่อง ตารางความสม่ำเสมอ 30 วัน ทำภารกิจรายวัน และแลกของรางวัล": "Quick-log your learning, build daily streaks, track your 30-day heatmap, complete daily quests, and redeem rewards",
             "เข้าเว็บไซต์": "Open the",

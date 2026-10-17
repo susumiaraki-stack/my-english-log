@@ -1165,6 +1165,107 @@
 
         <!-- TAB: Form & History -->
         <div id="viewForm">
+            <!-- 🌟 Bento Grid Dashboard -->
+            <div id="bentoDashboard" class="grid grid-cols-2 gap-3 mb-6">
+                <!-- 1. Hero Streak Card (2x1) -->
+                <div id="bentoStreakCard" class="col-span-2 bg-gradient-to-br from-orange-500 via-amber-500 to-rose-500 rounded-3xl p-5 text-white shadow-lg relative overflow-hidden transition-all duration-300">
+                    <div class="absolute -right-4 -bottom-4 text-8xl text-white/10 pointer-events-none select-none">
+                        <span id="bentoStreakBgIcon">🔥</span>
+                    </div>
+                    <div class="relative z-10 flex justify-between items-start">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-[11px] font-black text-amber-100 uppercase tracking-wider">
+                                <span>🔥 STREAK สะสมต่อเนื่อง</span>
+                            </div>
+                            <div class="flex items-baseline gap-2 mt-1">
+                                <span id="bentoStreakNumber" class="text-4xl font-black tracking-tight">0</span>
+                                <span class="text-sm font-bold text-amber-100">วันติดกัน</span>
+                                <span id="bentoStreakTier" class="text-[10px] font-black bg-white/20 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/20">🌱 เริ่มต้น</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-[10px] font-bold text-amber-100/90">สถิติสูงสุด</div>
+                            <div id="bentoBestStreak" class="text-xs font-black bg-black/20 px-2.5 py-1 rounded-xl backdrop-blur-xs mt-0.5 border border-white/15">🏆 0 วัน</div>
+                        </div>
+                    </div>
+                    <!-- Status Ring / Safety Banner -->
+                    <div id="bentoStreakStatus" class="relative z-10 mt-3.5 flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 text-xs font-black shadow-xs">
+                        <span id="bentoStreakStatusDot" class="w-2.5 h-2.5 rounded-full bg-amber-200 animate-pulse"></span>
+                        <span id="bentoStreakStatusText">⏳ วันนี้ยังไม่ได้บันทึก · บันทึกเพื่อรักษาไฟ</span>
+                    </div>
+                </div>
+
+                <!-- 2. 30-Day Consistency Heatmap (2x1) -->
+                <div id="bentoHeatmapCard" class="col-span-2 bg-white rounded-3xl p-4 sm:p-5 shadow-sm border border-emerald-50">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-base">🟩</span>
+                            <div>
+                                <h4 class="text-xs font-black text-slate-800">30-Day Activity Heatmap</h4>
+                                <p class="text-[10px] text-slate-400 font-bold">บันทึกสม่ำเสมอสไตล์ GitHub</p>
+                            </div>
+                        </div>
+                        <span id="bentoHeatmapStats" class="text-[10px] font-black text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 shadow-xs">
+                            0/30 วัน (0%)
+                        </span>
+                    </div>
+                    <!-- The 30 mini squares -->
+                    <div id="bentoHeatmapGrid" class="grid grid-cols-10 gap-1.5 sm:gap-2 my-2">
+                        <!-- Injected via JS -->
+                    </div>
+                    <!-- Heatmap Legend & Tooltip Hint -->
+                    <div class="flex justify-between items-center text-[9px] font-bold text-slate-400 mt-2.5 pt-2 border-t border-slate-100">
+                        <span id="bentoHeatmapTooltip" class="truncate pr-2">💡 แตะที่ช่องเพื่อดูจำนวนครั้งที่ฝึก</span>
+                        <div class="flex items-center gap-1 flex-shrink-0">
+                            <span>น้อย</span>
+                            <span class="w-2.5 h-2.5 rounded-xs bg-slate-100 border border-slate-200"></span>
+                            <span class="w-2.5 h-2.5 rounded-xs bg-emerald-200"></span>
+                            <span class="w-2.5 h-2.5 rounded-xs bg-emerald-400"></span>
+                            <span class="w-2.5 h-2.5 rounded-xs bg-emerald-600"></span>
+                            <span>มาก</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Skill Balance Breakdown (1x1) -->
+                <div id="bentoSkillCard" class="col-span-1 bg-white rounded-3xl p-4 shadow-sm border border-emerald-50 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs">📊</span>
+                                <h4 class="text-[11px] font-black text-slate-800">สมดุลทักษะ</h4>
+                            </div>
+                            <span id="bentoTopSkillBadge" class="text-[9px] font-black text-violet-700 bg-violet-50 px-1.5 py-0.5 rounded-md border border-violet-100">
+                                -
+                            </span>
+                        </div>
+                        <!-- Stacked progress bar -->
+                        <div id="bentoSkillBar" class="w-full h-2.5 rounded-full bg-slate-100 overflow-hidden flex my-2 border border-slate-150">
+                            <!-- Injected segments -->
+                        </div>
+                    </div>
+                    <p id="bentoSkillNudge" class="text-[9px] font-bold text-slate-400 line-clamp-2 mt-1">
+                        บันทึกการเรียนรู้เพื่อดูสัดส่วนทักษะที่ฝึก
+                    </p>
+                </div>
+
+                <!-- 4. Weekly Target Ring (1x1) -->
+                <div id="bentoWeeklyCard" class="col-span-1 bg-white rounded-3xl p-4 shadow-sm border border-emerald-50 flex items-center gap-3">
+                    <div class="relative w-12 h-12 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 44 44">
+                            <circle cx="22" cy="22" r="18" fill="none" stroke="#f1f5f9" stroke-width="4.5" />
+                            <circle id="bentoWeeklyCircle" cx="22" cy="22" r="18" fill="none" stroke="#10b981" stroke-width="4.5" stroke-dasharray="113.1" stroke-dashoffset="113.1" stroke-linecap="round" class="transition-all duration-700" />
+                        </svg>
+                        <span id="bentoWeeklyPct" class="absolute text-[10px] font-black text-slate-800">0%</span>
+                    </div>
+                    <div class="min-w-0">
+                        <h4 class="text-[11px] font-black text-slate-800">เป้าสัปดาห์นี้</h4>
+                        <p id="bentoWeeklyLabel" class="text-xs font-black text-emerald-600 mt-0.5">0 / 5 วัน</p>
+                        <p id="bentoWeeklyMins" class="text-[9px] font-bold text-slate-400 truncate">0 นาทีสะสม</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Daily Quests Panel -->
             <div id="dailyPanel" class="bg-white rounded-3xl p-5 shadow-sm border border-emerald-50 mb-6">
                 <div class="flex justify-between items-center mb-3">
@@ -1281,6 +1382,31 @@
                     </div>
                 </div>
 
+                <!-- ⏱️ One-Tap Time Presets (เวลาที่ฝึก) -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-center mb-1.5">
+                        <label class="block text-sm font-bold text-slate-700">⏱️ เวลาที่ฝึก (Duration) <span class="text-slate-400 font-normal text-xs">(แตะเลือกทันที)</span></label>
+                        <span id="durationDisplayBadge" class="text-xs font-black text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-lg border border-emerald-200">15 นาที</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <button type="button" data-duration="15" class="duration-pill px-3 py-1.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-xs font-black text-emerald-700 active:scale-95 transition-all shadow-xs">
+                            ⚡ 15 นาที
+                        </button>
+                        <button type="button" data-duration="30" class="duration-pill px-3 py-1.5 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all">
+                            ⚡ 30 นาที
+                        </button>
+                        <button type="button" data-duration="45" class="duration-pill px-3 py-1.5 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all">
+                            ⚡ 45 นาที
+                        </button>
+                        <button type="button" data-duration="60" class="duration-pill px-3 py-1.5 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all">
+                            ⚡ 60+ นาที
+                        </button>
+                        <button type="button" onclick="adjustDuration(5)" class="px-2.5 py-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-100 text-xs font-black text-slate-700 active:scale-95 transition-all shadow-xs" title="เพิ่ม 5 นาที">+5m</button>
+                        <button type="button" onclick="adjustDuration(-5)" class="px-2.5 py-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-100 text-xs font-black text-slate-700 active:scale-95 transition-all shadow-xs" title="ลด 5 นาที">-5m</button>
+                    </div>
+                    <input type="hidden" id="selectedDuration" value="15">
+                </div>
+
                 <div class="mb-4">
                     <label class="block text-sm font-bold text-slate-700 mb-1">ผลงาน (Screenshot)</label>
                     <div id="uploadArea"
@@ -1338,7 +1464,7 @@
             </div>
 
             <div class="bg-white rounded-3xl p-6 shadow-sm border border-emerald-50">
-                <div class="flex justify-between items-center mb-4">
+                <div class="flex justify-between items-center mb-3">
                     <h3 class="font-black text-slate-800 flex items-center gap-2"><i
                             class="ph-bold ph-clock-counter-clockwise"></i> ประวัติของฉัน</h3>
                     <div class="flex items-center gap-2">
@@ -1352,6 +1478,16 @@
                             class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded-lg">0</span>
                     </div>
                 </div>
+
+                <!-- 🌟 Filterable Log Feed Pills -->
+                <div class="flex gap-1.5 overflow-x-auto no-scrollbar py-1 mb-3 text-[11px] font-bold">
+                    <button type="button" data-filter="all" onclick="setHistoryFilter('all')" class="history-filter-btn px-2.5 py-1 rounded-lg bg-emerald-600 text-white shadow-xs whitespace-nowrap active:scale-95 transition-all">ทั้งหมด</button>
+                    <button type="button" data-filter="photo" onclick="setHistoryFilter('photo')" class="history-filter-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap active:scale-95 transition-all">📸 มีรูปภาพ</button>
+                    <button type="button" data-filter="Listening" onclick="setHistoryFilter('Listening')" class="history-filter-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap active:scale-95 transition-all">🎧 ฟัง</button>
+                    <button type="button" data-filter="Reading" onclick="setHistoryFilter('Reading')" class="history-filter-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap active:scale-95 transition-all">📖 อ่าน</button>
+                    <button type="button" data-filter="Vocabulary" onclick="setHistoryFilter('Vocabulary')" class="history-filter-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap active:scale-95 transition-all">📝 ศัพท์</button>
+                </div>
+
                 <div id="historyList" class="space-y-3 max-h-[400px] overflow-y-auto pr-2 no-scrollbar">
                     <div class="text-center text-slate-400 py-6 text-sm">กำลังโหลด...</div>
                 </div>
@@ -2251,7 +2387,35 @@
                 b.classList.remove(bc.border, bc.bg, bc.text);
                 b.classList.add('border-slate-200', 'bg-slate-50', 'text-slate-600');
             });
+            setDuration(15);
         }
+
+        // ---- Duration Quick-Pills Engine ----
+        function setDuration(mins) {
+            mins = Math.max(5, Math.min(240, parseInt(mins) || 15));
+            const input = document.getElementById('selectedDuration');
+            const badge = document.getElementById('durationDisplayBadge');
+            if (input) input.value = mins;
+            if (badge) badge.textContent = `${mins} นาที`;
+
+            document.querySelectorAll('.duration-pill').forEach(btn => {
+                const btnMins = parseInt(btn.dataset.duration);
+                if (btnMins === mins) {
+                    btn.className = "duration-pill px-3 py-1.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-xs font-black text-emerald-700 active:scale-95 transition-all shadow-xs";
+                } else {
+                    btn.className = "duration-pill px-3 py-1.5 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 transition-all";
+                }
+            });
+        }
+        window.adjustDuration = function(delta) {
+            const current = parseInt(document.getElementById('selectedDuration')?.value) || 15;
+            setDuration(current + delta);
+        };
+        document.querySelectorAll('.duration-pill').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setDuration(btn.dataset.duration);
+            });
+        });
 
         // Draft System
         function loadDrafts() {
@@ -2431,6 +2595,8 @@
             const name = document.getElementById('studentName').value;
             localStorage.setItem('studentName', name);
 
+            const durationMins = parseInt(document.getElementById('selectedDuration')?.value) || 15;
+
             // 🌟 กรณีเป็น Guest Mode (จำลองการบันทึกในเครื่อง & แจ้งเตือนว่าไม่ได้เซฟลงเซิร์ฟเวอร์จริง)
             if (isGuest) {
                 const reward = submitReward();
@@ -2445,6 +2611,7 @@
                     image: base64Image,
                     mediaType: mediaType,
                     skills: [...selectedSkills],
+                    duration: durationMins,
                     timestamp: new Date().toISOString(),
                     score: null,
                     teacherFeedback: null
@@ -2471,7 +2638,7 @@
                 setTimeout(() => floatReward(`+${gainedXP} XP`, document.getElementById('levelBadge')), 250);
                 confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 
-                renderHistory(userLogs);
+                renderHistory(userLogs, currentHistoryFilter);
                 updateGameState(userLogs);
                 if (mySkillChart) updateSkillRadar(userLogs);
 
@@ -2496,9 +2663,24 @@
                 userPhoto: currentUser.photoURL || '',
                 topic: document.getElementById('topic').value, summary: document.getElementById('summary').value,
                 image: base64Image, mediaType: mediaType, skills: [...selectedSkills],
+                duration: durationMins
             };
             const gainedXP = logXP(newLog);
             submitting = true;
+
+            // 🚀 Optimistic UI Insertion (แสดงบนหน้าจอทันที ไม่ต้องรอคลาวด์)
+            const wasLoggedToday = computeStreaks(userLogs).daySet.has(toDayNum(new Date()));
+            const tempOptimisticId = 'optimistic_' + Date.now();
+            const optimisticLog = {
+                ...newLog,
+                id: tempOptimisticId,
+                timestamp: { toDate: () => new Date(), toMillis: () => Date.now() },
+                isOptimistic: true
+            };
+            userLogs.unshift(optimisticLog);
+            renderHistory(userLogs, currentHistoryFilter);
+            updateGameState(userLogs);
+
             try {
                 await addDoc(collection(db, "learning_logs"), { ...newLog, timestamp: serverTimestamp() });
 
@@ -2516,7 +2698,11 @@
                 sfx('coin');
                 floatReward(`+${reward} 💰`);
                 setTimeout(() => floatReward(`+${gainedXP} XP`, document.getElementById('levelBadge')), 250);
-                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                if (!wasLoggedToday) {
+                    confetti({ particleCount: 120, spread: 80, origin: { y: 0.5 } });
+                } else {
+                    confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
+                }
                 queuePopup(() => Swal.fire({
                     title: t('บันทึกสำเร็จ! 🎉', 'Saved! 🎉'),
                     html: `<div class="flex justify-center gap-2 mt-1">
@@ -3304,97 +3490,404 @@
             if (!viewLeaderboard.classList.contains('hidden')) loadLeaderboard();
         };
 
+        // ==========================================
+        // 🌟 Bento Grid Dashboard Engine
+        // ==========================================
+        function renderBentoDashboard(logs, streaks) {
+            const today = toDayNum(new Date());
+            const hasLoggedToday = streaks && streaks.daySet && streaks.daySet.has(today);
+
+            // 1. Hero Streak Card
+            const streakNumEl = document.getElementById('bentoStreakNumber');
+            const streakTierEl = document.getElementById('bentoStreakTier');
+            const bestStreakEl = document.getElementById('bentoBestStreak');
+            const statusBoxEl = document.getElementById('bentoStreakStatus');
+            const statusDotEl = document.getElementById('bentoStreakStatusDot');
+            const statusTextEl = document.getElementById('bentoStreakStatusText');
+            const bgIconEl = document.getElementById('bentoStreakBgIcon');
+
+            const current = streaks ? streaks.current : 0;
+            const best = streaks ? (streaks.best || streaks.current) : 0;
+
+            if (streakNumEl) streakNumEl.textContent = current;
+            if (bestStreakEl) bestStreakEl.textContent = `🏆 ${best} วัน`;
+
+            const streakTheme = getStreakTheme(current);
+            if (streakTierEl) streakTierEl.textContent = streakTheme.tierName;
+            if (bgIconEl) bgIconEl.textContent = streakTheme.icon || '🔥';
+
+            if (statusBoxEl && statusDotEl && statusTextEl) {
+                if (hasLoggedToday) {
+                    statusBoxEl.className = "relative z-10 mt-3.5 flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-emerald-500/25 backdrop-blur-md border border-emerald-300/40 text-xs font-black shadow-xs text-white";
+                    statusDotEl.className = "w-2.5 h-2.5 rounded-full bg-emerald-300 animate-ping";
+                    statusTextEl.textContent = "✓ บันทึกวันนี้แล้ว · Streak ปลอดภัย!";
+                } else {
+                    statusBoxEl.className = "relative z-10 mt-3.5 flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-black/25 backdrop-blur-md border border-white/20 text-xs font-black shadow-xs text-amber-200";
+                    statusDotEl.className = "w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse";
+                    statusTextEl.textContent = "⏳ วันนี้ยังไม่ได้บันทึก · บันทึกเพื่อรักษาไฟ";
+                }
+            }
+
+            // 2. 30-Day Activity Heatmap
+            renderConsistencyHeatmap(logs);
+
+            // 3. Skill Balance Breakdown
+            renderSkillBalance(logs);
+
+            // 4. Weekly Target
+            renderWeeklyTarget(logs);
+        }
+
+        // ---- 30-Day Consistency Heatmap ----
+        function renderConsistencyHeatmap(logs) {
+            const gridEl = document.getElementById('bentoHeatmapGrid');
+            const statsEl = document.getElementById('bentoHeatmapStats');
+            const tooltipEl = document.getElementById('bentoHeatmapTooltip');
+            if (!gridEl) return;
+
+            const today = toDayNum(new Date());
+            const logCountsByDay = {};
+            const logMinsByDay = {};
+
+            (logs || []).forEach(l => {
+                const dn = toDayNum(logDate(l));
+                logCountsByDay[dn] = (logCountsByDay[dn] || 0) + 1;
+                logMinsByDay[dn] = (logMinsByDay[dn] || 0) + (parseInt(l.duration) || parseInt(l.durationMinutes) || 15);
+            });
+
+            let activeDaysCount = 0;
+            let cellsHtml = '';
+
+            // Generate 30 days (from 29 days ago to today)
+            for (let i = 29; i >= 0; i--) {
+                const dn = today - i;
+                const dateObj = new Date(dn * 86400000);
+                const count = logCountsByDay[dn] || 0;
+                const mins = logMinsByDay[dn] || 0;
+                const isToday = (i === 0);
+
+                if (count > 0) activeDaysCount++;
+
+                let bgClass = "bg-slate-100 border border-slate-200/60";
+                if (count === 1) bgClass = "bg-emerald-200 border border-emerald-300";
+                else if (count === 2) bgClass = "bg-emerald-400 border border-emerald-500 text-white";
+                else if (count >= 3) bgClass = "bg-teal-600 border border-teal-700 text-white shadow-xs";
+
+                const ringClass = isToday ? "ring-2 ring-emerald-500 ring-offset-1" : "";
+                const dateStr = dateObj.toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
+
+                cellsHtml += `
+                    <div data-date="${dateStr}" data-count="${count}" data-mins="${mins}"
+                         class="h-6 sm:h-7 rounded-md ${bgClass} ${ringClass} flex items-center justify-center text-[9px] font-black cursor-pointer hover:scale-110 active:scale-95 transition-all select-none"
+                         title="${dateStr}: ${count} ครั้ง (${mins} นาที)">
+                        ${isToday ? '★' : ''}
+                    </div>
+                `;
+            }
+
+            gridEl.innerHTML = cellsHtml;
+
+            const pct = Math.round((activeDaysCount / 30) * 100);
+            if (statsEl) statsEl.textContent = `${activeDaysCount}/30 วัน (${pct}%)`;
+
+            gridEl.querySelectorAll('div[data-date]').forEach(cell => {
+                cell.addEventListener('mouseenter', () => {
+                    const d = cell.dataset.date;
+                    const c = parseInt(cell.dataset.count);
+                    const m = parseInt(cell.dataset.mins);
+                    if (tooltipEl) {
+                        tooltipEl.innerHTML = c > 0
+                            ? `📅 <b>${d}</b>: ฝึก ${c} ครั้ง (${m} นาที) ✨`
+                            : `📅 <b>${d}</b>: ยังไม่มีบันทึก`;
+                    }
+                });
+                cell.addEventListener('click', () => {
+                    const d = cell.dataset.date;
+                    const c = parseInt(cell.dataset.count);
+                    const m = parseInt(cell.dataset.mins);
+                    if (tooltipEl) {
+                        tooltipEl.innerHTML = c > 0
+                            ? `📅 <b>${d}</b>: ฝึก ${c} ครั้ง (${m} นาที) ✨`
+                            : `📅 <b>${d}</b>: ยังไม่มีบันทึก`;
+                    }
+                });
+            });
+        }
+
+        // ---- Skill Balance Breakdown ----
+        function renderSkillBalance(logs) {
+            const barEl = document.getElementById('bentoSkillBar');
+            const topBadgeEl = document.getElementById('bentoTopSkillBadge');
+            const nudgeEl = document.getElementById('bentoSkillNudge');
+            if (!barEl) return;
+
+            const skillCounts = {
+                Listening: 0, Reading: 0, Vocabulary: 0, Grammar: 0, Speaking: 0, Writing: 0
+            };
+            let totalSkills = 0;
+
+            (logs || []).forEach(l => {
+                if (Array.isArray(l.skills)) {
+                    l.skills.forEach(s => {
+                        if (skillCounts[s] !== undefined) {
+                            skillCounts[s]++;
+                            totalSkills++;
+                        }
+                    });
+                }
+            });
+
+            if (totalSkills === 0) {
+                barEl.innerHTML = '<div class="w-full h-full bg-slate-200"></div>';
+                if (topBadgeEl) topBadgeEl.textContent = '-';
+                if (nudgeEl) nudgeEl.textContent = 'บันทึกการเรียนรู้เพื่อดูสัดส่วนทักษะ';
+                return;
+            }
+
+            const SKILL_COLOR_HEX = {
+                Listening: '#06b6d4',
+                Reading: '#3b82f6',
+                Vocabulary: '#8b5cf6',
+                Grammar: '#f97316',
+                Speaking: '#f43f5e',
+                Writing: '#10b981'
+            };
+
+            let barHtml = '';
+            let maxSkill = 'Listening';
+            let maxCount = -1;
+            let minSkill = 'Speaking';
+            let minCount = 9999;
+
+            Object.entries(skillCounts).forEach(([skill, count]) => {
+                if (count > maxCount) { maxCount = count; maxSkill = skill; }
+                if (count < minCount) { minCount = count; minSkill = skill; }
+                if (count > 0) {
+                    const pct = ((count / totalSkills) * 100).toFixed(1);
+                    barHtml += `<div style="width: ${pct}%; background-color: ${SKILL_COLOR_HEX[skill] || '#94a3b8'}" title="${skill}: ${pct}%" class="h-full"></div>`;
+                }
+            });
+
+            barEl.innerHTML = barHtml;
+
+            const topPct = Math.round((maxCount / totalSkills) * 100);
+            if (topBadgeEl) topBadgeEl.textContent = `${maxSkill} ${topPct}%`;
+
+            const SKILL_TH_NAMES = {
+                Listening: '🎧 ฟัง', Reading: '📖 อ่าน', Vocabulary: '📝 ศัพท์',
+                Grammar: '📐 ไวยากรณ์', Speaking: '🗣️ พูด', Writing: '✍️ เขียน'
+            };
+
+            if (nudgeEl) {
+                nudgeEl.innerHTML = `💡 เน้น <b>${SKILL_TH_NAMES[maxSkill] || maxSkill}</b> · ลองฝึก <b>${SKILL_TH_NAMES[minSkill] || minSkill}</b> เพิ่มเติม`;
+            }
+        }
+
+        // ---- Weekly Target Ring ----
+        function renderWeeklyTarget(logs) {
+            const circleEl = document.getElementById('bentoWeeklyCircle');
+            const pctEl = document.getElementById('bentoWeeklyPct');
+            const labelEl = document.getElementById('bentoWeeklyLabel');
+            const minsEl = document.getElementById('bentoWeeklyMins');
+            if (!circleEl) return;
+
+            const now = new Date();
+            const today = toDayNum(now);
+            const dayOfWeek = (now.getDay() + 6) % 7;
+            const startOfWeek = today - dayOfWeek;
+
+            let weekDaysSet = new Set();
+            let weekTotalMins = 0;
+
+            (logs || []).forEach(l => {
+                const dn = toDayNum(logDate(l));
+                if (dn >= startOfWeek && dn <= today) {
+                    weekDaysSet.add(dn);
+                    weekTotalMins += (parseInt(l.duration) || parseInt(l.durationMinutes) || 15);
+                }
+            });
+
+            const TARGET_DAYS = 5;
+            const daysCount = weekDaysSet.size;
+            const pct = Math.min(100, Math.round((daysCount / TARGET_DAYS) * 100));
+
+            const circumference = 113.1;
+            const offset = circumference - (circumference * pct) / 100;
+
+            circleEl.style.strokeDashoffset = offset;
+            circleEl.style.stroke = pct >= 100 ? '#10b981' : (pct >= 60 ? '#06b6d4' : '#f59e0b');
+
+            if (pctEl) pctEl.textContent = `${pct}%`;
+            if (labelEl) labelEl.textContent = `${daysCount} / ${TARGET_DAYS} วัน`;
+            if (minsEl) minsEl.textContent = `${weekTotalMins} นาทีสะสม`;
+        }
+
+        // ==========================================
+        // 🌟 History Feed & Skeleton Shimmer Loaders
+        // ==========================================
+        let currentHistoryFilter = 'all';
+
+        function renderHistorySkeleton() {
+            const list = document.getElementById('historyList');
+            if (!list) return;
+            list.innerHTML = [1, 2, 3].map(() => `
+                <div class="p-4 bg-white border border-slate-100 rounded-2xl animate-pulse space-y-3 shadow-xs">
+                    <div class="flex justify-between items-center">
+                        <div class="h-4 bg-slate-200 rounded-md w-1/2"></div>
+                        <div class="h-3 bg-slate-200 rounded-md w-12"></div>
+                    </div>
+                    <div class="h-3 bg-slate-200 rounded-md w-3/4"></div>
+                    <div class="flex gap-2">
+                        <div class="h-5 bg-slate-200 rounded-full w-16"></div>
+                        <div class="h-5 bg-slate-200 rounded-full w-20"></div>
+                        <div class="ml-auto h-5 bg-slate-200 rounded-full w-14"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.setHistoryFilter = function(filter) {
+            currentHistoryFilter = filter;
+            document.querySelectorAll('.history-filter-btn').forEach(btn => {
+                if (btn.dataset.filter === filter) {
+                    btn.className = "history-filter-btn px-2.5 py-1 rounded-lg bg-emerald-600 text-white shadow-xs whitespace-nowrap active:scale-95 transition-all";
+                } else {
+                    btn.className = "history-filter-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap active:scale-95 transition-all";
+                }
+            });
+            renderHistory(userLogs, filter);
+        };
+
+        function renderHistory(logs, filter = currentHistoryFilter) {
+            const list = document.getElementById('historyList');
+            if (!list) return;
+
+            const allLogs = logs || [];
+            document.getElementById('historyCount').textContent = allLogs.length;
+
+            let filtered = allLogs;
+            if (filter === 'photo') {
+                filtered = allLogs.filter(l => l.image || l.base64Image);
+            } else if (filter && filter !== 'all') {
+                filtered = allLogs.filter(l => Array.isArray(l.skills) && l.skills.includes(filter));
+            }
+
+            if (filtered.length === 0) {
+                list.innerHTML = `<div class="text-center text-slate-400 py-6">
+                    <span class="text-2xl block mb-1">🔍</span>
+                    ${filter === 'all' ? 'ยังไม่มีประวัติ เริ่มเลย!' : 'ไม่พบรายการในหมวดนี้'}
+                </div>`;
+                return;
+            }
+
+            list.innerHTML = '';
+            const MEDIA_ICON = { YouTube: '🎬', Podcast: '🎧', Article: '📖', Game: '🎮', Other: '✨' };
+            const MEDIA_BADGE_CLASS = {
+                YouTube: 'bg-red-50 text-red-600 border-red-200',
+                Podcast: 'bg-purple-50 text-purple-600 border-purple-200',
+                Article: 'bg-blue-50 text-blue-600 border-blue-200',
+                Game: 'bg-green-50 text-green-600 border-green-200',
+                Other: 'bg-slate-100 text-slate-500 border-slate-200',
+            };
+            const SKILL_CHIP_CLASS = {
+                Listening: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+                Reading: 'bg-blue-50 text-blue-700 border-blue-200',
+                Vocabulary: 'bg-violet-50 text-violet-700 border-violet-200',
+                Grammar: 'bg-orange-50 text-orange-700 border-orange-200',
+                Speaking: 'bg-rose-50 text-rose-700 border-rose-200',
+                Writing: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+            };
+
+            filtered.forEach(log => {
+                let d = "เพิ่งส่ง";
+                if (log.timestamp) {
+                    if (log.timestamp.toDate) d = log.timestamp.toDate().toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
+                    else if (typeof log.timestamp === 'string') d = new Date(log.timestamp).toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
+                }
+
+                // Duration badge
+                const mins = parseInt(log.duration) || parseInt(log.durationMinutes) || 15;
+                const durationBadge = `<span class="inline-flex items-center gap-0.5 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 bg-slate-50 text-slate-600">⏱️ ${mins}m</span>`;
+
+                // Media Badge
+                let mediaBadge = '';
+                if (log.mediaType) {
+                    const cls = MEDIA_BADGE_CLASS[log.mediaType] || 'bg-slate-100 text-slate-500 border-slate-200';
+                    const icon = MEDIA_ICON[log.mediaType] || '✨';
+                    mediaBadge = `<span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full border ${cls}">${icon} ${log.mediaType}</span>`;
+                }
+
+                // Skill Chips
+                let skillChips = '';
+                if (log.skills && log.skills.length > 0) {
+                    skillChips = log.skills.map(s => {
+                        const cls = SKILL_CHIP_CLASS[s] || 'bg-slate-100 text-slate-500 border-slate-200';
+                        return `<span class="inline-flex text-[10px] font-bold px-2 py-0.5 rounded-full border ${cls}">${s}</span>`;
+                    }).join('');
+                }
+
+                // Optimistic Syncing Badge
+                let optimisticBadge = '';
+                if (log.isOptimistic) {
+                    optimisticBadge = `<span class="inline-flex items-center gap-1 text-[9px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300 animate-pulse">⏳ กำลังบันทึก...</span>`;
+                }
+
+                // Teacher Feedback
+                let feedbackHtml = '';
+                if (log.score || log.teacherFeedback) {
+                    feedbackHtml = `
+                        <div class="mt-3 bg-amber-50 border border-amber-100 rounded-lg p-3 relative shadow-inner">
+                            <div class="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">คุณครูตรวจแล้ว</div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-lg">⭐</span>
+                                <span class="font-black text-amber-700 text-sm">คะแนน: ${esc(log.score || '-')} / 10</span>
+                            </div>
+                            <p class="text-xs text-amber-600 font-semibold">${esc(log.teacherFeedback || '')}</p>
+                        </div>
+                    `;
+                }
+
+                const borderColorMap = {
+                    YouTube: 'border-l-red-400',
+                    Podcast: 'border-l-purple-400',
+                    Article: 'border-l-blue-400',
+                    Game: 'border-l-green-400',
+                    Other: 'border-l-slate-400'
+                };
+                const leftBorderClass = log.mediaType ? (borderColorMap[log.mediaType] || 'border-l-slate-400') : 'border-l-slate-400';
+
+                list.innerHTML += `
+                    <div class="p-4 bg-white border border-slate-100 border-l-4 ${leftBorderClass} rounded-2xl relative overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <div class="flex justify-between items-start mb-1">
+                            <h4 class="font-bold text-slate-700 text-sm line-clamp-1 w-3/4">${esc(log.topic)}</h4>
+                            <div class="flex items-center gap-1.5 flex-shrink-0">
+                                ${optimisticBadge}
+                                <span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded-md border border-slate-100">${d}</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 line-clamp-2 mb-3">${esc(log.summary)}</p>
+                        <div class="flex flex-wrap gap-1.5 items-center">
+                            ${durationBadge}
+                            ${mediaBadge}
+                            ${skillChips}
+                            <span class="ml-auto inline-flex text-[10px] font-black px-2 py-0.5 rounded-full bg-teal-500 text-white shadow-sm">+${logXP(log)} XP</span>
+                        </div>
+                        ${feedbackHtml}
+                    </div>
+                `;
+            });
+        }
+
         // History & Streak (พร้อมโชว์ Feedback จากครู)
         function loadUserHistory(uid) {
+            renderHistorySkeleton();
             unsubscribeHistory = onSnapshot(query(collection(db, "learning_logs"), where("uid", "==", uid)), (snapshot) => {
                 const logs = []; snapshot.forEach(doc => logs.push({ id: doc.id, ...doc.data() }));
                 logs.sort((a, b) => (b.timestamp?.toMillis() || Date.now()) - (a.timestamp?.toMillis() || Date.now()));
                 userLogs = logs;
 
-                const list = document.getElementById('historyList');
-                document.getElementById('historyCount').textContent = logs.length;
-                if (logs.length === 0) { list.innerHTML = `<div class="text-center text-slate-400 py-6">ยังไม่มีประวัติ เริ่มเลย!</div>`; updateGameState(logs); return; }
-
-                list.innerHTML = '';
-                const MEDIA_ICON = { YouTube: '🎬', Podcast: '🎧', Article: '📖', Game: '🎮', Other: '✨' };
-                const MEDIA_BADGE_CLASS = {
-                    YouTube: 'bg-red-50 text-red-600 border-red-200',
-                    Podcast: 'bg-purple-50 text-purple-600 border-purple-200',
-                    Article: 'bg-blue-50 text-blue-600 border-blue-200',
-                    Game: 'bg-green-50 text-green-600 border-green-200',
-                    Other: 'bg-slate-100 text-slate-500 border-slate-200',
-                };
-                const SKILL_CHIP_CLASS = {
-                    Listening: 'bg-cyan-50 text-cyan-700 border-cyan-200',
-                    Reading: 'bg-blue-50 text-blue-700 border-blue-200',
-                    Vocabulary: 'bg-violet-50 text-violet-700 border-violet-200',
-                    Grammar: 'bg-orange-50 text-orange-700 border-orange-200',
-                    Speaking: 'bg-rose-50 text-rose-700 border-rose-200',
-                    Writing: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-                };
-                logs.forEach(log => {
-                    let d = log.timestamp ? log.timestamp.toDate().toLocaleDateString('th-TH', { day: 'numeric', month: 'short' }) : "เพิ่งส่ง";
-
-                    // Media Badge
-                    let mediaBadge = '';
-                    if (log.mediaType) {
-                        const cls = MEDIA_BADGE_CLASS[log.mediaType] || 'bg-slate-100 text-slate-500 border-slate-200';
-                        const icon = MEDIA_ICON[log.mediaType] || '✨';
-                        mediaBadge = `<span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full border ${cls}">${icon} ${log.mediaType}</span>`;
-                    }
-
-                    // Skill Chips
-                    let skillChips = '';
-                    if (log.skills && log.skills.length > 0) {
-                        skillChips = log.skills.map(s => {
-                            const cls = SKILL_CHIP_CLASS[s] || 'bg-slate-100 text-slate-500 border-slate-200';
-                            return `<span class="inline-flex text-[10px] font-bold px-2 py-0.5 rounded-full border ${cls}">${s}</span>`;
-                        }).join('');
-                    }
-
-                    // Teacher Feedback
-                    let feedbackHtml = '';
-                    if (log.score || log.teacherFeedback) {
-                        feedbackHtml = `
-                            <div class="mt-3 bg-amber-50 border border-amber-100 rounded-lg p-3 relative shadow-inner">
-                                <div class="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">คุณครูตรวจแล้ว</div>
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="text-lg">⭐</span>
-                                    <span class="font-black text-amber-700 text-sm">คะแนน: ${esc(log.score || '-')} / 10</span>
-                                </div>
-                                <p class="text-xs text-amber-600 font-semibold">${esc(log.teacherFeedback || '')}</p>
-                            </div>
-                        `;
-                    }
-
-                    const borderColorMap = {
-                        YouTube: 'border-l-red-400',
-                        Podcast: 'border-l-purple-400',
-                        Article: 'border-l-blue-400',
-                        Game: 'border-l-green-400',
-                        Other: 'border-l-slate-400'
-                    };
-                    const leftBorderClass = log.mediaType ? (borderColorMap[log.mediaType] || 'border-l-slate-400') : 'border-l-slate-400';
-
-                    list.innerHTML += `
-                        <div class="p-4 bg-white border border-slate-100 border-l-4 ${leftBorderClass} rounded-2xl relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex justify-between items-start mb-1">
-                                <h4 class="font-bold text-slate-700 text-sm line-clamp-1 w-3/4">${esc(log.topic)}</h4>
-                                <span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded-md border border-slate-100">${d}</span>
-                            </div>
-                            <p class="text-xs text-slate-500 line-clamp-2 mb-3">${esc(log.summary)}</p>
-                            <div class="flex flex-wrap gap-1.5 items-center">
-                                ${mediaBadge}
-                                ${skillChips}
-                                <span class="ml-auto inline-flex text-[10px] font-black px-2 py-0.5 rounded-full bg-teal-500 text-white shadow-sm">+${logXP(log)} XP</span>
-                            </div>
-                            ${feedbackHtml}
-                        </div>
-                    `;
-                });
-
-                // คำนวณ Streak + อัปเดตระบบเกม
-                updateGameState(logs);
+                renderHistory(userLogs, currentHistoryFilter);
+                updateGameState(userLogs);
             });
         }
 
@@ -3409,6 +3902,7 @@
             renderBadges(logs, streaks);
             renderDaily();
             if (typeof renderDailyWord === 'function') renderDailyWord();
+            renderBentoDashboard(logs, streaks);
         }
 
         // Leaderboard Logic

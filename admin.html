@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Dashboard - My English Log (MEL)</title>
+    <title>Teacher Dashboard - My English Log (MEL v3.3)</title>
     
     <!-- PWA Setup -->
     <link rel="manifest" href="manifest.json">
@@ -18,65 +18,176 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
-        body { font-family: 'Nunito', 'Prompt', sans-serif; background: linear-gradient(160deg, #f8fafc 0%, #f0fdfa 50%, #f5f3ff 100%); background-attachment: fixed; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Nunito', 'Prompt', sans-serif; background: linear-gradient(160deg, #f8fafc 0%, #f0fdfa 50%, #f5f3ff 100%); background-attachment: fixed; -webkit-font-smoothing: antialiased; transition: background 0.25s ease, color 0.25s ease; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .modal { transition: opacity 0.2s ease; }
         .modal-content { transition: transform 0.3s ease; }
         .mel-brand { font-weight: 900; letter-spacing: -.02em; background: linear-gradient(90deg,#0f766e,#4f46e5); -webkit-background-clip: text; color: transparent; }
         #dashboardSection .rounded-3xl.bg-white { box-shadow: 0 10px 30px -14px rgba(15,23,42,.15) !important; }
+
+        /* 🌙 Dark Mode (Comfort Night Theme) */
+        body.dark-mode {
+            background: linear-gradient(160deg, #0b1120 0%, #0f172a 55%, #1e1b4b 100%) !important;
+            color: #e2e8f0 !important;
+        }
+        body.dark-mode nav {
+            background: rgba(15, 23, 42, 0.88) !important;
+            border-color: #334155 !important;
+        }
+        body.dark-mode .mel-brand {
+            background: linear-gradient(90deg, #2dd4bf, #818cf8);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        body.dark-mode .bg-white,
+        body.dark-mode .bg-white\/80 {
+            background-color: #1e293b !important;
+            border-color: #334155 !important;
+            color: #f1f5f9 !important;
+        }
+        body.dark-mode .bg-slate-50,
+        body.dark-mode .bg-slate-100 {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+            color: #cbd5e1 !important;
+        }
+        body.dark-mode .text-slate-800,
+        body.dark-mode .text-slate-700 {
+            color: #f1f5f9 !important;
+        }
+        body.dark-mode .text-slate-600,
+        body.dark-mode .text-slate-500 {
+            color: #94a3b8 !important;
+        }
+        body.dark-mode .border-slate-100,
+        body.dark-mode .border-slate-200 {
+            border-color: #334155 !important;
+        }
+        body.dark-mode .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+            border-color: #334155 !important;
+        }
+        body.dark-mode tr.hover\:bg-slate-50:hover {
+            background-color: rgba(51, 65, 85, 0.45) !important;
+        }
+        body.dark-mode input,
+        body.dark-mode select,
+        body.dark-mode textarea {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+            color: #f8fafc !important;
+        }
+        body.dark-mode .swal2-popup {
+            background: #1e293b !important;
+            color: #f1f5f9 !important;
+            border: 1px solid #334155 !important;
+        }
+        body.dark-mode .swal2-title,
+        body.dark-mode .swal2-html-container {
+            color: #e2e8f0 !important;
+        }
     </style>
 </head>
 
 <body class="min-h-screen text-slate-800">
 
-    <nav class="bg-white/80 backdrop-blur-xl border-b border-white px-6 py-3 flex justify-between items-center sticky top-0 z-10 shadow-sm">
+    <nav class="bg-white/80 backdrop-blur-xl border-b border-white px-4 sm:px-6 py-3 flex justify-between items-center sticky top-0 z-30 shadow-sm">
         <div class="flex items-center gap-3">
             <img src="logo.svg" alt="MEL" class="w-10 h-10 rounded-xl shadow-lg shadow-teal-200">
             <div class="leading-tight">
-                <h1 class="text-lg mel-brand">My English Log</h1>
+                <div class="flex items-center gap-2">
+                    <h1 class="text-base sm:text-lg mel-brand">My English Log</h1>
+                    <span class="hidden sm:inline-block text-[10px] font-black px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-200">v3.3</span>
+                </div>
                 <p class="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Teacher Workspace</p>
             </div>
         </div>
-        <div id="userInfo" class="hidden flex items-center gap-4">
-            <div class="text-right hidden sm:block">
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Teacher Account</p>
-                <p id="adminEmail" class="text-sm font-bold text-slate-700"></p>
-            </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+            <!-- Demo Badge -->
+            <span id="teacherDemoBadge" class="hidden items-center gap-1 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-black px-2.5 py-1 rounded-full">
+                <span>👩‍🏫</span> <span>โหมดสาธิตครู (Demo)</span>
+            </span>
+
+            <!-- Theme Toggle -->
+            <button id="themeToggleBtn" onclick="toggleTheme()" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-indigo-600 flex items-center justify-center transition-all border border-slate-200" title="โหมดกลางคืน / สบายตา">
+                <i id="themeIcon" class="ph-bold ph-moon-stars text-base"></i>
+            </button>
+
+            <!-- Language Toggle -->
+            <button id="langToggleBtn" onclick="toggleLang()" class="w-9 h-9 rounded-xl bg-slate-800 text-white font-black text-xs flex items-center justify-center hover:bg-slate-700 transition-all" title="Switch Language">
+                EN
+            </button>
+
             <a href="manual.html" target="_blank" class="flex items-center gap-1.5 bg-slate-50 px-3 py-2 rounded-xl text-slate-600 font-bold hover:bg-emerald-50 hover:text-emerald-700 transition-colors text-xs border border-slate-200" title="เปิดคู่มือการใช้งานสำหรับนักเรียน">
                 <i class="ph-bold ph-book-open text-emerald-600 text-base"></i> <span class="hidden md:inline">คู่มือนักเรียน</span>
             </a>
-            <a href="index.html" class="flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-xl text-emerald-600 font-bold hover:bg-emerald-100 transition-colors">
-                <i class="ph-bold ph-student"></i> <span>หน้านักเรียน</span>
+            <a href="index.html" class="flex items-center gap-1.5 bg-emerald-50 px-3 sm:px-4 py-2 rounded-xl text-emerald-600 font-bold hover:bg-emerald-100 transition-colors text-xs sm:text-sm">
+                <i class="ph-bold ph-student text-base"></i> <span class="hidden sm:inline">หน้านักเรียน</span>
             </a>
-            <button id="logoutBtn" class="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-xl text-slate-600 font-bold hover:bg-red-50 hover:text-red-500 transition-colors">
-                <i class="ph-bold ph-sign-out"></i>
-            </button>
+
+            <div id="userInfo" class="hidden flex items-center gap-2 sm:gap-3">
+                <div class="text-right hidden lg:block">
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Teacher Account</p>
+                    <p id="adminEmail" class="text-xs font-bold text-slate-700"></p>
+                </div>
+                <button id="logoutBtn" class="flex items-center gap-2 bg-slate-100 px-3 py-2 rounded-xl text-slate-600 font-bold hover:bg-red-50 hover:text-red-500 transition-colors" title="ออกจากระบบ">
+                    <i class="ph-bold ph-sign-out text-base"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-4 py-8">
-        <div id="loginSection" class="max-w-md mx-auto mt-24 bg-white/80 backdrop-blur-xl p-8 pt-16 rounded-[2rem] shadow-2xl shadow-indigo-900/10 text-center border border-white relative">
+        <!-- Login Card -->
+        <div id="loginSection" class="max-w-md mx-auto mt-16 sm:mt-24 bg-white/80 backdrop-blur-xl p-8 pt-16 rounded-[2rem] shadow-2xl shadow-indigo-900/10 text-center border border-white relative">
             <img src="logo.svg" alt="MEL" class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 rounded-[1.75rem] border-4 border-white shadow-xl shadow-teal-300/50">
             <h2 class="text-2xl mel-brand mb-1">My English Log</h2>
-            <p class="text-sm font-bold text-slate-500 mb-2">เข้าสู่ระบบสำหรับครู</p>
+            <p class="text-sm font-bold text-slate-500 mb-2">เข้าสู่ระบบสำหรับครูผู้สอน</p>
             <a href="index.html" class="text-xs text-teal-600 hover:underline font-bold">← กลับหน้านักเรียน</a>
-            <button id="loginBtn" class="w-full mt-6 flex justify-center items-center gap-3 py-4 px-6 rounded-2xl text-lg font-bold text-white bg-gradient-to-r from-teal-500 to-indigo-600 hover:brightness-110 shadow-lg shadow-indigo-200 transition-all active:scale-95">
-                <i class="ph-bold ph-google-logo text-xl"></i> เข้าสู่ระบบด้วย Google
+            <button id="loginBtn" class="w-full mt-6 flex justify-center items-center gap-3 py-4 px-6 rounded-2xl text-base sm:text-lg font-bold text-white bg-gradient-to-r from-teal-500 to-indigo-600 hover:brightness-110 shadow-lg shadow-indigo-200 transition-all active:scale-95">
+                <i class="ph-bold ph-google-logo text-xl"></i> <span>เข้าสู่ระบบด้วย Google</span>
+            </button>
+
+            <!-- 👩‍🏫 Teacher Demo Mode Button -->
+            <button id="demoTeacherBtn" type="button" class="w-full mt-3 flex items-center justify-center gap-2 py-3 px-4 rounded-2xl text-xs font-bold text-amber-900 bg-amber-50 hover:bg-amber-100 border border-amber-300 shadow-xs transition-all active:scale-95">
+                <i class="ph-bold ph-chalkboard-teacher text-base text-amber-600"></i>
+                <span>ทดลองใช้งานโหมดครู (Demo Mode)</span>
+                <span class="bg-amber-200 text-amber-900 text-[9px] px-1.5 py-0.5 rounded-full font-black">⚡ ข้อมูลตัวอย่าง</span>
             </button>
         </div>
 
         <div id="dashboardSection" class="hidden">
+            <!-- Top Bento Analytics Row -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-                <div class="lg:col-span-1 space-y-4">
-                    <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl p-6 text-white shadow-lg">
-                        <p class="text-indigo-100 text-sm font-bold mb-1">ยอดบันทึกการเรียนรู้ทั้งหมด</p>
-                        <h3 id="statTotal" class="text-5xl font-black mb-4">0</h3>
-                        <div class="flex items-center gap-2 text-sm bg-white/20 w-fit px-3 py-1 rounded-full">
-                            <i class="ph-fill ph-check-circle"></i> รอการตรวจ <span id="statPending" class="font-bold">0</span>
+                <div class="lg:col-span-1 flex flex-col justify-between bg-gradient-to-br from-indigo-600 via-indigo-500 to-purple-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+                    <div class="absolute -right-6 -bottom-6 text-8xl text-white/10 pointer-events-none">
+                        <i class="ph-fill ph-exam"></i>
+                    </div>
+                    <div>
+                        <p class="text-indigo-100 text-xs font-bold uppercase tracking-wider mb-1">ยอดบันทึกการเรียนรู้ทั้งหมด</p>
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <h3 id="statTotal" class="text-5xl font-black">0</h3>
+                            <span class="text-xs text-indigo-100 font-semibold">รายการ</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 pt-3 border-t border-white/15 text-center">
+                        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-2.5">
+                            <div class="text-[10px] text-indigo-100 font-bold">⏳ รอการตรวจ</div>
+                            <div id="statPending" class="text-lg font-black text-amber-300">0</div>
+                        </div>
+                        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-2.5">
+                            <div class="text-[10px] text-indigo-100 font-bold">👥 นักเรียน</div>
+                            <div id="statStudents" class="text-lg font-black text-emerald-300">0</div>
+                        </div>
+                        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-2.5">
+                            <div class="text-[10px] text-indigo-100 font-bold">⭐ เฉลี่ยห้อง</div>
+                            <div id="statAvgScore" class="text-lg font-black text-white">-</div>
                         </div>
                     </div>
                 </div>
+
                 <div class="lg:col-span-1 bg-white rounded-3xl p-6 border border-slate-100 shadow-sm flex flex-col min-h-[250px]">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">📅 การบันทึกรายวัน</p>
                     <div class="flex-1 flex items-center justify-center">
@@ -91,12 +202,30 @@
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-4 gap-4">
-                <h2 class="text-xl font-black">ระบบตรวจงาน (Grading)</h2>
-                <div class="flex flex-col w-full sm:w-auto gap-2">
-                    <div class="flex gap-2 w-full sm:w-auto">
-                        <input type="text" id="searchInput" placeholder="ค้นหาชื่อ..." class="w-full sm:w-64 px-4 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-indigo-500 text-sm">
-                        <button id="exportCsvBtn" class="bg-emerald-50 text-emerald-600 px-4 py-2 rounded-xl font-bold hover:bg-emerald-100 transition-colors whitespace-nowrap"><i class="ph-bold ph-download-simple"></i> Excel</button>
+            <!-- Grading Section Header & Filters -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-4 gap-4">
+                <div>
+                    <h2 class="text-xl font-black mb-2">ระบบตรวจงาน (Grading)</h2>
+                    <!-- Segmented Status Filter Pills -->
+                    <div class="inline-flex bg-white p-1 rounded-2xl border border-slate-200 shadow-xs gap-1">
+                        <button type="button" onclick="setStatusFilter('all')" id="statusBtnAll" class="px-3 py-1.5 rounded-xl text-xs font-black bg-indigo-600 text-white transition-all">
+                            <span>📋 ทั้งหมด</span> <span id="badgeCountAll" class="ml-1 opacity-90">(0)</span>
+                        </button>
+                        <button type="button" onclick="setStatusFilter('pending')" id="statusBtnPending" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-all">
+                            <span>⏳ รอตรวจ</span> <span id="badgeCountPending" class="ml-1 text-amber-600 font-black">(0)</span>
+                        </button>
+                        <button type="button" onclick="setStatusFilter('graded')" id="statusBtnGraded" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-all">
+                            <span>✅ ตรวจแล้ว</span> <span id="badgeCountGraded" class="ml-1 text-emerald-600 font-black">(0)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col w-full lg:w-auto gap-2">
+                    <div class="flex gap-2 w-full lg:w-auto">
+                        <input type="text" id="searchInput" placeholder="ค้นหาชื่อหรือหัวข้อ..." class="w-full sm:w-64 px-4 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-indigo-500 text-sm bg-white">
+                        <button id="exportCsvBtn" class="bg-emerald-50 text-emerald-600 border border-emerald-200 px-4 py-2 rounded-xl font-bold hover:bg-emerald-100 transition-colors whitespace-nowrap flex items-center gap-1.5 text-sm">
+                            <i class="ph-bold ph-download-simple"></i> <span>Excel (CSV)</span>
+                        </button>
                     </div>
                     <div class="flex gap-2 flex-wrap">
                         <select id="filterMedia" class="px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-indigo-500 text-sm bg-white">
@@ -116,7 +245,7 @@
                             <option value="Speaking">🗣️ Speaking</option>
                             <option value="Writing">✍️ Writing</option>
                         </select>
-                        <button id="clearFilters" class="px-3 py-2 rounded-xl border border-slate-200 text-slate-500 text-sm hover:bg-slate-100 transition-colors">✕ ล้างตัวกรอง</button>
+                        <button id="clearFilters" class="px-3 py-2 rounded-xl border border-slate-200 text-slate-500 text-sm hover:bg-slate-100 transition-colors bg-white">✕ ล้างตัวกรอง</button>
                     </div>
                 </div>
             </div>
@@ -131,15 +260,15 @@
                                 </th>
                                 <th class="p-4 font-bold w-32">เวลา</th>
                                 <th class="p-4 font-bold w-48">นักเรียน</th>
-                                <th class="p-4 font-bold max-w-[200px]">รายละเอียด</th>
-                                <th class="p-4 font-bold w-28">สื่อ / ทักษะ</th>
+                                <th class="p-4 font-bold max-w-[240px]">รายละเอียด</th>
+                                <th class="p-4 font-bold w-32">สื่อ / ทักษะ</th>
                                 <th class="p-4 font-bold text-center w-24">หลักฐาน</th>
                                 <th class="p-4 font-bold text-center w-32">สถานะ/ให้คะแนน</th>
                                 <th class="p-4 font-bold text-center w-16"></th>
                             </tr>
                         </thead>
                         <tbody id="tableBody" class="divide-y divide-slate-100 text-sm">
-                            <tr><td colspan="6" class="p-8 text-center text-slate-400">กำลังโหลด...</td></tr>
+                            <tr><td colspan="8" class="p-8 text-center text-slate-400">กำลังโหลด...</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -149,8 +278,8 @@
             <div class="mt-8">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-black">📌 จัดการสื่อแนะนำ (Resource Board)</h2>
-                    <button id="addResourceBtn" class="bg-indigo-600 text-white px-4 py-2 rounded-xl font-bold hover:bg-indigo-700 transition-colors flex items-center gap-2">
-                        <i class="ph-bold ph-plus"></i> เพิ่มสื่อ
+                    <button id="addResourceBtn" class="bg-indigo-600 text-white px-4 py-2 rounded-xl font-bold hover:bg-indigo-700 transition-colors flex items-center gap-2 text-sm shadow-sm">
+                        <i class="ph-bold ph-plus"></i> <span>เพิ่มสื่อแนะนำ</span>
                     </button>
                 </div>
                 <div id="resourceAdminList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -165,7 +294,7 @@
         <span class="text-sm font-black">เลือกแล้ว <span id="bulkCount">0</span> งาน</span>
         <div class="w-px h-5 bg-indigo-400"></div>
         <button id="bulkGradeBtn" class="bg-white text-indigo-700 font-black px-4 py-1.5 rounded-xl text-sm hover:bg-indigo-50 transition-colors flex items-center gap-2">
-            <i class="ph-bold ph-star"></i> ให้คะแนนทั้งหมด
+            <i class="ph-bold ph-star"></i> <span>ให้คะแนนทั้งหมด</span>
         </button>
         <button id="bulkCancelBtn" class="text-indigo-200 hover:text-white transition-colors p-1">
             <i class="ph-bold ph-x text-lg"></i>
@@ -179,13 +308,133 @@
         </div>
     </div>
 
-    <!-- Firebase Scripts -->
+    <!-- Theme & Bilingual (TH/EN) Engine -->
+    <script>
+        const adminDict = {
+            "โหมดสาธิตครู (Demo)": "Teacher Demo",
+            "คู่มือนักเรียน": "Student Guide",
+            "หน้านักเรียน": "Student View",
+            "เข้าสู่ระบบสำหรับครูผู้สอน": "Teacher Dashboard Sign In",
+            "← กลับหน้านักเรียน": "← Back to Student App",
+            "เข้าสู่ระบบด้วย Google": "Sign in with Google",
+            "ทดลองใช้งานโหมดครู (Demo Mode)": "Try Teacher Demo Mode",
+            "⚡ ข้อมูลตัวอย่าง": "⚡ Sample Data",
+            "ยอดบันทึกการเรียนรู้ทั้งหมด": "Total Learning Logs",
+            "รายการ": "logs",
+            "⏳ รอการตรวจ": "⏳ Pending",
+            "👥 นักเรียน": "👥 Students",
+            "⭐ เฉลี่ยห้อง": "⭐ Class Avg",
+            "📅 การบันทึกรายวัน": "📅 Daily Submissions",
+            "🎬 สื่อที่นักเรียนใช้": "🎬 Media Distribution",
+            "ระบบตรวจงาน (Grading)": "Grading & Submissions",
+            "📋 ทั้งหมด": "📋 All",
+            "⏳ รอตรวจ": "⏳ Pending",
+            "✅ ตรวจแล้ว": "✅ Graded",
+            "🎬 สื่อทั้งหมด": "🎬 All Media",
+            "📖 บทความ": "📖 Article",
+            "🎮 เกม": "🎮 Game",
+            "✨ อื่นๆ": "✨ Other",
+            "🏷️ ทักษะทั้งหมด": "🏷️ All Skills",
+            "✕ ล้างตัวกรอง": "✕ Clear Filters",
+            "เวลา": "Date / Time",
+            "นักเรียน": "Student",
+            "รายละเอียด": "Topic & Summary",
+            "สื่อ / ทักษะ": "Media / Skills",
+            "หลักฐาน": "Proof",
+            "สถานะ/ให้คะแนน": "Status / Grade",
+            "กำลังโหลด...": "Loading...",
+            "ไม่พบข้อมูล": "No matching submissions found",
+            "📌 จัดการสื่อแนะนำ (Resource Board)": "📌 Manage Recommended Resources",
+            "เพิ่มสื่อแนะนำ": "Add Resource",
+            "ยังไม่มีสื่อแนะนำ": "No recommended resources yet",
+            "เลือกแล้ว": "Selected",
+            "งาน": "items",
+            "ให้คะแนนทั้งหมด": "Grade Selected"
+        };
+        const adminEnToTh = {};
+        Object.entries(adminDict).forEach(([th, en]) => { adminEnToTh[en] = th; });
+
+        const adminPlaceholders = {
+            "ค้นหาชื่อหรือหัวข้อ...": "Search student or topic..."
+        };
+        const adminEnToThPlaceholders = {
+            "Search student or topic...": "ค้นหาชื่อหรือหัวข้อ..."
+        };
+
+        window.currentLang = localStorage.getItem('appLang') || 'th';
+        window.isDarkMode = localStorage.getItem('melDarkMode') === 'true';
+
+        window.applyTheme = function () {
+            document.body.classList.toggle('dark-mode', window.isDarkMode);
+            const icon = document.getElementById('themeIcon');
+            const btn = document.getElementById('themeToggleBtn');
+            if (icon) {
+                icon.className = window.isDarkMode
+                    ? 'ph-fill ph-sun text-base text-amber-300'
+                    : 'ph-bold ph-moon-stars text-base text-indigo-600';
+            }
+            if (btn) {
+                btn.className = window.isDarkMode
+                    ? 'w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 flex items-center justify-center transition-all border border-slate-700'
+                    : 'w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-indigo-600 flex items-center justify-center transition-all border border-slate-200';
+            }
+        };
+
+        window.toggleTheme = function () {
+            window.isDarkMode = !window.isDarkMode;
+            localStorage.setItem('melDarkMode', window.isDarkMode ? 'true' : 'false');
+            window.applyTheme();
+        };
+
+        window.applyAdminLang = function () {
+            const isEn = window.currentLang === 'en';
+            document.documentElement.lang = isEn ? 'en' : 'th';
+            const btn = document.getElementById('langToggleBtn');
+            if (btn) btn.textContent = isEn ? 'TH' : 'EN';
+
+            const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+            let n;
+            while (n = walk.nextNode()) {
+                if (n.parentElement && (n.parentElement.tagName === 'SCRIPT' || n.parentElement.tagName === 'STYLE')) continue;
+                const raw = n.nodeValue || '';
+                const val = raw.trim().replace(/\s+/g, ' ');
+                if (!val) continue;
+                const lead = (raw.match(/^\s*/) || [''])[0];
+                const trail = (raw.match(/\s*$/) || [''])[0];
+                if (isEn && adminDict[val]) {
+                    n.nodeValue = lead + adminDict[val] + trail;
+                } else if (!isEn && adminEnToTh[val]) {
+                    n.nodeValue = lead + adminEnToTh[val] + trail;
+                }
+            }
+
+            document.querySelectorAll('input[placeholder]').forEach(el => {
+                const cur = el.getAttribute('placeholder') || '';
+                if (isEn && adminPlaceholders[cur]) el.setAttribute('placeholder', adminPlaceholders[cur]);
+                else if (!isEn && adminEnToThPlaceholders[cur]) el.setAttribute('placeholder', adminEnToThPlaceholders[cur]);
+            });
+        };
+
+        window.toggleLang = function () {
+            window.currentLang = window.currentLang === 'th' ? 'en' : 'th';
+            localStorage.setItem('appLang', window.currentLang);
+            window.applyAdminLang();
+            if (window.rerenderAdminAll) window.rerenderAdminAll();
+        };
+
+        window.applyTheme();
+        document.addEventListener('DOMContentLoaded', () => {
+            window.applyTheme();
+            window.applyAdminLang();
+        });
+    </script>
+
+    <!-- Firebase & Dashboard Scripts -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, query, orderBy, onSnapshot, deleteDoc, doc, updateDoc, addDoc, serverTimestamp, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Register Service Worker for PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js').catch(err => console.log('SW Reg failed:', err));
@@ -210,36 +459,191 @@
         setPersistence(auth, browserLocalPersistence);
 
         let allLogs = [];
+        let demoResources = [];
+        let isTeacherDemo = false;
+        let currentStatusFilter = 'all'; // 'all' | 'pending' | 'graded'
         let myChart = null;
         let myMediaChart = null;
         let selectedIds = new Set();
 
+        const t = (th, en) => (window.currentLang === 'en' ? en : th);
+
+        // Quick Feedback Chips Helper
+        const QUICK_FEEDBACK_CHIPS = [
+            { labelTh: "🌟 สรุปดีมาก", labelEn: "🌟 Great Summary", textTh: "สรุปเนื้อหาได้ดีมาก มีตัวอย่างประโยคชัดเจน ยอดเยี่ยมครับ! 🌟", textEn: "Excellent summary with clear example sentences. Keep up the great work! 🌟" },
+            { labelTh: "👍 ขยันสม่ำเสมอ", labelEn: "👍 Consistent Effort", textTh: "มีความตั้งใจฝึกฝนสม่ำเสมอ เก่งมากครับ ลุยต่อเลย! 👍", textEn: "Love your consistent daily practice! Keep building your streak! 👍" },
+            { labelTh: "💡 เพิ่มประโยคตัวอย่าง", labelEn: "💡 Add Examples", textTh: "สรุปเข้าใจง่ายดีครับ ครั้งหน้าลองแต่งประโยคตัวอย่างเพิ่มอีก 1-2 ประโยคจะสมบูรณ์แบบเลย 💡", textEn: "Good takeaway! Next time, try writing 1–2 example sentences of your own. 💡" },
+            { labelTh: "🔥 ศัพท์น่าสนใจ", labelEn: "🔥 Great Vocab", textTh: "เลือกคำศัพท์และสำนวนมาจดได้ดีมาก นำไปใช้พูดจริงได้เลยครับ! 🔥", textEn: "Awesome vocabulary notes! Try using these expressions in daily conversation! 🔥" }
+        ];
+
+        window.setSwalQuickScore = function (val) {
+            const el = document.getElementById('swal-score');
+            if (el) el.value = val;
+        };
+
+        window.appendSwalFeedback = function (idx) {
+            const chip = QUICK_FEEDBACK_CHIPS[idx];
+            if (!chip) return;
+            const el = document.getElementById('swal-feedback');
+            if (!el) return;
+            const msg = window.currentLang === 'en' ? chip.textEn : chip.textTh;
+            el.value = el.value.trim() ? (el.value.trim() + ' ' + msg) : msg;
+        };
+
+        function buildGradingModalHtml(oldScore = '', oldFeedback = '', isBulk = false) {
+            const chipsHtml = QUICK_FEEDBACK_CHIPS.map((c, idx) => `
+                <button type="button" onclick="appendSwalFeedback(${idx})" class="text-[11px] font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 px-2.5 py-1 rounded-full transition-colors">
+                    ${window.currentLang === 'en' ? c.labelEn : c.labelTh}
+                </button>
+            `).join('');
+
+            return `
+                <div class="text-left">
+                    ${isBulk ? `<p class="text-xs text-slate-500 mb-3">${t('คะแนนและข้อเสนอแนะนี้จะถูกใส่ให้งานทุกชิ้นที่เลือก', 'This score and feedback will be applied to all selected submissions.')}</p>` : ''}
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label class="block text-sm font-bold text-slate-700">${t('ให้คะแนน (เต็ม 10)', 'Score (out of 10)')}</label>
+                        <div class="flex gap-1">
+                            <button type="button" onclick="setSwalQuickScore(10)" class="text-[11px] font-black bg-emerald-100 hover:bg-emerald-200 text-emerald-800 px-2 py-0.5 rounded-lg">10 ⭐</button>
+                            <button type="button" onclick="setSwalQuickScore(9)" class="text-[11px] font-black bg-teal-100 hover:bg-teal-200 text-teal-800 px-2 py-0.5 rounded-lg">9 🌟</button>
+                            <button type="button" onclick="setSwalQuickScore(8)" class="text-[11px] font-black bg-sky-100 hover:bg-sky-200 text-sky-800 px-2 py-0.5 rounded-lg">8 👍</button>
+                            <button type="button" onclick="setSwalQuickScore(7)" class="text-[11px] font-black bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-0.5 rounded-lg">7 👌</button>
+                        </div>
+                    </div>
+                    <input id="swal-score" type="number" min="0" max="10" class="w-full border-2 border-slate-200 rounded-xl p-3 mb-4 focus:border-indigo-500 text-xl font-bold text-center" placeholder="0–10" value="${oldScore}">
+                    <label class="block text-sm font-bold text-slate-700 mb-1.5">${t('คำชมเชย / ข้อเสนอแนะด่วน (แตะเพื่อเพิ่ม)', 'Quick Feedback Chips (Tap to insert)')}</label>
+                    <div class="flex flex-wrap gap-1.5 mb-2.5">${chipsHtml}</div>
+                    <textarea id="swal-feedback" rows="3" placeholder="${t('เช่น ทำได้ดีมาก! ลองฝึกพูดเพิ่มนะ', 'e.g. Great job! Try practicing speaking next.')}" class="w-full border-2 border-slate-200 rounded-xl p-3 text-sm focus:border-indigo-500">${oldFeedback}</textarea>
+                </div>
+            `;
+        }
+
         document.getElementById('loginBtn').addEventListener('click', () => signInWithPopup(auth, provider));
-        document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            if (isTeacherDemo) {
+                isTeacherDemo = false;
+                document.getElementById('teacherDemoBadge').classList.add('hidden');
+                document.getElementById('teacherDemoBadge').classList.remove('inline-flex');
+                document.getElementById('dashboardSection').classList.add('hidden');
+                document.getElementById('userInfo').classList.add('hidden');
+                document.getElementById('loginSection').classList.remove('hidden');
+                return;
+            }
+            signOut(auth);
+        });
+
+        // 👩‍🏫 Activate Teacher Demo Mode
+        document.getElementById('demoTeacherBtn').addEventListener('click', () => {
+            isTeacherDemo = true;
+            const now = Date.now();
+            const mkTs = (hrsAgo) => ({ toDate: () => new Date(now - hrsAgo * 3600 * 1000) });
+            allLogs = [
+                {
+                    id: 'demo-1',
+                    studentName: 'ด.ญ.ณิชา เก่งอังกฤษ',
+                    email: 'nicha.student@school.ac.th',
+                    topic: 'BBC 6 Minute English: How to Build Habits',
+                    summary: 'ได้เรียนรู้คำว่า Consistency (ความสม่ำเสมอ) และ Procrastination (การผัดวันประกันพรุ่ง) พร้อมฝึกออกเสียงตามพิธีกร 2 รอบ',
+                    mediaType: 'Podcast',
+                    skills: ['Listening', 'Vocabulary', 'Speaking'],
+                    duration: 30,
+                    score: '',
+                    teacherFeedback: '',
+                    timestamp: mkTs(2)
+                },
+                {
+                    id: 'demo-2',
+                    studentName: 'ด.ช.สมชาย ใจดี',
+                    email: 'somchai.j@school.ac.th',
+                    topic: 'English Tenses Explained in 15 Minutes',
+                    summary: 'สรุปโครงสร้าง Present Perfect (Have/Has + V.3) ใช้กับเหตุการณ์ที่ทำตั้งแต่อดีตถึงปัจจุบัน เช่น I have studied English for 3 years.',
+                    mediaType: 'YouTube',
+                    skills: ['Grammar', 'Listening'],
+                    duration: 20,
+                    score: '10',
+                    teacherFeedback: 'สรุปเนื้อหาได้ดีมาก มีตัวอย่างประโยคชัดเจน ยอดเยี่ยมครับ! 🌟',
+                    timestamp: mkTs(18)
+                },
+                {
+                    id: 'demo-3',
+                    studentName: 'ด.ช.กิตติศักดิ์ รักเรียน',
+                    email: 'kittisak.r@school.ac.th',
+                    topic: 'Duolingo Story: At the Airport',
+                    summary: 'ฝึกบทสนทนาเช็กอินสนามบิน คำว่า Boarding Pass, Gate, Delayed และฝึกแต่งประโยคถามทางในสนามบิน',
+                    mediaType: 'Game',
+                    skills: ['Reading', 'Vocabulary'],
+                    duration: 15,
+                    score: '',
+                    teacherFeedback: '',
+                    timestamp: mkTs(26)
+                },
+                {
+                    id: 'demo-4',
+                    studentName: 'ด.ญ.ณิชา เก่งอังกฤษ',
+                    email: 'nicha.student@school.ac.th',
+                    topic: 'National Geographic Kids: Ocean Animals',
+                    summary: 'อ่านบทความเรื่องสัตว์ทะเล ได้คำศัพท์ Marine life, Coral reef, Endangered species และฝึกเขียนสรุป 5 บรรทัด',
+                    mediaType: 'Article',
+                    skills: ['Reading', 'Writing', 'Vocabulary'],
+                    duration: 45,
+                    score: '9',
+                    teacherFeedback: 'มีความตั้งใจฝึกฝนสม่ำเสมอ เก่งมากครับ ลุยต่อเลย! 👍',
+                    timestamp: mkTs(48)
+                }
+            ];
+            demoResources = [
+                {
+                    id: 'res-demo-1',
+                    title: 'BBC Learning English — 6 Minute English',
+                    url: 'https://www.bbc.co.uk/learningenglish',
+                    mediaType: 'Podcast',
+                    description: 'ฝึกฟังภาษาอังกฤษจากหัวข้อรอบตัวสนุกๆ พร้อมคำศัพท์น่ารู้ใน 6 นาที',
+                    addedBy: 'Teacher Demo'
+                },
+                {
+                    id: 'res-demo-2',
+                    title: 'TED-Ed: Short Animated English Lessons',
+                    url: 'https://ed.ted.com',
+                    mediaType: 'YouTube',
+                    description: 'แอนิเมชันความรู้สั้นๆ ฝึกทักษะการฟังและจับใจความสำคัญ',
+                    addedBy: 'Teacher Demo'
+                }
+            ];
+
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('dashboardSection').classList.remove('hidden');
+            document.getElementById('userInfo').classList.remove('hidden');
+            document.getElementById('adminEmail').textContent = 'teacher.demo@mel.edu';
+            const badge = document.getElementById('teacherDemoBadge');
+            badge.classList.remove('hidden');
+            badge.classList.add('inline-flex');
+
+            renderDashboard();
+            renderTable();
+            loadResourcesAdmin();
+        });
 
         // ---- Role-Based Access ----
         onAuthStateChanged(auth, async user => {
+            if (isTeacherDemo) return;
             if (user) {
                 if (!ALLOWED_EMAILS.includes(user.email)) {
-                    // Not authorized — sign out and show denied screen
                     await signOut(auth);
                     document.getElementById('loginSection').innerHTML = `
                         <div class="flex flex-col items-center">
                             <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mb-4">
                                 <i class="ph-fill ph-shield-warning text-4xl text-red-500"></i>
                             </div>
-                            <h2 class="text-2xl font-black text-slate-800 mb-2">ไม่มีสิทธิ์เข้าถึง</h2>
-                            <p class="text-slate-500 text-sm mb-1">บัญชีนี้ไม่ได้รับอนุญาตให้เข้าใช้งาน</p>
+                            <h2 class="text-2xl font-black text-slate-800 mb-2">${t('ไม่มีสิทธิ์เข้าถึง', 'Access Denied')}</h2>
+                            <p class="text-slate-500 text-sm mb-1">${t('บัญชีนี้ไม่ได้รับอนุญาตให้เข้าใช้งานหน้าครู', 'This account is not authorized for Teacher Dashboard')}</p>
                             <p class="text-xs text-slate-400 mb-6 font-mono bg-slate-100 px-3 py-1.5 rounded-lg">${user.email}</p>
                             <button onclick="location.reload()" class="flex items-center gap-2 bg-slate-800 text-white px-5 py-2.5 rounded-xl font-bold hover:bg-slate-700 transition-colors">
-                                <i class="ph-bold ph-arrow-counter-clockwise"></i> ลองบัญชีอื่น
+                                <i class="ph-bold ph-arrow-counter-clockwise"></i> ${t('ลองบัญชีอื่น', 'Try Another Account')}
                             </button>
                         </div>
                     `;
                     document.getElementById('loginSection').classList.remove('hidden');
                     return;
                 }
-                // Authorized
                 document.getElementById('loginSection').classList.add('hidden');
                 document.getElementById('dashboardSection').classList.remove('hidden');
                 document.getElementById('userInfo').classList.remove('hidden');
@@ -255,6 +659,7 @@
 
         function loadData() {
             onSnapshot(query(collection(db, "learning_logs"), orderBy("timestamp", "desc")), (snapshot) => {
+                if (isTeacherDemo) return;
                 allLogs = [];
                 snapshot.forEach(doc => allLogs.push({ id: doc.id, ...doc.data() }));
                 renderDashboard();
@@ -262,26 +667,57 @@
             });
         }
 
+        window.setStatusFilter = function (status) {
+            currentStatusFilter = status;
+            const btnAll = document.getElementById('statusBtnAll');
+            const btnPending = document.getElementById('statusBtnPending');
+            const btnGraded = document.getElementById('statusBtnGraded');
+            const activeCls = "px-3 py-1.5 rounded-xl text-xs font-black bg-indigo-600 text-white transition-all shadow-xs";
+            const inactiveCls = "px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-all";
+            if (btnAll) btnAll.className = status === 'all' ? activeCls : inactiveCls;
+            if (btnPending) btnPending.className = status === 'pending' ? activeCls : inactiveCls;
+            if (btnGraded) btnGraded.className = status === 'graded' ? activeCls : inactiveCls;
+            renderTable();
+        };
+
         function renderDashboard() {
-            document.getElementById('statTotal').textContent = allLogs.length;
+            const total = allLogs.length;
             const pending = allLogs.filter(l => !l.score).length;
+            const gradedLogs = allLogs.filter(l => l.score);
+            const graded = gradedLogs.length;
+            const uniqueStudents = new Set(allLogs.map(l => l.studentName).filter(Boolean)).size;
+            const avgScore = graded > 0
+                ? (gradedLogs.reduce((sum, l) => sum + parseFloat(l.score || 0), 0) / graded).toFixed(1)
+                : '-';
+
+            document.getElementById('statTotal').textContent = total;
             document.getElementById('statPending').textContent = pending;
+            document.getElementById('statStudents').textContent = uniqueStudents;
+            document.getElementById('statAvgScore').textContent = avgScore;
+
+            const bAll = document.getElementById('badgeCountAll');
+            const bPen = document.getElementById('badgeCountPending');
+            const bGrd = document.getElementById('badgeCountGraded');
+            if (bAll) bAll.textContent = `(${total})`;
+            if (bPen) bPen.textContent = `(${pending})`;
+            if (bGrd) bGrd.textContent = `(${graded})`;
 
             // Daily activity bar chart
             const datesCount = {};
+            const locale = window.currentLang === 'en' ? 'en-US' : 'th-TH';
             allLogs.forEach(l => {
-                if(l.timestamp) {
-                    const date = l.timestamp.toDate().toLocaleDateString('th-TH', {day:'numeric', month:'short'});
+                if (l.timestamp) {
+                    const date = l.timestamp.toDate().toLocaleDateString(locale, { day: 'numeric', month: 'short' });
                     datesCount[date] = (datesCount[date] || 0) + 1;
                 }
             });
             const labels = Object.keys(datesCount).slice(0, 7).reverse();
             const data = Object.values(datesCount).slice(0, 7).reverse();
             const ctx = document.getElementById('activityChart').getContext('2d');
-            if(myChart) myChart.destroy();
+            if (myChart) myChart.destroy();
             myChart = new Chart(ctx, {
                 type: 'bar',
-                data: { labels: labels, datasets: [{ label: 'จำนวนการบันทึกรายวัน', data: data, backgroundColor: '#6366f1', borderRadius: 8 }] },
+                data: { labels: labels, datasets: [{ label: t('จำนวนการบันทึกรายวัน', 'Daily Submissions'), data: data, backgroundColor: '#6366f1', borderRadius: 8 }] },
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
             });
 
@@ -296,7 +732,7 @@
             const mediaData = Object.values(mediaCounts);
             const mediaColors = mediaLabels.map(m => MEDIA_CHART_COLORS[m] || '#94a3b8');
             const ctx2 = document.getElementById('mediaChart').getContext('2d');
-            if(myMediaChart) myMediaChart.destroy();
+            if (myMediaChart) myMediaChart.destroy();
             myMediaChart = new Chart(ctx2, {
                 type: 'doughnut',
                 data: { labels: mediaLabels, datasets: [{ data: mediaData, backgroundColor: mediaColors, borderWidth: 2, borderColor: '#fff' }] },
@@ -339,20 +775,15 @@
         document.getElementById('bulkGradeBtn').addEventListener('click', () => {
             if (selectedIds.size === 0) return;
             Swal.fire({
-                title: `ให้คะแนน ${selectedIds.size} งาน`,
-                html: `
-                    <div class="text-left">
-                        <p class="text-xs text-slate-500 mb-3">คะแนนและ Feedback นี้จะถูกใส่ให้งานทุกชิ้นที่เลือก</p>
-                        <label class="block text-sm font-bold text-slate-700 mb-1">ให้คะแนน (เต็ม 10)</label>
-                        <input id="swal-score" type="number" min="0" max="10" class="w-full border-2 border-slate-200 rounded-xl p-3 mb-4 focus:border-indigo-500 text-xl font-bold text-center" placeholder="0–10">
-                        <label class="block text-sm font-bold text-slate-700 mb-1">คำชมเชย / ข้อเสนอแนะ</label>
-                        <textarea id="swal-feedback" rows="3" placeholder="เช่น ทำได้ดีมาก! ลองฝึกพูดเพิ่มนะ" class="w-full border-2 border-slate-200 rounded-xl p-3 text-sm focus:border-indigo-500"></textarea>
-                    </div>
-                `,
-                showCancelButton: true, confirmButtonText: '✅ บันทึกทั้งหมด', confirmButtonColor: '#4f46e5', cancelButtonText: 'ยกเลิก',
+                title: t(`ให้คะแนน ${selectedIds.size} งาน`, `Grade ${selectedIds.size} Submissions`),
+                html: buildGradingModalHtml('10', '', true),
+                showCancelButton: true,
+                confirmButtonText: t('✅ บันทึกทั้งหมด', '✅ Save All'),
+                confirmButtonColor: '#4f46e5',
+                cancelButtonText: t('ยกเลิก', 'Cancel'),
                 preConfirm: () => {
                     const score = document.getElementById('swal-score').value;
-                    if (!score || score < 0 || score > 10) { Swal.showValidationMessage('กรุณาใส่คะแนน 0–10'); return false; }
+                    if (score === '' || score < 0 || score > 10) { Swal.showValidationMessage(t('กรุณาใส่คะแนน 0–10', 'Please enter a score between 0–10')); return false; }
                     return { score, feedback: document.getElementById('swal-feedback').value };
                 }
             }).then(async (result) => {
@@ -360,12 +791,23 @@
                 const { score, feedback } = result.value;
                 const ids = [...selectedIds];
                 try {
-                    await Promise.all(ids.map(id => updateDoc(doc(db, "learning_logs", id), { score, teacherFeedback: feedback })));
+                    if (isTeacherDemo) {
+                        allLogs.forEach(l => {
+                            if (selectedIds.has(l.id)) {
+                                l.score = score;
+                                l.teacherFeedback = feedback;
+                            }
+                        });
+                        renderDashboard();
+                        renderTable();
+                    } else {
+                        await Promise.all(ids.map(id => updateDoc(doc(db, "learning_logs", id), { score, teacherFeedback: feedback })));
+                    }
                     selectedIds.clear();
                     document.querySelectorAll('.row-checkbox').forEach(cb => { cb.checked = false; cb.closest('tr').classList.remove('bg-indigo-50'); });
                     document.getElementById('selectAll').checked = false;
                     updateBulkBar();
-                    Swal.fire({ icon: 'success', title: `บันทึกแล้ว ${ids.length} งาน! 🎉`, timer: 1800, showConfirmButton: false });
+                    Swal.fire({ icon: 'success', title: t(`บันทึกแล้ว ${ids.length} งาน! 🎉`, `Graded ${ids.length} items! 🎉`), timer: 1800, showConfirmButton: false });
                 } catch (e) { Swal.fire('Error', e.message, 'error'); }
             });
         });
@@ -375,14 +817,20 @@
             const mediaFilter = document.getElementById('filterMedia').value;
             const skillFilter = document.getElementById('filterSkill').value;
             let filtered = allLogs.filter(log => {
-                const matchName = (log.studentName || '').toLowerCase().includes(search);
+                const matchNameOrTopic = (log.studentName || '').toLowerCase().includes(search) || (log.topic || '').toLowerCase().includes(search);
                 const matchMedia = !mediaFilter || log.mediaType === mediaFilter;
                 const matchSkill = !skillFilter || (log.skills && log.skills.includes(skillFilter));
-                return matchName && matchMedia && matchSkill;
+                const matchStatus = currentStatusFilter === 'all'
+                    || (currentStatusFilter === 'pending' && !log.score)
+                    || (currentStatusFilter === 'graded' && !!log.score);
+                return matchNameOrTopic && matchMedia && matchSkill && matchStatus;
             });
 
             const tbody = document.getElementById('tableBody');
-            if (filtered.length === 0) { tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-slate-400">ไม่พบข้อมูล</td></tr>`; return; }
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-slate-400">${t('ไม่พบข้อมูล', 'No matching submissions found')}</td></tr>`;
+                return;
+            }
 
             const MEDIA_ICON = { YouTube:'🎬', Podcast:'🎧', Article:'📖', Game:'🎮', Other:'✨' };
             const MEDIA_BADGE = {
@@ -401,31 +849,35 @@
                 Writing:    'bg-emerald-50 text-emerald-700',
             };
 
+            const locale = window.currentLang === 'en' ? 'en-US' : 'th-TH';
             tbody.innerHTML = '';
             filtered.forEach(data => {
                 let dStr = "-", tStr = "";
                 if (data.timestamp) {
                     const d = data.timestamp.toDate();
-                    dStr = d.toLocaleDateString('th-TH', {day:'numeric', month:'short'});
-                    tStr = d.toLocaleTimeString('th-TH', {hour:'2-digit', minute:'2-digit'});
+                    dStr = d.toLocaleDateString(locale, { day: 'numeric', month: 'short' });
+                    tStr = d.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
                 }
-                let imgBtn = `<span class="text-slate-300 text-xs">ไม่มีรูป</span>`;
+                let imgBtn = `<span class="text-slate-300 text-xs">${t('ไม่มีรูป', 'No image')}</span>`;
                 if (data.image) imgBtn = `<button onclick="openModal('${data.image}')" class="bg-indigo-50 text-indigo-600 p-2 rounded-lg hover:bg-indigo-600 hover:text-white"><i class="ph-bold ph-image text-xl"></i></button>`;
 
+                const safeFeedback = (data.teacherFeedback || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+                const safeStudentName = (data.studentName || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+
                 let gradeBtn = data.score
-                    ? `<button onclick="gradeWork('${data.id}', '${data.studentName}', '${data.score}', '${(data.teacherFeedback||'').replace(/'/g,"\\'")}'" class="w-full bg-green-50 text-green-700 border border-green-200 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-green-100 transition-colors">⭐ ${data.score}/10<br><span class="font-normal text-[10px]">แก้คะแนน</span></button>`
-                    : `<button onclick="gradeWork('${data.id}', '${data.studentName}', '', '')" class="w-full bg-amber-400 text-white px-3 py-2 rounded-lg text-xs font-black shadow-sm hover:bg-amber-500 transition-colors animate-pulse">ตรวจงาน</button>`;
+                    ? `<button onclick="gradeWork('${data.id}', '${safeStudentName}', '${data.score}', '${safeFeedback}')" class="w-full bg-green-50 text-green-700 border border-green-200 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-green-100 transition-colors">⭐ ${data.score}/10<br><span class="font-normal text-[10px]">${t('แก้คะแนน', 'Edit Grade')}</span></button>`
+                    : `<button onclick="gradeWork('${data.id}', '${safeStudentName}', '', '')" class="w-full bg-amber-400 text-white px-3 py-2 rounded-lg text-xs font-black shadow-sm hover:bg-amber-500 transition-colors animate-pulse">${t('ตรวจงาน', 'Grade Now')}</button>`;
 
                 let mediaBadge = '<span class="text-slate-300 text-xs">-</span>';
                 if (data.mediaType) {
                     const cls = MEDIA_BADGE[data.mediaType] || 'bg-slate-100 text-slate-500 border-slate-200';
                     mediaBadge = `<span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full border ${cls} whitespace-nowrap">${MEDIA_ICON[data.mediaType]||'✨'} ${data.mediaType}</span>`;
                 }
-                let skillChips = (data.skills||[]).map(s => `<span class="inline-flex text-[10px] font-bold px-1.5 py-0.5 rounded-full ${SKILL_CHIP[s]||'bg-slate-100 text-slate-500'}">${s}</span>`).join('');
+                let skillChips = (data.skills || []).map(s => `<span class="inline-flex text-[10px] font-bold px-1.5 py-0.5 rounded-full ${SKILL_CHIP[s]||'bg-slate-100 text-slate-500'}">${s}</span>`).join('');
+                const durationBadge = data.duration ? `<span class="inline-flex items-center gap-0.5 text-[10px] font-bold text-teal-600 bg-teal-50 px-1.5 py-0.5 rounded-md ml-1">⏱️ ${data.duration}m</span>` : '';
 
                 const isChecked = selectedIds.has(data.id);
                 const rowBg = isChecked ? 'bg-indigo-50' : '';
-                const safeStudentName = (data.studentName||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
 
                 tbody.innerHTML += `
                     <tr class="hover:bg-slate-50 transition-colors ${rowBg}">
@@ -435,11 +887,12 @@
                         <td class="p-4 align-top"><div class="font-bold text-slate-700">${dStr}</div><div class="text-xs text-slate-400">${tStr}</div></td>
                         <td class="p-4 align-top">
                             <div class="font-bold text-indigo-700">${data.studentName}</div>
-                            <button onclick="viewStudentProfile('${safeStudentName}')" class="text-[10px] text-indigo-400 hover:text-indigo-600 font-bold mt-0.5">📊 ดูสถิติ</button>
+                            <button onclick="viewStudentProfile('${safeStudentName}')" class="text-[10px] text-indigo-400 hover:text-indigo-600 font-bold mt-0.5">📊 ${t('ดูสถิติรายบุคคล', 'View Stats')}</button>
                         </td>
-                        <td class="p-4 align-top max-w-[200px]">
-                            <p class="font-bold text-slate-800 text-sm truncate mb-1">${data.topic}</p>
+                        <td class="p-4 align-top max-w-[240px]">
+                            <p class="font-bold text-slate-800 text-sm truncate mb-1">${data.topic} ${durationBadge}</p>
                             <p class="text-xs text-slate-500 line-clamp-2">${data.summary}</p>
+                            ${data.teacherFeedback ? `<p class="text-[11px] text-emerald-600 font-semibold mt-1 line-clamp-1">💬 ${data.teacherFeedback}</p>` : ''}
                         </td>
                         <td class="p-4 align-top">
                             <div class="flex flex-col gap-1 items-start">
@@ -456,7 +909,6 @@
                 `;
             });
 
-            // Bind checkbox events after render
             document.querySelectorAll('.row-checkbox').forEach(cb => {
                 cb.addEventListener('change', (e) => {
                     const row = cb.closest('tr');
@@ -467,6 +919,7 @@
             });
             updateBulkBar();
         }
+
         document.getElementById('searchInput').addEventListener('input', renderTable);
         document.getElementById('filterMedia').addEventListener('change', renderTable);
         document.getElementById('filterSkill').addEventListener('change', renderTable);
@@ -474,47 +927,74 @@
             document.getElementById('filterMedia').value = '';
             document.getElementById('filterSkill').value = '';
             document.getElementById('searchInput').value = '';
-            renderTable();
+            window.setStatusFilter('all');
         });
 
         window.gradeWork = function(docId, name, oldScore, oldFeedback) {
             Swal.fire({
-                title: `ตรวจงาน: ${name}`,
-                html: `
-                    <div class="text-left">
-                        <label class="block text-sm font-bold text-slate-700 mb-1">ให้คะแนน (เต็ม 10)</label>
-                        <input id="swal-score" type="number" min="0" max="10" class="w-full border-2 border-slate-200 rounded-xl p-3 mb-4 focus:border-indigo-500 text-xl font-bold" value="${oldScore}">
-                        <label class="block text-sm font-bold text-slate-700 mb-1">คำชมเชย / ข้อเสนอแนะ</label>
-                        <textarea id="swal-feedback" rows="3" class="w-full border-2 border-slate-200 rounded-xl p-3 text-sm focus:border-indigo-500">${oldFeedback}</textarea>
-                    </div>
-                `,
-                showCancelButton: true, confirmButtonText: 'บันทึกผลคะแนน', confirmButtonColor: '#4f46e5',
-                preConfirm: () => ({ score: document.getElementById('swal-score').value, feedback: document.getElementById('swal-feedback').value })
+                title: `${t('ตรวจงาน', 'Grade Submission')}: ${name}`,
+                html: buildGradingModalHtml(oldScore || '10', oldFeedback || '', false),
+                showCancelButton: true,
+                confirmButtonText: t('✅ บันทึกผลคะแนน', '✅ Save Grade'),
+                confirmButtonColor: '#4f46e5',
+                cancelButtonText: t('ยกเลิก', 'Cancel'),
+                preConfirm: () => ({
+                    score: document.getElementById('swal-score').value,
+                    feedback: document.getElementById('swal-feedback').value
+                })
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     try {
-                        await updateDoc(doc(db, "learning_logs", docId), { score: result.value.score, teacherFeedback: result.value.feedback });
-                        Swal.fire({icon: 'success', title: 'บันทึกคะแนนแล้ว!', timer: 1500, showConfirmButton: false});
+                        if (isTeacherDemo) {
+                            const target = allLogs.find(l => l.id === docId);
+                            if (target) {
+                                target.score = result.value.score;
+                                target.teacherFeedback = result.value.feedback;
+                            }
+                            renderDashboard();
+                            renderTable();
+                        } else {
+                            await updateDoc(doc(db, "learning_logs", docId), { score: result.value.score, teacherFeedback: result.value.feedback });
+                        }
+                        Swal.fire({ icon: 'success', title: t('บันทึกคะแนนแล้ว!', 'Grade Saved!'), timer: 1400, showConfirmButton: false });
                     } catch (e) { Swal.fire('Error', e.message, 'error'); }
                 }
             });
-        }
+        };
 
         window.deleteLog = function(docId) {
-            Swal.fire({title: 'ลบข้อมูล?', text: "ไม่สามารถกู้คืนได้!", icon: 'warning', showCancelButton: true, confirmButtonColor: '#ef4444'}).then(async (r) => {
-                if (r.isConfirmed) await deleteDoc(doc(db, "learning_logs", docId));
+            Swal.fire({
+                title: t('ลบข้อมูล?', 'Delete this log?'),
+                text: t('ไม่สามารถกู้คืนได้!', 'This action cannot be undone!'),
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                confirmButtonText: t('ลบข้อมูล', 'Delete'),
+                cancelButtonText: t('ยกเลิก', 'Cancel')
+            }).then(async (r) => {
+                if (r.isConfirmed) {
+                    if (isTeacherDemo) {
+                        allLogs = allLogs.filter(l => l.id !== docId);
+                        renderDashboard();
+                        renderTable();
+                    } else {
+                        await deleteDoc(doc(db, "learning_logs", docId));
+                    }
+                }
             });
         };
 
         document.getElementById('exportCsvBtn').addEventListener('click', () => {
-            let csv = "\uFEFFวันที่,นักเรียน,หัวข้อ,สรุป,สื่อ,ทักษะ,คะแนน\n";
+            let csv = "\uFEFFวันที่,นักเรียน,หัวข้อ,สรุป,สื่อ,ทักษะ,เวลา(นาที),คะแนน,ข้อเสนอแนะครู\n";
             allLogs.forEach(l => {
                 const dt = l.timestamp ? l.timestamp.toDate().toLocaleString('th-TH') : '';
                 const skills = (l.skills || []).join(', ');
-                csv += `"${dt}","${l.studentName}","${l.topic}","${(l.summary||'').replace(/"/g,'""')}","${l.mediaType||''}","${skills}","${l.score||''}"\n`;
+                csv += `"${dt}","${l.studentName}","${l.topic}","${(l.summary||'').replace(/"/g,'""')}","${l.mediaType||''}","${skills}","${l.duration||15}","${l.score||''}","${(l.teacherFeedback||'').replace(/"/g,'""')}"\n`;
             });
-            const link = document.createElement("a"); link.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
-            link.download = `Export_${new Date().toLocaleDateString('th-TH')}.csv`; link.click();
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
+            link.download = `MEL_Export_${new Date().toLocaleDateString('th-TH')}.csv`;
+            link.click();
         });
 
         const modal = document.getElementById('imageModal');
@@ -529,12 +1009,13 @@
             const total = studentLogs.length;
             const graded = studentLogs.filter(l => l.score).length;
             const avgScore = graded > 0 ? (studentLogs.filter(l=>l.score).reduce((s,l) => s + parseFloat(l.score||0), 0) / graded).toFixed(1) : '-';
+            const totalMins = studentLogs.reduce((s, l) => s + (parseInt(l.duration, 10) || 15), 0);
 
             const mediaCounts = {};
             studentLogs.forEach(l => { const m = l.mediaType||'Other'; mediaCounts[m] = (mediaCounts[m]||0)+1; });
             const mediaHtml = Object.entries(mediaCounts).map(([m,c]) => {
                 const icons = {YouTube:'🎬',Podcast:'🎧',Article:'📖',Game:'🎮',Other:'✨'};
-                return `<span class="inline-flex items-center gap-1 text-xs bg-slate-100 px-2 py-1 rounded-lg font-bold">${icons[m]||'✨'} ${m}: ${c}</span>`;
+                return `<span class="inline-flex items-center gap-1 text-xs bg-slate-100 px-2.5 py-1 rounded-lg font-bold">${icons[m]||'✨'} ${m}: ${c}</span>`;
             }).join('');
 
             const skillCounts = {Listening:0,Reading:0,Vocabulary:0,Grammar:0,Speaking:0,Writing:0};
@@ -553,11 +1034,16 @@
                 `;
             }).join('');
 
-            const recentTopics = studentLogs.slice(0,3).map(l => `<li class="text-xs text-slate-500">• ${l.topic}</li>`).join('');
+            const recentTopics = studentLogs.slice(0, 4).map(l => `
+                <li class="text-xs text-slate-600 flex items-center justify-between gap-2 py-1 border-b border-slate-100 last:border-0">
+                    <span class="truncate">• ${l.topic}</span>
+                    ${l.score ? `<span class="text-[10px] font-black text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">⭐ ${l.score}/10</span>` : `<span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded">${t('รอตรวจ', 'Pending')}</span>`}
+                </li>
+            `).join('');
             const avatar = studentLogs[0]?.userPhoto || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(name)}`;
 
             Swal.fire({
-                width: 480,
+                width: 520,
                 title: '',
                 html: `
                   <div class="text-left">
@@ -568,25 +1054,29 @@
                         <p class="text-xs text-slate-400">${studentLogs[0]?.email||''}</p>
                       </div>
                     </div>
-                    <div class="grid grid-cols-3 gap-3 mb-4">
-                      <div class="bg-indigo-50 rounded-2xl p-3 text-center">
-                        <p class="text-2xl font-black text-indigo-600">${total}</p>
-                        <p class="text-[10px] font-bold text-slate-500">งานที่ส่ง</p>
+                    <div class="grid grid-cols-4 gap-2 mb-4">
+                      <div class="bg-indigo-50 rounded-2xl p-2.5 text-center">
+                        <p class="text-xl font-black text-indigo-600">${total}</p>
+                        <p class="text-[10px] font-bold text-slate-500">${t('งานที่ส่ง', 'Logs')}</p>
                       </div>
-                      <div class="bg-amber-50 rounded-2xl p-3 text-center">
-                        <p class="text-2xl font-black text-amber-600">${graded}</p>
-                        <p class="text-[10px] font-bold text-slate-500">ตรวจแล้ว</p>
+                      <div class="bg-amber-50 rounded-2xl p-2.5 text-center">
+                        <p class="text-xl font-black text-amber-600">${graded}</p>
+                        <p class="text-[10px] font-bold text-slate-500">${t('ตรวจแล้ว', 'Graded')}</p>
                       </div>
-                      <div class="bg-emerald-50 rounded-2xl p-3 text-center">
-                        <p class="text-2xl font-black text-emerald-600">${avgScore}</p>
-                        <p class="text-[10px] font-bold text-slate-500">คะแนนเฉลี่ย</p>
+                      <div class="bg-emerald-50 rounded-2xl p-2.5 text-center">
+                        <p class="text-xl font-black text-emerald-600">${avgScore}</p>
+                        <p class="text-[10px] font-bold text-slate-500">${t('คะแนนเฉลี่ย', 'Avg Score')}</p>
+                      </div>
+                      <div class="bg-teal-50 rounded-2xl p-2.5 text-center">
+                        <p class="text-xl font-black text-teal-600">${totalMins}m</p>
+                        <p class="text-[10px] font-bold text-slate-500">${t('เวลาเรียนรวม', 'Total Time')}</p>
                       </div>
                     </div>
-                    <p class="text-xs font-black text-slate-700 mb-2">สื่อที่ใช้</p>
+                    <p class="text-xs font-black text-slate-700 mb-2">${t('สื่อที่ใช้', 'Media Used')}</p>
                     <div class="flex flex-wrap gap-1.5 mb-4">${mediaHtml}</div>
-                    <p class="text-xs font-black text-slate-700 mb-2">ทักษะที่ฝึก</p>
+                    <p class="text-xs font-black text-slate-700 mb-2">${t('ทักษะที่ฝึก (6 ด้าน)', '6-Skill Breakdown')}</p>
                     <div class="mb-4">${skillHtml}</div>
-                    <p class="text-xs font-black text-slate-700 mb-1">งานล่าสุด</p>
+                    <p class="text-xs font-black text-slate-700 mb-1">${t('งานที่ส่งล่าสุด', 'Recent Submissions')}</p>
                     <ul class="bg-slate-50 rounded-xl p-3">${recentTopics}</ul>
                   </div>
                 `,
@@ -606,96 +1096,138 @@
             Other:'bg-slate-100 text-slate-500 border-slate-200'
         };
 
+        function renderResourceCards(items) {
+            const listEl = document.getElementById('resourceAdminList');
+            if (!items || items.length === 0) {
+                listEl.innerHTML = `<div class="text-slate-400 text-sm col-span-full">${t('ยังไม่มีสื่อแนะนำ', 'No recommended resources yet')}</div>`;
+                return;
+            }
+            listEl.innerHTML = '';
+            items.forEach(r => {
+                const badgeCls = RESOURCE_MEDIA_BADGE_CLS[r.mediaType] || RESOURCE_MEDIA_BADGE_CLS.Other;
+                const icon = RESOURCE_MEDIA_ICONS[r.mediaType] || '✨';
+                const hostname = (() => { try { return new URL(r.url).hostname; } catch(e) { return r.url; } })();
+                listEl.innerHTML += `
+                    <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-2">
+                        <div class="flex items-start justify-between gap-2">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full border ${badgeCls}">${icon} ${r.mediaType||'Other'}</span>
+                            <button onclick="deleteResource('${r.id}')" class="text-slate-300 hover:text-red-500 transition-colors shrink-0"><i class="ph-bold ph-trash"></i></button>
+                        </div>
+                        <p class="font-black text-slate-800 text-sm leading-snug">${r.title}</p>
+                        <a href="${r.url}" target="_blank" class="text-[10px] text-indigo-500 hover:underline truncate">${hostname}</a>
+                        ${r.description ? `<p class="text-xs text-slate-500 line-clamp-2">${r.description}</p>` : ''}
+                        <p class="text-[10px] text-slate-400 mt-auto">${t('โดย', 'Added by')} ${r.addedBy||'Admin'}</p>
+                    </div>
+                `;
+            });
+        }
+
         async function loadResourcesAdmin() {
             const listEl = document.getElementById('resourceAdminList');
-            listEl.innerHTML = '<div class="text-slate-400 text-sm">กำลังโหลด...</div>';
+            if (isTeacherDemo) {
+                renderResourceCards(demoResources);
+                return;
+            }
+            listEl.innerHTML = `<div class="text-slate-400 text-sm">${t('กำลังโหลด...', 'Loading...')}</div>`;
             try {
                 const snap = await getDocs(query(collection(db, 'resources'), orderBy('timestamp', 'desc')));
-                if (snap.empty) {
-                    listEl.innerHTML = '<div class="text-slate-400 text-sm col-span-full">ยังไม่มีสื่อแนะนำ</div>';
-                    return;
-                }
-                listEl.innerHTML = '';
-                snap.forEach(docSnap => {
-                    const r = docSnap.data();
-                    const badgeCls = RESOURCE_MEDIA_BADGE_CLS[r.mediaType] || RESOURCE_MEDIA_BADGE_CLS.Other;
-                    const icon = RESOURCE_MEDIA_ICONS[r.mediaType] || '✨';
-                    const hostname = (() => { try { return new URL(r.url).hostname; } catch(e) { return r.url; } })();
-                    listEl.innerHTML += `
-                        <div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-2">
-                            <div class="flex items-start justify-between gap-2">
-                                <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full border ${badgeCls}">${icon} ${r.mediaType||'Other'}</span>
-                                <button onclick="deleteResource('${docSnap.id}')" class="text-slate-300 hover:text-red-500 transition-colors shrink-0"><i class="ph-bold ph-trash"></i></button>
-                            </div>
-                            <p class="font-black text-slate-800 text-sm leading-snug">${r.title}</p>
-                            <a href="${r.url}" target="_blank" class="text-[10px] text-indigo-500 hover:underline truncate">${hostname}</a>
-                            ${r.description ? `<p class="text-xs text-slate-500 line-clamp-2">${r.description}</p>` : ''}
-                            <p class="text-[10px] text-slate-400 mt-auto">โดย ${r.addedBy||'Admin'}</p>
-                        </div>
-                    `;
-                });
+                const items = [];
+                snap.forEach(docSnap => items.push({ id: docSnap.id, ...docSnap.data() }));
+                renderResourceCards(items);
             } catch(e) {
                 listEl.innerHTML = `<div class="text-red-400 text-sm">${e.message}</div>`;
             }
         }
 
         window.deleteResource = function(docId) {
-            Swal.fire({title:'ลบสื่อนี้?', icon:'warning', showCancelButton:true, confirmButtonColor:'#ef4444', confirmButtonText:'ลบ', cancelButtonText:'ยกเลิก'})
-            .then(async r => { if(r.isConfirmed) { await deleteDoc(doc(db,'resources',docId)); loadResourcesAdmin(); } });
+            Swal.fire({
+                title: t('ลบสื่อนี้?', 'Delete this resource?'),
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                confirmButtonText: t('ลบ', 'Delete'),
+                cancelButtonText: t('ยกเลิก', 'Cancel')
+            }).then(async r => {
+                if (r.isConfirmed) {
+                    if (isTeacherDemo) {
+                        demoResources = demoResources.filter(item => item.id !== docId);
+                        loadResourcesAdmin();
+                    } else {
+                        await deleteDoc(doc(db, 'resources', docId));
+                        loadResourcesAdmin();
+                    }
+                }
+            });
         };
 
         document.getElementById('addResourceBtn').addEventListener('click', () => {
             Swal.fire({
-                title: '➕ เพิ่มสื่อแนะนำ',
+                title: t('➕ เพิ่มสื่อแนะนำ', '➕ Add Recommended Resource'),
                 html: `
                   <div class="text-left space-y-3">
                     <div>
-                      <label class="block text-xs font-bold text-slate-600 mb-1">ชื่อสื่อ *</label>
-                      <input id="res-title" class="w-full border-2 border-slate-200 rounded-xl p-2.5 text-sm focus:border-indigo-500" placeholder="เช่น TED Talk: The Power of Listening">
+                      <label class="block text-xs font-bold text-slate-600 mb-1">${t('ชื่อสื่อ *', 'Title *')}</label>
+                      <input id="res-title" class="w-full border-2 border-slate-200 rounded-xl p-2.5 text-sm focus:border-indigo-500" placeholder="e.g. TED Talk: The Power of Listening">
                     </div>
                     <div>
                       <label class="block text-xs font-bold text-slate-600 mb-1">URL *</label>
                       <input id="res-url" type="url" class="w-full border-2 border-slate-200 rounded-xl p-2.5 text-sm focus:border-indigo-500" placeholder="https://...">
                     </div>
                     <div>
-                      <label class="block text-xs font-bold text-slate-600 mb-1">ประเภทสื่อ</label>
+                      <label class="block text-xs font-bold text-slate-600 mb-1">${t('ประเภทสื่อ', 'Media Type')}</label>
                       <select id="res-media" class="w-full border-2 border-slate-200 rounded-xl p-2.5 text-sm focus:border-indigo-500">
                         <option value="YouTube">🎬 YouTube</option>
                         <option value="Podcast">🎧 Podcast</option>
-                        <option value="Article">📖 บทความ</option>
-                        <option value="Game">🎮 เกม</option>
-                        <option value="Other">✨ อื่นๆ</option>
+                        <option value="Article">📖 Article</option>
+                        <option value="Game">🎮 Game</option>
+                        <option value="Other">✨ Other</option>
                       </select>
                     </div>
                     <div>
-                      <label class="block text-xs font-bold text-slate-600 mb-1">คำอธิบาย</label>
-                      <textarea id="res-desc" rows="2" class="w-full border-2 border-slate-200 rounded-xl p-2.5 text-sm focus:border-indigo-500" placeholder="อธิบายสั้นๆ ว่าเหมาะกับทักษะอะไร"></textarea>
+                      <label class="block text-xs font-bold text-slate-600 mb-1">${t('คำอธิบาย', 'Description')}</label>
+                      <textarea id="res-desc" rows="2" class="w-full border-2 border-slate-200 rounded-xl p-2.5 text-sm focus:border-indigo-500" placeholder="${t('อธิบายสั้นๆ ว่าเหมาะกับทักษะอะไร', 'Short description of skills practiced')}"></textarea>
                     </div>
                   </div>
                 `,
                 showCancelButton: true,
-                confirmButtonText: '✅ บันทึก',
+                confirmButtonText: t('✅ บันทึก', '✅ Save'),
                 confirmButtonColor: '#4f46e5',
-                cancelButtonText: 'ยกเลิก',
+                cancelButtonText: t('ยกเลิก', 'Cancel'),
                 preConfirm: () => {
                     const title = document.getElementById('res-title').value.trim();
                     const url = document.getElementById('res-url').value.trim();
-                    if (!title || !url) { Swal.showValidationMessage('กรุณากรอกชื่อสื่อและ URL'); return false; }
+                    if (!title || !url) { Swal.showValidationMessage(t('กรุณากรอกชื่อสื่อและ URL', 'Please enter both title and URL')); return false; }
                     return { title, url, mediaType: document.getElementById('res-media').value, description: document.getElementById('res-desc').value.trim() };
                 }
             }).then(async result => {
                 if (!result.isConfirmed) return;
                 try {
-                    await addDoc(collection(db, 'resources'), {
-                        ...result.value,
-                        addedBy: auth.currentUser?.email || 'Admin',
-                        timestamp: serverTimestamp()
-                    });
+                    if (isTeacherDemo) {
+                        demoResources.unshift({
+                            id: 'res-demo-' + Date.now(),
+                            ...result.value,
+                            addedBy: 'Teacher Demo'
+                        });
+                    } else {
+                        await addDoc(collection(db, 'resources'), {
+                            ...result.value,
+                            addedBy: auth.currentUser?.email || 'Admin',
+                            timestamp: serverTimestamp()
+                        });
+                    }
                     loadResourcesAdmin();
-                    Swal.fire({ icon: 'success', title: 'เพิ่มสื่อแล้ว! 🎉', timer: 1500, showConfirmButton: false });
+                    Swal.fire({ icon: 'success', title: t('เพิ่มสื่อแล้ว! 🎉', 'Resource Added! 🎉'), timer: 1500, showConfirmButton: false });
                 } catch(e) { Swal.fire('Error', e.message, 'error'); }
             });
         });
+
+        window.rerenderAdminAll = function () {
+            if (!document.getElementById('dashboardSection').classList.contains('hidden')) {
+                renderDashboard();
+                renderTable();
+                loadResourcesAdmin();
+            }
+        };
     </script>
 </body>
 </html>

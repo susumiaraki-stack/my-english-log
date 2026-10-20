@@ -714,6 +714,86 @@
                 margin: 8mm;
             }
         }
+
+        /* 🌙 Dark Mode (Comfort Night Theme) */
+        body.dark-mode {
+            background: linear-gradient(160deg, #0b1120 0%, #0f172a 55%, #1e1b4b 100%) !important;
+            color: #e2e8f0 !important;
+        }
+        body.dark-mode .bg-pattern {
+            background-image: radial-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px) !important;
+        }
+        body.dark-mode .bg-blob {
+            opacity: 0.14 !important;
+        }
+        body.dark-mode #loadingOverlay {
+            background: linear-gradient(160deg, #0b1120, #0f172a 50%, #1e1b4b) !important;
+        }
+        body.dark-mode .mel-section-card,
+        body.dark-mode .bg-white,
+        body.dark-mode .bg-white\/80,
+        body.dark-mode .bg-white\/90 {
+            background-color: #1e293b !important;
+            border-color: #334155 !important;
+            color: #f1f5f9 !important;
+            box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.5) !important;
+        }
+        body.dark-mode .mel-tabs {
+            background: rgba(15, 23, 42, 0.88) !important;
+            border-color: #334155 !important;
+        }
+        body.dark-mode .bg-slate-50,
+        body.dark-mode .bg-slate-50\/80,
+        body.dark-mode .bg-slate-100,
+        body.dark-mode .bg-slate-100\/80 {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+            color: #cbd5e1 !important;
+        }
+        body.dark-mode .text-slate-800,
+        body.dark-mode .text-slate-900,
+        body.dark-mode .text-slate-700 {
+            color: #f1f5f9 !important;
+        }
+        body.dark-mode .text-slate-600,
+        body.dark-mode .text-slate-500 {
+            color: #94a3b8 !important;
+        }
+        body.dark-mode .border-slate-100,
+        body.dark-mode .border-slate-200,
+        body.dark-mode .border-slate-300 {
+            border-color: #334155 !important;
+        }
+        body.dark-mode input,
+        body.dark-mode textarea,
+        body.dark-mode select {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+            color: #f8fafc !important;
+        }
+        body.dark-mode input::placeholder,
+        body.dark-mode textarea::placeholder {
+            color: #64748b !important;
+        }
+        body.dark-mode .xp-track {
+            background: #0f172a !important;
+        }
+        body.dark-mode .swal2-popup {
+            background: #1e293b !important;
+            color: #f1f5f9 !important;
+            border: 1px solid #334155 !important;
+        }
+        body.dark-mode .swal2-title,
+        body.dark-mode .swal2-html-container {
+            color: #e2e8f0 !important;
+        }
+        /* Keep print portfolio crisp white even in dark mode */
+        body.dark-mode #portfolioPrintArea,
+        body.dark-mode #portfolioPrintArea .bg-white,
+        body.dark-mode #portfolioPrintArea .bg-slate-50 {
+            background-color: #ffffff !important;
+            color: #1e293b !important;
+        }
     </style>
 </head>
 
@@ -722,7 +802,7 @@
     <div class="bg-blob" style="width:340px;height:340px;background:#5eead4;top:-80px;left:-100px;"></div>
     <div class="bg-blob" style="width:300px;height:300px;background:#c4b5fd;bottom:-60px;right:-80px;"></div>
 
-    <!-- Top Floating Buttons (Manual, Sound, Lang, Admin) -->
+    <!-- Top Floating Buttons (Manual, Theme, Sound, Lang, Admin) -->
     <div class="fixed top-2.5 right-3 sm:top-4 sm:right-4 z-40 flex items-center gap-1.5 sm:gap-2 bg-white/80 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none px-2 py-1 sm:p-0 rounded-full border border-white/60 sm:border-0 shadow-sm sm:shadow-none">
         <button id="manualToggleBtn" onclick="openManualModal()"
             class="bg-white text-emerald-600 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100 relative group"
@@ -730,6 +810,11 @@
             <i class="ph-bold ph-book-open text-base sm:text-lg"></i>
             <span id="manualUpdateDot"
                 class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-white animate-pulse"></span>
+        </button>
+        <button id="themeToggleBtn" onclick="toggleTheme()"
+            class="bg-white text-amber-500 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100"
+            title="โหมดกลางคืน / สบายตา">
+            <i id="themeIcon" class="ph-bold ph-moon-stars text-base sm:text-lg"></i>
         </button>
         <button id="soundToggleBtn" onclick="toggleSound()"
             class="bg-white text-slate-600 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100"
@@ -938,6 +1023,13 @@
             "เปิดในแท็บใหม่ ↗": "Open in new tab ↗",
             "เข้าใจแล้ว ปิดหน้าต่าง": "Got it, Close",
             "18 ต.ค. 2026": "Oct 18, 2026",
+            "20 ต.ค. 2026": "Oct 20, 2026",
+            "🌙 Dark Mode & Teacher Dashboard v3.3": "🌙 Dark Mode & Teacher Dashboard v3.3",
+            "เพิ่มโหมดสบายตากลางคืน (Dark Mode 🌙) ทั้งหน้านักเรียนและหน้าครู พร้อมอัปเกรดระบบตรวจงานคุณครูครั้งใหญ่": "Added Comfort Dark Mode (🌙) across Student & Teacher pages plus a major Teacher Dashboard v3.3 upgrade",
+            "🌙 โหมดกลางคืน / สบายตา (Comfort Dark Mode)": "🌙 Comfort Dark Mode (Night Theme)",
+            "กดปุ่มพระจันทร์ 🌙 ด้านบนขวาเพื่อสลับโหมดมืดถนอมสายตาเมื่อบันทึกการเรียนรู้ตอนกลางคืน จดจำค่าอัตโนมัติทั้งหน้านักเรียนและหน้าครู": "Tap the 🌙 button at the top-right to switch to an eye-friendly dark theme for evening study sessions, synced automatically across Student & Teacher views.",
+            "👩‍🏫 อัปเกรดหน้าครู v3.3 (Teacher Demo, ตัวกรองสถานะ & คอมเมนต์ด่วน)": "👩‍🏫 Teacher Dashboard v3.3 (Demo Mode, Status Filter & Quick Chips)",
+            "เพิ่มโหมดทดลองครู (Teacher Demo Mode), ปุ่มกรองงาน รอตรวจ/ตรวจแล้ว, ปุ่มให้คะแนนด่วน & คอมเมนต์สำเร็จรูป (Quick Feedback Chips), สถิติเวลาเรียนสะสมรายบุคคล และรองรับ 2 ภาษา (TH/EN)": "Added Teacher Demo Mode, Pending/Graded filter pills, 1-tap score & quick feedback chips, individual study duration analytics, and full TH/EN bilingual support.",
             "📱 Mobile Sticky Bar & Floating Buttons Fix": "📱 Mobile Sticky Bar & Floating Buttons Fix",
             "แก้ไขปัญหาแถบแท็บเมนู (Log, Leaderboard, My Skills, Shop) เลื่อนมาซ้อนทับกับ 4 ปุ่มลอยด้านบน (📖, 🔊, TH/EN, 🛡️) บนหน้าจอมือถือ": "Fixed the mobile overlap between the sticky navigation tab bar (Log, Leaderboard, My Skills, Shop) and the 4 top-right floating utility buttons (📖, 🔊, TH/EN, 🛡️)",
             "📌 แยกความสูงการเกาะขอบบนอัจฉริยะ (Smart Sticky Offset: top-16 md:top-3)": "📌 Smart Sticky Offset (top-16 md:top-3)",
@@ -968,6 +1060,7 @@
 
         const i18nTitles = {
             "คู่มือการใช้งาน & มีอะไรใหม่": "User Guide & What's New",
+            "โหมดกลางคืน / สบายตา": "Dark / Light Mode",
             "เข้าสู่ระบบ Admin": "Teacher / Admin Dashboard",
             "คลิกเพื่อดูระดับสีไฟ & โบนัส Streak": "Click to view Flame Tiers & Streak Bonus",
             "ดูเกณฑ์การรับ XP": "How to earn XP",
@@ -983,6 +1076,31 @@
         Object.entries(i18nTitles).forEach(([thT, enT]) => {
             if (!enToThTitles[enT]) enToThTitles[enT] = thT;
         });
+
+        // 🌙 Dark Mode Engine
+        window.isDarkMode = localStorage.getItem('melDarkMode') === 'true';
+        window.applyTheme = function () {
+            document.body.classList.toggle('dark-mode', window.isDarkMode);
+            const icon = document.getElementById('themeIcon');
+            const btn = document.getElementById('themeToggleBtn');
+            if (icon) {
+                icon.className = window.isDarkMode
+                    ? 'ph-fill ph-sun text-base sm:text-lg text-amber-300'
+                    : 'ph-bold ph-moon-stars text-base sm:text-lg text-indigo-600';
+            }
+            if (btn) {
+                btn.className = window.isDarkMode
+                    ? 'bg-slate-800 text-amber-300 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-700'
+                    : 'bg-white text-indigo-600 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100';
+            }
+        };
+        window.toggleTheme = function () {
+            if (window.sfx) window.sfx('click');
+            window.isDarkMode = !window.isDarkMode;
+            localStorage.setItem('melDarkMode', window.isDarkMode ? 'true' : 'false');
+            window.applyTheme();
+        };
+        window.applyTheme();
 
         window.currentLang = localStorage.getItem('appLang') || 'th';
 
@@ -1865,7 +1983,7 @@
                         <div class="flex items-center gap-2">
                             <h3 class="font-extrabold text-sm sm:text-base tracking-wide">My English Log</h3>
                             <span
-                                class="bg-white/25 text-[10px] font-black px-2 py-0.5 rounded-full border border-white/20 shadow-xs">v3.2.2</span>
+                                class="bg-white/25 text-[10px] font-black px-2 py-0.5 rounded-full border border-white/20 shadow-xs">v3.3.0</span>
                         </div>
                         <p class="text-[11px] text-teal-100 font-light">คู่มือการใช้งาน & บันทึกการอัปเดตระบบ</p>
                     </div>
@@ -1900,7 +2018,7 @@
                         <span
                             class="text-[11px] text-slate-500 font-medium">คำแนะนำขั้นตอนการบันทึกการเรียนรู้และระบบเกม</span>
                         <div class="flex items-center gap-1.5">
-                            <a href="manual.pdf" download="MyEnglishLog-Manual-v3.2.2.pdf"
+                            <a href="manual.pdf" download="MyEnglishLog-Manual-v3.3.0.pdf"
                                 class="text-[11px] font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1 bg-amber-100 hover:bg-amber-200 px-2.5 py-1 rounded-lg border border-amber-300 transition-colors">
                                 <span>📥 ดาวน์โหลด PDF</span>
                             </a>
@@ -1920,7 +2038,50 @@
 
                 <!-- VIEW 2: Update Log -->
                 <div id="modalViewUpdates" class="hidden space-y-4">
-                    <!-- Version 3.2.2 (Latest) -->
+                    <!-- Version 3.3.0 (Latest) -->
+                    <div
+                        class="bg-gradient-to-br from-slate-900 via-indigo-900 to-teal-800 text-white p-4 sm:p-5 rounded-2xl shadow-md relative overflow-hidden border border-indigo-400/30">
+                        <div class="absolute -right-4 -bottom-4 text-7xl text-white/10 pointer-events-none">
+                            <i class="ph-fill ph-moon-stars"></i>
+                        </div>
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-white text-indigo-900 text-xs font-black px-2.5 py-0.5 rounded-full shadow-xs">v3.3.0</span>
+                                <span class="text-xs text-indigo-200 font-semibold">20 ต.ค. 2026</span>
+                            </div>
+                            <span
+                                class="bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                                <span>✨</span> เวอร์ชันปัจจุบัน
+                            </span>
+                        </div>
+                        <h4 class="font-black text-base sm:text-lg mb-1">🌙 Dark Mode & Teacher Dashboard v3.3</h4>
+                        <p class="text-xs text-teal-100 mb-3 font-light">
+                            เพิ่มโหมดสบายตากลางคืน (Dark Mode 🌙) ทั้งหน้านักเรียนและหน้าครู พร้อมอัปเกรดระบบตรวจงานคุณครูครั้งใหญ่
+                        </p>
+
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-2.5 border border-white/20">
+                                <div class="font-bold flex items-center gap-1.5 text-amber-300">
+                                    <span>🌙</span> โหมดกลางคืน / สบายตา (Comfort Dark Mode)
+                                </div>
+                                <p class="text-[11px] text-white/90 mt-0.5">
+                                    กดปุ่มพระจันทร์ 🌙 ด้านบนขวาเพื่อสลับโหมดมืดถนอมสายตาเมื่อบันทึกการเรียนรู้ตอนกลางคืน จดจำค่าอัตโนมัติทั้งหน้านักเรียนและหน้าครู
+                                </p>
+                            </div>
+
+                            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-2.5 border border-white/20">
+                                <div class="font-bold flex items-center gap-1.5 text-emerald-300">
+                                    <span>👩‍🏫</span> อัปเกรดหน้าครู v3.3 (Teacher Demo, ตัวกรองสถานะ & คอมเมนต์ด่วน)
+                                </div>
+                                <p class="text-[11px] text-white/90 mt-0.5">
+                                    เพิ่มโหมดทดลองครู (Teacher Demo Mode), ปุ่มกรองงาน รอตรวจ/ตรวจแล้ว, ปุ่มให้คะแนนด่วน & คอมเมนต์สำเร็จรูป (Quick Feedback Chips), สถิติเวลาเรียนสะสมรายบุคคล และรองรับ 2 ภาษา (TH/EN)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Version 3.2.2 -->
                     <div
                         class="bg-gradient-to-br from-teal-600 via-emerald-600 to-indigo-700 text-white p-4 sm:p-5 rounded-2xl shadow-md relative overflow-hidden">
                         <div class="absolute -right-4 -bottom-4 text-7xl text-white/10 pointer-events-none">
@@ -1932,10 +2093,6 @@
                                     class="bg-white text-emerald-800 text-xs font-black px-2.5 py-0.5 rounded-full shadow-xs">v3.2.2</span>
                                 <span class="text-xs text-emerald-100 font-semibold">18 ต.ค. 2026</span>
                             </div>
-                            <span
-                                class="bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
-                                <span>✨</span> เวอร์ชันปัจจุบัน
-                            </span>
                         </div>
                         <h4 class="font-black text-base sm:text-lg mb-1">📱 Mobile Sticky Bar & Floating Buttons Fix</h4>
                         <p class="text-xs text-teal-100 mb-3 font-light">

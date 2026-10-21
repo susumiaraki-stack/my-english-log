@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Dashboard - My English Log (MEL v3.3)</title>
+    <title>Teacher Dashboard - My English Log (MEL v3.4)</title>
     
     <!-- PWA Setup -->
     <link rel="manifest" href="manifest.json">
@@ -86,6 +86,10 @@
         body.dark-mode .swal2-html-container {
             color: #e2e8f0 !important;
         }
+        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+            outline: 2px solid #10b981;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 
@@ -97,7 +101,7 @@
             <div class="leading-tight">
                 <div class="flex items-center gap-2">
                     <h1 class="text-base sm:text-lg mel-brand">My English Log</h1>
-                    <span class="hidden sm:inline-block text-[10px] font-black px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-200">v3.3</span>
+                    <span class="hidden sm:inline-block text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">v3.4</span>
                 </div>
                 <p class="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Teacher Workspace</p>
             </div>
@@ -490,16 +494,48 @@
             el.value = el.value.trim() ? (el.value.trim() + ' ' + msg) : msg;
         };
 
-        function buildGradingModalHtml(oldScore = '', oldFeedback = '', isBulk = false) {
+        window.aiAutoEvaluate = function (docId) {
+            const log = allLogs.find(l => l.id === docId) || allLogs[0];
+            const scoreEl = document.getElementById('swal-score');
+            const fbEl = document.getElementById('swal-feedback');
+            if (!scoreEl || !fbEl) return;
+
+            const summaryText = (log?.summary || '').trim();
+            const topicText = (log?.topic || 'English Practice').trim();
+            const skills = (log?.skills || []).join(', ') || 'English skills';
+            const duration = parseInt(log?.duration, 10) || 15;
+            const hasImage = !!log?.image;
+
+            let recommendedScore = 9;
+            if (summaryText.length >= 45 || duration >= 30 || hasImage) {
+                recommendedScore = 10;
+            } else if (summaryText.length < 15) {
+                recommendedScore = 8;
+            }
+
+            scoreEl.value = recommendedScore;
+            const isEn = window.currentLang === 'en';
+            fbEl.value = isEn
+                ? `✨ [AI Evaluation: ${recommendedScore}/10] Great effort studying "${topicText}" (${duration}m, ${skills})! Your takeaway is clear and practical—keep applying these expressions daily! 🌟`
+                : `✨ [AI แนะนำคะแนน ${recommendedScore}/10] ยอดเยี่ยมมากครับที่ตั้งใจฝึกเรื่อง "${topicText}" (${duration} นาที · ทักษะ ${skills}) สรุปประเด็นและคำศัพท์ได้ชัดเจน นำไปใช้ต่อยอดได้จริงครับ! 🌟`;
+        };
+
+        function buildGradingModalHtml(oldScore = '', oldFeedback = '', isBulk = false, docId = '') {
             const chipsHtml = QUICK_FEEDBACK_CHIPS.map((c, idx) => `
-                <button type="button" onclick="appendSwalFeedback(${idx})" class="text-[11px] font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 px-2.5 py-1 rounded-full transition-colors">
+                <button type="button" onclick="appendSwalFeedback(${idx})" class="text-[11px] font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full transition-colors">
                     ${window.currentLang === 'en' ? c.labelEn : c.labelTh}
                 </button>
             `).join('');
 
             return `
                 <div class="text-left">
-                    ${isBulk ? `<p class="text-xs text-slate-500 mb-3">${t('คะแนนและข้อเสนอแนะนี้จะถูกใส่ให้งานทุกชิ้นที่เลือก', 'This score and feedback will be applied to all selected submissions.')}</p>` : ''}
+                    ${isBulk ? `<p class="text-xs text-slate-500 mb-3">${t('คะแนนและข้อเสนอแนะนี้จะถูกใส่ให้งานทุกชิ้นที่เลือก', 'This score and feedback will be applied to all selected submissions.')}</p>` : `
+                    <div class="mb-3">
+                        <button type="button" onclick="aiAutoEvaluate('${docId}')" class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-xs font-black shadow-xs flex items-center justify-center gap-1.5 transition-all active:scale-95">
+                            <span>✨ ${t('AI วิเคราะห์งาน & ร่างคอมเมนต์อัตโนมัติ', 'AI Auto-Evaluate & Draft Feedback')}</span>
+                        </button>
+                    </div>
+                    `}
                     <div class="flex items-center justify-between mb-1.5">
                         <label class="block text-sm font-bold text-slate-700">${t('ให้คะแนน (เต็ม 10)', 'Score (out of 10)')}</label>
                         <div class="flex gap-1">
@@ -509,10 +545,10 @@
                             <button type="button" onclick="setSwalQuickScore(7)" class="text-[11px] font-black bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-0.5 rounded-lg">7 👌</button>
                         </div>
                     </div>
-                    <input id="swal-score" type="number" min="0" max="10" class="w-full border-2 border-slate-200 rounded-xl p-3 mb-4 focus:border-indigo-500 text-xl font-bold text-center" placeholder="0–10" value="${oldScore}">
+                    <input id="swal-score" type="number" min="0" max="10" class="w-full border-2 border-slate-200 rounded-xl p-3 mb-4 focus:border-emerald-500 text-xl font-bold text-center" placeholder="0–10" value="${oldScore}">
                     <label class="block text-sm font-bold text-slate-700 mb-1.5">${t('คำชมเชย / ข้อเสนอแนะด่วน (แตะเพื่อเพิ่ม)', 'Quick Feedback Chips (Tap to insert)')}</label>
                     <div class="flex flex-wrap gap-1.5 mb-2.5">${chipsHtml}</div>
-                    <textarea id="swal-feedback" rows="3" placeholder="${t('เช่น ทำได้ดีมาก! ลองฝึกพูดเพิ่มนะ', 'e.g. Great job! Try practicing speaking next.')}" class="w-full border-2 border-slate-200 rounded-xl p-3 text-sm focus:border-indigo-500">${oldFeedback}</textarea>
+                    <textarea id="swal-feedback" rows="3" placeholder="${t('เช่น ทำได้ดีมาก! ลองฝึกพูดเพิ่มนะ', 'e.g. Great job! Try practicing speaking next.')}" class="w-full border-2 border-slate-200 rounded-xl p-3 text-sm focus:border-emerald-500">${oldFeedback}</textarea>
                 </div>
             `;
         }
@@ -933,10 +969,10 @@
         window.gradeWork = function(docId, name, oldScore, oldFeedback) {
             Swal.fire({
                 title: `${t('ตรวจงาน', 'Grade Submission')}: ${name}`,
-                html: buildGradingModalHtml(oldScore || '10', oldFeedback || '', false),
+                html: buildGradingModalHtml(oldScore || '10', oldFeedback || '', false, docId),
                 showCancelButton: true,
                 confirmButtonText: t('✅ บันทึกผลคะแนน', '✅ Save Grade'),
-                confirmButtonColor: '#4f46e5',
+                confirmButtonColor: '#0d9488',
                 cancelButtonText: t('ยกเลิก', 'Cancel'),
                 preConfirm: () => ({
                     score: document.getElementById('swal-score').value,

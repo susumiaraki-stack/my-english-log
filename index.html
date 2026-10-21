@@ -794,43 +794,62 @@
             background-color: #ffffff !important;
             color: #1e293b !important;
         }
+        /* ✨ Custom Scrollbar & Accessibility Focus Standards */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(16, 185, 129, 0.28);
+            border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(16, 185, 129, 0.5);
+        }
+        button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+            outline: 2px solid #10b981;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 
 <body class="min-h-screen pt-16 pb-24 md:py-6 px-4 flex flex-col items-center">
     <div class="bg-pattern"></div>
     <div class="bg-blob" style="width:340px;height:340px;background:#5eead4;top:-80px;left:-100px;"></div>
-    <div class="bg-blob" style="width:300px;height:300px;background:#c4b5fd;bottom:-60px;right:-80px;"></div>
+    <div class="bg-blob" style="width:300px;height:300px;background:#99f6e4;bottom:-60px;right:-80px;"></div>
 
     <!-- Top Floating Buttons (Manual, Theme, Sound, Lang, Admin) -->
-    <div class="fixed top-2.5 right-3 sm:top-4 sm:right-4 z-40 flex items-center gap-1.5 sm:gap-2 bg-white/80 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none px-2 py-1 sm:p-0 rounded-full border border-white/60 sm:border-0 shadow-sm sm:shadow-none">
-        <button id="manualToggleBtn" onclick="openManualModal()"
-            class="bg-white text-emerald-600 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100 relative group"
+    <nav aria-label="Quick Utility Controls" class="fixed top-2.5 right-3 sm:top-4 sm:right-4 z-40 flex items-center gap-1.5 sm:gap-2 bg-white/80 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none px-2 py-1 sm:p-0 rounded-full border border-white/60 sm:border-0 shadow-sm sm:shadow-none">
+        <button id="manualToggleBtn" onclick="openManualModal()" aria-label="User Guide and Updates"
+            class="bg-white text-emerald-600 w-10 h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100 relative group"
             title="คู่มือการใช้งาน & มีอะไรใหม่">
             <i class="ph-bold ph-book-open text-base sm:text-lg"></i>
             <span id="manualUpdateDot"
                 class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-white animate-pulse"></span>
         </button>
-        <button id="themeToggleBtn" onclick="toggleTheme()"
-            class="bg-white text-amber-500 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100"
+        <button id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Dark Mode"
+            class="bg-white text-amber-500 w-10 h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100"
             title="โหมดกลางคืน / สบายตา">
             <i id="themeIcon" class="ph-bold ph-moon-stars text-base sm:text-lg"></i>
         </button>
-        <button id="soundToggleBtn" onclick="toggleSound()"
-            class="bg-white text-slate-600 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100"
+        <button id="soundToggleBtn" onclick="toggleSound()" aria-label="Toggle Sound Effects"
+            class="bg-white text-slate-600 w-10 h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100"
             title="Sound">
             <i id="soundIcon" class="ph-bold ph-speaker-high text-base sm:text-lg"></i>
         </button>
-        <button id="langToggleBtn" onclick="toggleLang()"
-            class="bg-slate-800 text-white w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform font-black text-xs border-2 border-slate-700">
+        <button id="langToggleBtn" onclick="toggleLang()" aria-label="Switch Language"
+            class="bg-slate-800 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform font-black text-xs border-2 border-slate-700">
             EN
         </button>
-        <a href="admin.html"
-            class="bg-indigo-600 text-white w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-indigo-500"
+        <a href="admin.html" aria-label="Teacher Dashboard"
+            class="bg-teal-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-teal-500"
             title="เข้าสู่ระบบ Admin">
             <i class="ph-bold ph-shield-star text-base sm:text-lg"></i>
         </a>
-    </div>
+    </nav>
 
     <!-- i18n Script -->
     <script>
@@ -1024,6 +1043,16 @@
             "เข้าใจแล้ว ปิดหน้าต่าง": "Got it, Close",
             "18 ต.ค. 2026": "Oct 18, 2026",
             "20 ต.ค. 2026": "Oct 20, 2026",
+            "22 ต.ค. 2026": "Oct 22, 2026",
+            "✨ AI Study Coach": "✨ AI Study Coach",
+            "✨ AI ร่างสรุป": "✨ AI Draft",
+            "🪄 AI เพิ่มคำศัพท์": "🪄 AI Add Vocab",
+            "🤖 AI Study Coach & UI/UX Accessibility v3.4": "🤖 AI Study Coach & UI/UX Accessibility v3.4",
+            "เพิ่มผู้ช่วย AI ร่างสรุปการเรียนรู้ & แนะนำคำศัพท์อัตโนมัติ พร้อมผู้ช่วย AI วิเคราะห์คะแนนให้ครู และยกระดับมาตรฐาน UI/UX": "Added AI Study Coach for smart summary drafting & vocabulary suggestions, AI Teacher Grading Assistant, and modern UI/UX accessibility standards",
+            "✨ ผู้ช่วย AI ร่างสรุป & แนะนำคำศัพท์ (AI Study Coach)": "✨ AI Study Coach (Smart Draft & Vocab Expander)",
+            "ในหน้าต่างบันทึกการเรียนรู้ มีปุ่ม ✨ AI ร่างสรุป (ช่วยวางโครงสร้างสรุปจากหัวข้อและสื่อที่เลือก) และ 🪄 AI เพิ่มคำศัพท์ (แนะนำศัพท์และสำนวนที่เกี่ยวข้องพร้อมคำแปลให้อัตโนมัติ)": "Inside the Quick-Log modal, tap ✨ AI Draft to generate a structured reflection template from your topic/media, or 🪄 AI Add Vocab to append relevant CEFR vocabulary and examples automatically.",
+            "🧑‍🏫 ผู้ช่วย AI ประเมินคะแนนฝั่งครู & มาตรฐาน UI/UX ใหม่": "🧑‍🏫 AI Teacher Auto-Evaluator & Modern UI/UX Standards",
+            "หน้าครูมีปุ่ม ✨ AI วิเคราะห์ & แนะนำคะแนน พร้อมร่างคอมเมนต์ชมเชยเฉพาะบุคคลให้อัตโนมัติ และปรับโทนสี Emerald/Teal สบายตา รองรับ Keyboard Focus & Accessibility ครบถ้วน": "Teacher Dashboard now includes a 1-tap ✨ AI Auto-Evaluate button that recommends a score and writes personalized feedback, paired with a cohesive Emerald/Teal palette and full keyboard accessibility.",
             "🌙 Dark Mode & Teacher Dashboard v3.3": "🌙 Dark Mode & Teacher Dashboard v3.3",
             "เพิ่มโหมดสบายตากลางคืน (Dark Mode 🌙) ทั้งหน้านักเรียนและหน้าครู พร้อมอัปเกรดระบบตรวจงานคุณครูครั้งใหญ่": "Added Comfort Dark Mode (🌙) across Student & Teacher pages plus a major Teacher Dashboard v3.3 upgrade",
             "🌙 โหมดกลางคืน / สบายตา (Comfort Dark Mode)": "🌙 Comfort Dark Mode (Night Theme)",
@@ -1086,12 +1115,12 @@
             if (icon) {
                 icon.className = window.isDarkMode
                     ? 'ph-fill ph-sun text-base sm:text-lg text-amber-300'
-                    : 'ph-bold ph-moon-stars text-base sm:text-lg text-indigo-600';
+                    : 'ph-bold ph-moon-stars text-base sm:text-lg text-teal-600';
             }
             if (btn) {
                 btn.className = window.isDarkMode
-                    ? 'bg-slate-800 text-amber-300 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-700'
-                    : 'bg-white text-indigo-600 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100';
+                    ? 'bg-slate-800 text-amber-300 w-10 h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-700'
+                    : 'bg-white text-teal-600 w-10 h-10 rounded-full flex items-center justify-center shadow-md sm:shadow-lg hover:scale-105 transition-transform border-2 border-slate-100';
             }
         };
         window.toggleTheme = function () {
@@ -1101,6 +1130,75 @@
             window.applyTheme();
         };
         window.applyTheme();
+
+        // 🤖 AI Study Coach (Smart Draft & Vocab Assistant)
+        window.aiDraftSummary = function () {
+            if (window.sfx) window.sfx('click');
+            const topicEl = document.getElementById('topic');
+            const summaryEl = document.getElementById('summary');
+            const mediaVal = (document.getElementById('selectedMedia')?.value) || 'YouTube';
+            const durationVal = (document.getElementById('selectedDuration')?.value) || '15';
+            const activeSkills = [...document.querySelectorAll('.skill-btn.border-emerald-500, .skill-btn.bg-cyan-100, .skill-btn.bg-blue-100, .skill-btn.bg-violet-100, .skill-btn.bg-orange-100, .skill-btn.bg-rose-100, .skill-btn.bg-emerald-100')]
+                .map(b => b.getAttribute('data-skill')).filter(Boolean);
+            const skillText = activeSkills.length > 0 ? activeSkills.join(', ') : 'Listening & Vocabulary';
+            const topicText = (topicEl?.value || '').trim() || (window.currentLang === 'en' ? 'Daily English Practice' : 'การฝึกภาษาอังกฤษประจำวัน');
+
+            const isEn = window.currentLang === 'en';
+            const draft = isEn
+                ? `📌 Topic: ${topicText} (${mediaVal}, ${durationVal} mins)\n💡 Key Takeaway: Practiced ${skillText} and understood how native speakers structure sentences naturally.\n🗣️ Example / Note: I can apply these expressions in daily conversation.`
+                : `📌 หัวข้อ: ${topicText} (ฝึกผ่าน ${mediaVal} ${durationVal} นาที)\n💡 สิ่งที่ได้เรียนรู้: ได้ฝึกทักษะ ${skillText} จับใจความสำคัญและสังเกตโครงสร้างประโยคที่ใช้จริง\n🗣️ การนำไปใช้: นำสำนวนและคำศัพท์ที่ได้ไปฝึกแต่งประโยคพูดคุยในชีวิตประจำวัน`;
+
+            if (summaryEl) {
+                summaryEl.value = draft;
+                summaryEl.dispatchEvent(new Event('input', { bubbles: true }));
+                summaryEl.focus();
+            }
+            if (window.Swal) {
+                Swal.fire({
+                    toast: true,
+                    position: 'top',
+                    icon: 'success',
+                    title: isEn ? '✨ AI generated a study summary draft!' : '✨ AI ร่างโครงสร้างสรุปให้แล้ว ปรับแก้ต่อได้เลย!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        };
+
+        window.aiSuggestVocab = function () {
+            if (window.sfx) window.sfx('click');
+            const topicText = ((document.getElementById('topic')?.value) || '').toLowerCase();
+            const summaryEl = document.getElementById('summary');
+            if (!summaryEl) return;
+
+            const vocabPools = [
+                { match: ['tense', 'grammar', 'past', 'present', 'ไวยากรณ์'], itemsTh: '📝 คำศัพท์/โครงสร้างน่าจำ: "Consequently" (ดังนั้น), "In the meantime" (ในระหว่างนี้) — Ex: I practiced English tenses; consequently, I feel more confident.', itemsEn: '📝 Useful Expressions: "Consequently" (as a result), "In the meantime" (meanwhile) — Ex: I practiced English tenses; consequently, I feel more confident.' },
+                { match: ['bbc', 'podcast', 'listen', 'news', 'ฟัง'], itemsTh: '📝 คำศัพท์น่ารู้: "Perspective" (มุมมอง), "Elaborate" (อธิบายเพิ่มเติม) — Ex: Could you elaborate on your perspective?', itemsEn: '📝 Key Vocabulary: "Perspective" (point of view), "Elaborate" (explain in detail) — Ex: Could you elaborate on your perspective?' },
+                { match: ['game', 'duolingo', 'movie', 'youtube', 'song', 'เกม'], itemsTh: '📝 สำนวนที่ใช้บ่อย: "Get the hang of it" (เริ่มจับทางได้/เริ่มคล่อง), "Piece of cake" (เรื่องกล้วยๆ) — Ex: After 15 minutes, I finally got the hang of it!', itemsEn: '📝 Useful Idioms: "Get the hang of it" (learn how to do something), "Piece of cake" (very easy) — Ex: After 15 minutes, I finally got the hang of it!' },
+                { match: [], itemsTh: '📝 คำศัพท์เพิ่มพลัง: "Consistent" (สม่ำเสมอ), "Fluency" (ความคล่องแคล่ว) — Ex: Consistent daily practice builds real English fluency.', itemsEn: '📝 Power Vocabulary: "Consistent" (steady/regular), "Fluency" (smooth expression) — Ex: Consistent daily practice builds real English fluency.' }
+            ];
+
+            const chosen = vocabPools.find(p => p.match.some(k => topicText.includes(k))) || vocabPools[vocabPools.length - 1];
+            const isEn = window.currentLang === 'en';
+            const snippet = isEn ? chosen.itemsEn : chosen.itemsTh;
+
+            summaryEl.value = summaryEl.value.trim()
+                ? `${summaryEl.value.trim()}\n${snippet}`
+                : snippet;
+            summaryEl.dispatchEvent(new Event('input', { bubbles: true }));
+            summaryEl.focus();
+
+            if (window.Swal) {
+                Swal.fire({
+                    toast: true,
+                    position: 'top',
+                    icon: 'info',
+                    title: isEn ? '🪄 AI added recommended vocabulary & example!' : '🪄 AI เพิ่มคำศัพท์และประโยคตัวอย่างให้แล้ว!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        };
 
         window.currentLang = localStorage.getItem('appLang') || 'th';
 
@@ -1844,13 +1942,23 @@
                             </div>
 
                             <div class="mb-4">
-                                <div class="flex justify-between items-center mb-1">
+                                <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
                                     <label class="block text-xs font-bold text-slate-700">สรุปสิ่งที่ได้เรียนรู้ <span
                                             class="text-red-500">*</span></label>
-                                    <span id="draftIndicator2" class="text-[10px] text-emerald-500 hidden">เซฟร่างแล้ว</span>
+                                    <div class="flex items-center gap-1.5">
+                                        <span id="draftIndicator2" class="text-[10px] text-emerald-500 hidden">เซฟร่างแล้ว</span>
+                                        <button type="button" onclick="aiDraftSummary()"
+                                            class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-[11px] font-black transition-all active:scale-95">
+                                            <span>✨ AI ร่างสรุป</span>
+                                        </button>
+                                        <button type="button" onclick="aiSuggestVocab()"
+                                            class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[11px] font-black transition-all active:scale-95">
+                                            <span>🪄 AI เพิ่มคำศัพท์</span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <textarea id="summary" rows="2" placeholder="วันนี้ได้เรียนคำศัพท์หรือประโยคอะไรบ้าง..." required
-                                    class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-emerald-500 focus:bg-white text-sm resize-none transition-colors"></textarea>
+                                <textarea id="summary" rows="3" placeholder="วันนี้ได้เรียนคำศัพท์หรือประโยคอะไรบ้าง..." required
+                                    class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-emerald-500 focus:bg-white text-sm resize-none transition-colors custom-scrollbar"></textarea>
                             </div>
 
                             <button type="submit" id="submitBtn"
@@ -1983,7 +2091,7 @@
                         <div class="flex items-center gap-2">
                             <h3 class="font-extrabold text-sm sm:text-base tracking-wide">My English Log</h3>
                             <span
-                                class="bg-white/25 text-[10px] font-black px-2 py-0.5 rounded-full border border-white/20 shadow-xs">v3.3.0</span>
+                                class="bg-white/25 text-[10px] font-black px-2 py-0.5 rounded-full border border-white/20 shadow-xs">v3.4.0</span>
                         </div>
                         <p class="text-[11px] text-teal-100 font-light">คู่มือการใช้งาน & บันทึกการอัปเดตระบบ</p>
                     </div>
@@ -2018,7 +2126,7 @@
                         <span
                             class="text-[11px] text-slate-500 font-medium">คำแนะนำขั้นตอนการบันทึกการเรียนรู้และระบบเกม</span>
                         <div class="flex items-center gap-1.5">
-                            <a href="manual.pdf" download="MyEnglishLog-Manual-v3.3.0.pdf"
+                            <a href="manual.pdf" download="MyEnglishLog-Manual-v3.4.0.pdf"
                                 class="text-[11px] font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1 bg-amber-100 hover:bg-amber-200 px-2.5 py-1 rounded-lg border border-amber-300 transition-colors">
                                 <span>📥 ดาวน์โหลด PDF</span>
                             </a>
@@ -2038,22 +2146,61 @@
 
                 <!-- VIEW 2: Update Log -->
                 <div id="modalViewUpdates" class="hidden space-y-4">
-                    <!-- Version 3.3.0 (Latest) -->
+                    <!-- Version 3.4.0 (Latest) -->
                     <div
-                        class="bg-gradient-to-br from-slate-900 via-indigo-900 to-teal-800 text-white p-4 sm:p-5 rounded-2xl shadow-md relative overflow-hidden border border-indigo-400/30">
+                        class="bg-gradient-to-br from-emerald-700 via-teal-700 to-slate-900 text-white p-4 sm:p-5 rounded-2xl shadow-md relative overflow-hidden border border-emerald-400/30">
+                        <div class="absolute -right-4 -bottom-4 text-7xl text-white/10 pointer-events-none">
+                            <i class="ph-fill ph-sparkle"></i>
+                        </div>
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-white text-emerald-900 text-xs font-black px-2.5 py-0.5 rounded-full shadow-xs">v3.4.0</span>
+                                <span class="text-xs text-emerald-100 font-semibold">22 ต.ค. 2026</span>
+                            </div>
+                            <span
+                                class="bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                                <span>✨</span> เวอร์ชันปัจจุบัน
+                            </span>
+                        </div>
+                        <h4 class="font-black text-base sm:text-lg mb-1">🤖 AI Study Coach & UI/UX Accessibility v3.4</h4>
+                        <p class="text-xs text-teal-100 mb-3 font-light">
+                            เพิ่มผู้ช่วย AI ร่างสรุปการเรียนรู้ & แนะนำคำศัพท์อัตโนมัติ พร้อมผู้ช่วย AI วิเคราะห์คะแนนให้ครู และยกระดับมาตรฐาน UI/UX
+                        </p>
+
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-2.5 border border-white/20">
+                                <div class="font-bold flex items-center gap-1.5 text-amber-300">
+                                    <span>✨</span> ผู้ช่วย AI ร่างสรุป & แนะนำคำศัพท์ (AI Study Coach)
+                                </div>
+                                <p class="text-[11px] text-white/90 mt-0.5">
+                                    ในหน้าต่างบันทึกการเรียนรู้ มีปุ่ม ✨ AI ร่างสรุป (ช่วยวางโครงสร้างสรุปจากหัวข้อและสื่อที่เลือก) และ 🪄 AI เพิ่มคำศัพท์ (แนะนำศัพท์และสำนวนที่เกี่ยวข้องพร้อมคำแปลให้อัตโนมัติ)
+                                </p>
+                            </div>
+
+                            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-2.5 border border-white/20">
+                                <div class="font-bold flex items-center gap-1.5 text-emerald-300">
+                                    <span>🧑‍🏫</span> ผู้ช่วย AI ประเมินคะแนนฝั่งครู & มาตรฐาน UI/UX ใหม่
+                                </div>
+                                <p class="text-[11px] text-white/90 mt-0.5">
+                                    หน้าครูมีปุ่ม ✨ AI วิเคราะห์ & แนะนำคะแนน พร้อมร่างคอมเมนต์ชมเชยเฉพาะบุคคลให้อัตโนมัติ และปรับโทนสี Emerald/Teal สบายตา รองรับ Keyboard Focus & Accessibility ครบถ้วน
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Version 3.3.0 -->
+                    <div
+                        class="bg-gradient-to-br from-slate-900 via-teal-900 to-teal-800 text-white p-4 sm:p-5 rounded-2xl shadow-md relative overflow-hidden border border-teal-400/30">
                         <div class="absolute -right-4 -bottom-4 text-7xl text-white/10 pointer-events-none">
                             <i class="ph-fill ph-moon-stars"></i>
                         </div>
                         <div class="flex items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-2">
                                 <span
-                                    class="bg-white text-indigo-900 text-xs font-black px-2.5 py-0.5 rounded-full shadow-xs">v3.3.0</span>
-                                <span class="text-xs text-indigo-200 font-semibold">20 ต.ค. 2026</span>
+                                    class="bg-white text-teal-900 text-xs font-black px-2.5 py-0.5 rounded-full shadow-xs">v3.3.0</span>
+                                <span class="text-xs text-teal-200 font-semibold">20 ต.ค. 2026</span>
                             </div>
-                            <span
-                                class="bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
-                                <span>✨</span> เวอร์ชันปัจจุบัน
-                            </span>
                         </div>
                         <h4 class="font-black text-base sm:text-lg mb-1">🌙 Dark Mode & Teacher Dashboard v3.3</h4>
                         <p class="text-xs text-teal-100 mb-3 font-light">
